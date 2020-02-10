@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<body>  
+  
+    <div class="container-fluid" >
+    
+        <p> <font face="helvetica" font size="4" colour="black">
+      
+       Growth KPI File Uploader
+      </font></p>
+      
+      <form id="upload-form" action="{{ url_for('upload')}}" method="POST" enctype="multipart/form-data">
+            <input type= "file" name="inputFile" >
+            <input type="submit" value"send">
+
+    </div> 
+
+   
+</body>
+
+{% endblock content %}
