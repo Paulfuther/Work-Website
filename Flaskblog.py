@@ -14,10 +14,13 @@ import xlsxwriter
 from tkinter import Tk
 from tkinter.filedialog import askopenfilename
 from tkinter.filedialog import asksaveasfilename , asksaveasfile
-import datetime
+from datetime import datetime
 from io import BytesIO
 from openpyxl.reader.excel import load_workbook
 from os import environ
+import re
+import datetime as dt 
+import glob
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
@@ -48,8 +51,6 @@ def home():
 def about():
     return render_template('about.html', title ='About')
 
-
-
 @app.route("/applications")
 def Applications():
     return render_template('applications.html', title ='Applications')
@@ -61,6 +62,143 @@ def Kpiconvert():
 @app.route("/carwashkpiconvert")
 def CarwashKPIconvert():
     return render_template('carwashkpiconvert.html', title ='Carwash KPI Converter')
+
+@app.route("/tpfileconvert")
+def TPFileconvert():
+    return render_template('teamperformanceconvert.html', title='Team Performance File Converter')
+
+@app.route("/tpfileupload", methods=['POST'])
+def tpfileupload():
+
+    if request.method == "POST":
+        
+        files = request.files.getlist('tpfileinputFile[]')
+
+        newdf = []
+
+
+        for file in files:
+            input_filename = file
+            #print(x)
+            df_totalsheet = pd.read_excel(input_filename)
+            print(df_totalsheet.head)
+            tp_date = (df_totalsheet.iat[8, 0])
+            print(tp_date)
+            tp_store = (df_totalsheet.iat[6, 0])
+            a, b1, c, d = tp_date.split()
+            e, f, g = tp_store.split()
+            tp_storefinal = g[:5]
+            pd.to_datetime(b1)
+            print(b1)
+            b = datetime.strptime(b1, "%m/%d/%Y").strftime("%b-%Y")
+            pd.to_numeric(tp_storefinal)
+            df = pd.read_excel(input_filename, skiprows=14)
+            cols = list(df)
+            dropcols = [2, 3, 6, 7, 8, 13, 14]
+            df.drop(df.columns[dropcols], axis=1, inplace=True)
+            df = df.rename(columns={'Performance Measure': 'one'})
+            df.set_index('one', inplace=True)
+            df = df.T
+            df2 = df.index
+            df['Gsa'] = df.index
+            df['Store'] = tp_storefinal
+            df.reset_index(drop=True, inplace=True)
+            df.Gsa = df.Gsa.shift(1)
+            df['Store'] = tp_storefinal
+            df['date'] = b
+            df['date'] = pd.to_datetime(df['date'], format="%b-%Y")
+            df['date'] = df['date'].dt.date
+            df.dropna(subset=['Shift Count'], how='all', inplace=True)
+            print(df)
+            df = df[['date', 'Store', 'Gsa', 'Shift Count', 'Average Check',
+                    '2 Pack Ratio', 'Season Pass', 'Wash & Go', 'In-Store Premium Ratio',
+                    'Crind Ratio', 'Campaign Deals Total', 'Campaign Deals to In-Store Transaction Ratio',
+                    'Campaign Deals by Confectionery', 'Campaign Deals by Salty Snacks',
+                    'Campaign Deals by Alternative Beverages', 'Campaign Deals by Packaged Soft Drinks',
+                    'Hot Beverages', 'FSR Redemptions', '$1 Snack Redemptions']]
+
+            newdf.append(df)
+        newdf = pd.concat(newdf)
+            
+    output = BytesIO()
+    writer = pd.ExcelWriter(output, engine='xlsxwriter')
+    newdf.to_excel(writer)
+    writer.save()
+    output.seek(0)
+
+    return send_file(output, attachment_filename="sfoutput.xlsx", as_attachment=True)
+
+
+
+
+@app.route("/securityfileconvert")
+def SecurityFileconvert():
+    return render_template('securityfileconvert.html', title='Security File Converter')
+
+@app.route("/securityfileupload", methods = ['POST'])
+def securityfileupload():
+
+    if request.method=="POST":
+        
+        
+        start = datetime.strptime('05:15:00', '%H:%M:%S').time()
+        end = datetime.strptime('11:45:00', '%H:%M:%S').time()
+
+        files = request.files.getlist('securityfileinputFile[]')
+        #os.chdir('/Users/mobile/Dropbox/BACK OFFICE SECURITY FILE/')
+        #print(os.getcwd())
+        #FileList = glob.glob('*.rtf')
+        #print(FileList)
+
+        newdf = []
+
+        for file in files:
+            inputfilename = file
+            excel_file = inputfilename
+            store_number = file
+            a = str(store_number)
+            print(a)
+            b = re.search('\d+', a).group()
+            print(b)
+            print(store_number)
+
+            df = pd.read_csv(excel_file, sep='\t', header=None)
+            df.columns = ['Text']
+            print(df.dtypes)
+            print(df.head)
+
+            df2 = df[df['Text'].str.contains('Pump', na=False)].copy()
+            print(df2)
+
+            if df2.empty:
+                continue
+
+            df2['Time'] = df2['Text'].str.extract('(..:..:..)', expand=True)
+            df2['Time'] = pd.to_datetime(df2['Time'], format='%H:%M:%S').dt.time
+            df2 = df2[df2['Time'].between(start, end)]
+
+            df2['Date'] = df2['Text'].str.slice(start=0, stop=9)
+            df2['Date'] = pd.to_datetime(df2['Date'], format='%d %b %y').dt.date
+            #df2['Date']=df2['Date'].datetime.strptime(b1, "%d %m %y").strftime("%b-%Y")
+
+            df2['Store'] = b
+            print(df2)
+            newdf.append(df2)
+
+        newdf = pd.concat(newdf)
+
+        #newdf.to_excel("Pumps to Prepay" + ".xlsx", engine='xlsxwriter')
+        #print(newdf.dtypes)
+
+    output=BytesIO()
+    writer=pd.ExcelWriter(output, engine='xlsxwriter')
+    newdf.to_excel(writer)
+    writer.save()
+    output.seek(0)
+            
+    return send_file(output, attachment_filename="sfoutput.xlsx", as_attachment=True)
+
+
 
 @app.route("/carwashkpiupload" , methods=['POST'])
 def carwashkpiupload():
