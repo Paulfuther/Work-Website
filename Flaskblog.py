@@ -240,9 +240,9 @@ def carwashkpiupload():
 
          columnheaders = (df.columns.tolist())
          current_cwdate=(columnheaders[1])
-         x = datetime.datetime.strptime(current_cwdate, "%Y/%b").strftime("%b-%Y")
+         x = datetime.strptime(current_cwdate, "%Y/%b").strftime("%b-%Y")
          previous_cwdate=(columnheaders[2])
-         px = datetime.datetime.strptime(previous_cwdate, "%Y/%b").strftime("%b-%Y")
+         px = datetime.strptime(previous_cwdate, "%Y/%b").strftime("%b-%Y")
 
 
          #get list of sheets
