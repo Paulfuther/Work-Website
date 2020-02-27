@@ -377,7 +377,7 @@ def upload():
             #print (columnheaders)
             kpidate=(columnheaders[2])
            
-            current_kpidate = datetime.datetime.strptime(kpidate, "%Y-%m").strftime("%b-%Y")
+            current_kpidate = datetime.strptime(kpidate, "%Y-%m").strftime("%b-%Y")
             #print (current_kpidate)
             newkpi=[]
             finalkpi=[]
