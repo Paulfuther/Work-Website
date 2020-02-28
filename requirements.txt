@@ -20,8 +20,6 @@ jdcal==1.4.1
 Jinja2==2.10.1
 jsonify==0.5
 MarkupSafe==1.1.1
-mysql-connector-python==8.0.17
-mysqlclient==1.4.4
 numpy==1.17.0
 openpyxl==2.6.2
 pandas==0.25.0
