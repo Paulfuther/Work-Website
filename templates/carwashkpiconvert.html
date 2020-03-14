@@ -4,19 +4,36 @@
 
 <body>  
   
-    <div class="container-fluid" >
-    
-        <p> <font face="helvetica" font size="4" colour="black">
+
       
-       Carwash KPI File Uploader
-      </font></p>
-      
-      <form id="upload-form" action="{{ url_for('carwashkpiupload')}}" method="POST" enctype="multipart/form-data">
+            <div class="container">  
+            <div class="span6">
+
+            <nav class="nav nav-tabs nav-fill">
+            <a class="flex-sm-fill text-sm-center nav-link" href="kpiconvert">Growth KPI Convert</a>
+            <a class="flex-sm-fill text-sm-center nav-link active" href="carwashkpiconvert">Carwash KPI Convert</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="tpfileconvert">Team Performance Convert</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="securityfileconvert">Security Log Convert</a>
+            </nav>
+            </div>  
+          
+            
+            </br>
+
+            <form id="upload-form" action="{{ url_for('carwashkpiupload')}}" method="POST" enctype="multipart/form-data">
             <input type= "file" name="cwinputFile" >
             <input type="submit" value"send">
 
-    </div> 
+            </br>
+            </br>
+            
+            <p style="font-size:11px" style="font-family:Courier New">Remember, this has to be an ARL Monthly Carwash KPI .xlsx file </p>
 
+            </div> 
+
+            
+
+            
    
 </body>
 

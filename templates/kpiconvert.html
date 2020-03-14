@@ -4,18 +4,43 @@
 
 <body>  
   
-    <div class="container-fluid" >
     
-        <p> <font face="helvetica" font size="4" colour="black">
+    
+       
       
-       Growth KPI File Uploader
-      </font></p>
-      
-      <form id="upload-form" action="{{ url_for('upload')}}" method="POST" enctype="multipart/form-data">
-            <input type= "file" name="inputFile" >
-            <input type="submit" value"send">
+            <div class="container">  
+            <div class="span6">
 
-    </div> 
+            <nav class="nav nav-tabs nav-fill">
+            <a class="flex-sm-fill text-sm-center nav-link active" href="kpiconvert">Growth KPI Convert</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="carwashkpiconvert">Carwash KPI Convert</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="tpfileconvert">Team Performance Convert</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="securityfileconvert">Security Log Convert</a>
+            </nav>
+            </div>  
+          
+            
+            </br>
+
+            <form id="upload-form" action="{{ url_for('upload')}}" method="POST" enctype="multipart/form-data">
+           
+            <div class="form-group">
+            
+            <div class="custom-file">
+            <input type="file" class="custom-file-input" name="inputFile" id="image">
+            <label class="custom-file-label" for="image">Select ABM Growth KPI File</label>
+            </div>
+            </div>
+            <button type="submit" class="btn">Upload</button>
+
+            </form>
+
+            </br>
+            </br>
+            
+            <p style="font-size:11px" style="font-family:Courier New">Remember, this has to be an ABM Growth KPI .xlsx file </p>
+
+            </div>
 
    
 </body>

@@ -80,8 +80,21 @@ a.article-title:hover {
 }
 
 
-.dropdown-menu li{
+.dropdown-menu li {
   font-family:'helvetica';
-  font-size: 14px
+  font-size: 6px ! important;
+  
+  
 }
 
+.nav-tabs>a {
+  color: black;
+  font-size: 12px;
+}
+
+  .btn {
+    background-color: lightgray;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+  }

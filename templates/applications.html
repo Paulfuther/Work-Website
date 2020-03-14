@@ -6,36 +6,18 @@
 
       <body>
 
-      <div class="container-fluid" >     
+            <div class="container">  
+            <div class="span6">
 
-      <p> <font face="helvetica" font size="4" colour="black">
-      
-       There are four applications available 
-      </font></p>
-
-       
-       
-   
-                                              
-      <div class="dropdown">
-      <button class="btn btn-sm  btn-primary dropdown-toggle btn-dark bg-steel border border-white"  type="button" data-toggle="dropdown">
-      Applications
-      <span class="caret"></span></button>
-      <ul class="dropdown-menu">
-      <li><a href="kpiconvert" class="text-info" font size="9">Growth KPI Converter</a></li>
-      <li><a href="carwashkpiconvert">Carwash KPI Converter</a></li>
-      <li><a href="securityfileconvert">Security Log Parser</a></li>
-      <li><a href="tpfileconvert">Team Performance Parser</a></li>
-      </ul>
-      </div>
-      </div>
-     
-
-     
-
-     
-
-      
+            <nav class="nav nav-tabs nav-fill">
+            <a class="flex-sm-fill text-sm-center nav-link" href="kpiconvert">Growth KPI Convert</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="carwashkpiconvert">Carwash KPI Convert</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="tpfileconvert">Team Performance Convert</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="securityfileconvert">Security Log Convert</a>
+            </nav>
+            </div>  
+            </div>
+            
       </body>
 
 {% endblock content %}

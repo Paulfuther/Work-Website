@@ -24,6 +24,7 @@ import glob
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
+from flask_bootstrap import Bootstrap
 
 
 
@@ -44,7 +45,7 @@ moment = Moment(app)
 
 app.config['UPLOAD_FOLDER']= UPLOAD_FOLDER
 mysql= MySQL(app)
-
+Bootstrap(app)
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[

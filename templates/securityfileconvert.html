@@ -4,20 +4,28 @@
 
 <body>  
   
-    <div class="container-fluid" >
-    
-        <p> <font face="helvetica" font size="4" colour="black">
+        <div class="container">  
+            <div class="span6">
+
+            <nav class="nav nav-tabs nav-fill">
+            <a class="flex-sm-fill text-sm-center nav-link" href="kpiconvert">Growth KPI Convert</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="carwashkpiconvert">Carwash KPI Convert</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="tpfileconvert">Team Performance Convert</a>
+            <a class="flex-sm-fill text-sm-center nav-link active" href="securityfileconvert">Security Log Convert</a>
+            </nav>
+            </div>  
+            </br>
       
-       Carwash KPI File Uploader
-      </font></p>
-      
-      <form id="upload-form" action="{{ url_for('securityfileupload')}}" method="POST" enctype="multipart/form-data">
+            <form id="upload-form" action="{{ url_for('securityfileupload')}}" method="POST" enctype="multipart/form-data">
             <input type= "file" name="securityfileinputFile[]" multiple="true" >
             <input type="submit" value"send">
 
-    </div> 
+            </br>
+            </br>
+            
+            <p style="font-size:11px" style="font-family:Courier New">Remember, this has to be a Security Log .rtf file </p>
 
-   
+        </div>
 </body>
 
 {% endblock content %}
