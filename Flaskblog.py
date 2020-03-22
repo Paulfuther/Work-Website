@@ -2,7 +2,7 @@ from flask import Flask, render_template, jsonify, request, send_file, url_for, 
 from random import sample
 from flask_mysqldb import MySQL
 from flask_moment import Moment
-from datetime import time
+from datetime import time, datetime
 import os
 from werkzeug.utils import secure_filename
 import pandas as pd
@@ -25,6 +25,9 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 from flask_bootstrap import Bootstrap
+from forms import RegistrationForm, LoginForm
+from flask_sqlalchemy import SQLAlchemy
+
 
 
 
@@ -39,29 +42,55 @@ UPLOAD_FOLDER = os.path.join(APP_ROOT, 'Files')
 
 app = Flask(__name__)
 
+
+app.config['SECRET_KEY'] = '302176f4723b5282ef5fbdfd77eccc50'
+app.config['SQLALCHEMY_DATABASE_URI']= 'sqlite:///site.db'
 app.config.from_object("config.ProductionConfig")
 
+db= SQLAlchemy(app)
 moment = Moment(app)
 
 app.config['UPLOAD_FOLDER']= UPLOAD_FOLDER
 mysql= MySQL(app)
 Bootstrap(app)
 
-class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[
-                           DataRequired(), Length(min=2, max=20)])
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    confirm_password = PasswordField('Confirm Password', validators=[
-                                     DataRequired(), EqualTo('password')])
-    submit = SubmitField('Sign Up')
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(20), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
+    password = db.Column(db.String(60), nullable=False)
+    posts = db.relationship('Post', backref='author', lazy=True)
+    
+    def __repr__(self):
+        return f"User('{self.username}, {self.email}, {self.image}')"
+    
+    
+class Post(db.Model):  
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
+    content = db.Column(db.Text, nullable=False )
+    user_id=db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
-
-class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    remember = BooleanField('Remember Me')
-    submit = SubmitField('Login')
+    def __repr__(self):
+        return f"Post('{self.title}, {self.date_posted}')"
+    
+    
+posts = [
+    {
+        'author': 'Corey Schafer',
+        'title': 'Blog Post 1',
+        'content': 'First post content',
+        'date_posted': 'April 20, 2018'
+    },
+    {
+        'author': 'Jane Doe',
+        'title': 'Blog Post 2',
+        'content': 'Second post content',
+        'date_posted': 'April 21, 2018'
+    }
+]
 
 
 chartstore =48314
@@ -70,7 +99,7 @@ chartstore =48314
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template ('home.html')
+    return render_template ('home.html', posts=posts)
     #return render_template('home.html',posts=posts)
     
 @app.route("/about")
@@ -442,7 +471,7 @@ def upload():
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        flash(f'Account created for {form.username.data}!', 'success')
+        flash (f'Account created for {form.username.data}!', 'success')
         return redirect(url_for('home'))
     return render_template('register.html', title='Register', form=form)
 
@@ -459,7 +488,7 @@ def login():
         else:
             flash('login unsuccessfull. Please check username and password', 'danger')
 
-    return render_template('index.html', title='Login', form=form)
+    return render_template('login.html', title='Login', form=form)
 
 
 
