@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<body>  
+
+    <div class="row">
+      <div class="col"
+    <h2><center>Chart Dashboard</centre</h2>
+      </div>
+    </div>
+            <div class="row">  
+                  <div class="col-md-6 py-1">
+                    <div class="card"> 
+                      <div class="card-body">
+                            <h9 class="card-title">Fuel Volume</h9>
+                            <canvas id="mycanvas" width="75" height="75"></canvas>
+                            <script type="text/javascript" src="static/js/last.js"></script>
+                      </div>
+                    </div>
+                  </div>
+                      <div class="col-md-6 py-1">
+                        <div class="card">
+                          <div class="card-body">
+                                 <h9 class="card-title">C Store Margin Dollars</h9>
+                                 <canvas id="storemargin" width="75" height="75"></canvas>
+                                 <script type="text/javascript" src="static/js/cstoresales.js"></script>
+                          </div>
+                        </div> 
+                     </div>   
+             </div>
+            <div class="row">  
+                  <div class="col-md-6 py-1">
+                    <div class="card"> 
+                      <div class="card-body">
+                            <h9 class="card-title">Fuel Volume</h9>
+                            <canvas id="mycanvas" width="75" height="75"></canvas>
+                            <script type="text/javascript" src="static/js/last.js"></script>
+                      </div>
+                    </div>
+                  </div>
+                      <div class="col-md-6 py-1">
+                        <div class="card">
+                          <div class="card-body">
+                                 <h9 class="card-title">C Store Margin Dollars</h9>
+                                 <canvas id="storemargin" width="75" height="75"></canvas>
+                                 <script type="text/javascript" src="static/js/cstoresales.js"></script>
+                          </div>
+                        </div> 
+                     </div>   
+             </div>
+</body>
+
+{% endblock content %}
