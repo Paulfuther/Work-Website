@@ -11,6 +11,7 @@ import openpyxl
 import xlrd
 import xlwt
 import xlsxwriter
+from flaskblog import datetime
 
 chartstore = 48314
 
@@ -18,7 +19,7 @@ chartstore = 48314
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html', posts=posts)
+    return render_template('home.html')#, posts=posts)
     #return render_template('home.html',posts=posts)
 
 
@@ -188,29 +189,29 @@ def carwashkpiupload():
 
         excel_file = file
 
-         df = pd.read_excel(excel_file, skiprows=9, usecols=(3, 4, 5))
+        df = pd.read_excel(excel_file, skiprows=9, usecols=(3, 4, 5))
 
-         columnheaders = (df.columns.tolist())
-         current_cwdate = (columnheaders[1])
-         x = datetime.strptime(current_cwdate, "%Y/%b").strftime("%b-%Y")
-         previous_cwdate = (columnheaders[2])
-         px = datetime.strptime(previous_cwdate, "%Y/%b").strftime("%b-%Y")
+        columnheaders = (df.columns.tolist())
+        current_cwdate = (columnheaders[1])
+        x = datetime.strptime(current_cwdate, "%Y/%b").strftime("%b-%Y")
+        previous_cwdate = (columnheaders[2])
+        px = datetime.strptime(previous_cwdate, "%Y/%b").strftime("%b-%Y")
 
          #get list of sheets
-         xls = pd.ExcelFile(excel_file)
-         res = len(xls.sheet_names)
-         nres = res-1
+        xls = pd.ExcelFile(excel_file)
+        res = len(xls.sheet_names)
+        nres = res-1
 
          #get type for the tab names they are a list
          #print(type(res))
 
-         tabs = (xls.sheet_names)
+        tabs = (xls.sheet_names)
          #print(type(tabs))
-         newtabs = (tabs[0:-1])
+        newtabs = (tabs[0:-1])
 
-         dffinal2 = []
+        dffinal2 = []
 
-         for line in newtabs:
+        for line in newtabs:
 
             #first half of spreadsheet
 
@@ -265,16 +266,16 @@ def carwashkpiupload():
 
          #reorganise columns
 
-         dffinal2 = pd.concat(dffinal2)
-         dffinal2.columns = ['Item', 'Amount', px,
+        dffinal2 = pd.concat(dffinal2)
+        dffinal2.columns = ['Item', 'Amount', px,
              'Store', 'Date', 'Classification']
 
-         dffinal2 = dffinal2[['Date', 'Store',
+        dffinal2 = dffinal2[['Date', 'Store',
              'Classification', 'Item', 'Amount', px]]
-         dffinal2['Amount'] = pd.to_numeric(
+        dffinal2['Amount'] = pd.to_numeric(
              dffinal2['Amount'], errors='coerce')
-         dffinal2['Date'] = pd.to_datetime(dffinal2['Date'], format='%b-%Y')
-         dffinal2['Date'] = dffinal2['Date'].dt.date
+        dffinal2['Date'] = pd.to_datetime(dffinal2['Date'], format='%b-%Y')
+        dffinal2['Date'] = dffinal2['Date'].dt.date
 
          #save final spreadsheet
 
@@ -300,13 +301,13 @@ def upload():
     if request.method == "POST":
 
         file = request.files['inputFile']
-         print(file)
-          filename = secure_filename(file.filename)
+        print(file)
+        filename = secure_filename(file.filename)
 
            #this will save file to folder in root named Files
            #file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-           def convert_amount(val):
+        def convert_amount(val):
                 """
                 Convert the string number value to a float
                 - Remove $
@@ -317,75 +318,74 @@ def upload():
                     '%', '').replace('/0', '')
                 return pd.to_numeric(new_val)
 
-            excel_file = file
-            df = pd.read_excel(excel_file, header=3)
+    excel_file = file
+    df = pd.read_excel(excel_file, header=3)
 
             #print (df)
 
-            xls = pd.ExcelFile(excel_file)
-            res = len(xls.sheet_names)
-            tabs = (xls.sheet_names)
-            newtabs = (tabs)
-            columnheaders = (df.columns.tolist())
+    xls = pd.ExcelFile(excel_file)
+    res = len(xls.sheet_names)
+    tabs = (xls.sheet_names)
+    newtabs = (tabs)
+    columnheaders = (df.columns.tolist())
             #print (columnheaders)
-            kpidate = (columnheaders[2])
+    kpidate = (columnheaders[2])
 
-            current_kpidate = datetime.strptime(
-                kpidate, "%Y-%m").strftime("%b-%Y")
+    current_kpidate = datetime.strptime(
+    kpidate, "%Y-%m").strftime("%b-%Y")
             #print (current_kpidate)
-            newkpi = []
-            finalkpi = []
+    newkpi = []
+    finalkpi = []
 
-            for x in newtabs:
-                 type = x[:5]
+    for x in newtabs:
+        type = x[:5]
                   #print(type)
-                  data = pd.read_excel(
-                       excel_file, sheet_name=x, skiprows=3, usecols=range(8))
-                   data['store'] = type
-                    data['Date'] = current_kpidate
-                    finalkpi.append(data)
+        data = pd.read_excel(
+        excel_file, sheet_name=x, skiprows=3, usecols=range(8))
+        data['store'] = type
+        data['Date'] = current_kpidate
+        finalkpi.append(data)
 
-            finalkpi = pd.concat(finalkpi)
+        finalkpi = pd.concat(finalkpi)
 
             #print(finalkpi)
 
             #name columns
 
-            finalkpi.columns = ['Category1', 'Category2', kpidate, 'Value2', 'value3','value4','value5','Rolling','Store','Date']
+        finalkpi.columns = ['Category1', 'Category2', kpidate, 'Value2', 'value3','value4','value5','Rolling','Store','Date']
             #reorder columns
 
-            finalkpi = finalkpi[['Date', 'Store', 'Category1', 'Category2',kpidate,'Value2','value3','value4','value5','Rolling']]
+        finalkpi = finalkpi[['Date', 'Store', 'Category1', 'Category2',kpidate,'Value2','value3','value4','value5','Rolling']]
 
-            """combine two columns
-            """
-            finalkpi['Category'] = finalkpi.Category2.combine_first(
-                finalkpi.Category1)
+        """combine two columns
+        """
+        finalkpi['Category'] = finalkpi.Category2.combine_first(
+        finalkpi.Category1)
 
-            finalkpi = finalkpi[['Date', 'Store', 'Category', kpidate,'Value2','value3','value4','value5','Rolling']]
+        finalkpi = finalkpi[['Date', 'Store', 'Category', kpidate,'Value2','value3','value4','value5','Rolling']]
 
-            finalkpi['Date'] = pd.to_datetime(
-                (finalkpi['Date']), format='%b-%Y')
+        finalkpi['Date'] = pd.to_datetime((finalkpi['Date']), format='%b-%Y')
 
-            finalkpi[kpidate] = finalkpi[kpidate].apply(convert_amount)
-            finalkpi['Value2'] = finalkpi['Value2'].apply(convert_amount)
-            finalkpi['value3'] = finalkpi['value3'].apply(convert_amount)
-            finalkpi['value4'] = finalkpi['value4'].apply(convert_amount)
-            finalkpi['value5'] = finalkpi['value5'].apply(convert_amount)
-            finalkpi['Rolling'] = finalkpi['Rolling'].apply(convert_amount)
+        finalkpi[kpidate] = finalkpi[kpidate].apply(convert_amount)
+        finalkpi['Value2'] = finalkpi['Value2'].apply(convert_amount)
+        finalkpi['value3'] = finalkpi['value3'].apply(convert_amount)
+        finalkpi['value4'] = finalkpi['value4'].apply(convert_amount)
+        finalkpi['value5'] = finalkpi['value5'].apply(convert_amount)
+        finalkpi['Rolling'] = finalkpi['Rolling'].apply(convert_amount)
 
             #create output stream
 
-            output = BytesIO()
-            writer = pd.ExcelWriter(output, engine='xlsxwriter')
-            finalkpi.to_excel(writer)
-            writer.save()
-            output.seek(0)
+        output = BytesIO()
+        writer = pd.ExcelWriter(output, engine='xlsxwriter')
+        finalkpi.to_excel(writer)
+        writer.save()
+        output.seek(0)
 
-            return send_file(output, attachment_filename="output.xlsx", as_attachment=True)
+        return send_file(output, attachment_filename="output.xlsx", as_attachment=True)
 
-            print(finalkpi)
+        print(finalkpi)
 
-            return render_template("applications.html")
+        return render_template("applications.html")
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():

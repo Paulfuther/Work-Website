@@ -1,5 +1,5 @@
-from Flaskblog import db
-from Flaskblog import datetime
+from flaskblog import db
+from flaskblog import datetime
 
 
 

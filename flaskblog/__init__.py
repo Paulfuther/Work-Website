@@ -25,9 +25,10 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 from flask_bootstrap import Bootstrap
-from forms import RegistrationForm, LoginForm
+#from forms import RegistrationForm, LoginForm
 from flask_sqlalchemy import SQLAlchemy
-from models import User, Post
+#from models import User, Post
+from . import config
 
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -42,7 +43,7 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '302176f4723b5282ef5fbdfd77eccc50'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
-app.config.from_object("config.ProductionConfig")
+#app.config.from_object("config.ProductionConfig")
 
 db = SQLAlchemy(app)
 moment = Moment(app)
