@@ -37,6 +37,11 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 10px;
 }
 
+.article-date {
+  color: #444444;
+  font-size: 10px;
+}
+
 a.article-title:hover {
   color: #428bca;
   text-decoration: none;
@@ -56,7 +61,8 @@ a.article-title:hover {
 .article-metadata {
   padding-bottom: 1px;
   margin-bottom: 4px;
-  border-bottom: 1px solid #e3e3e3
+  border-bottom: 1px solid #e3e3e3;
+  font-size: 12px;
 }
 
 .article-metadata a:hover {
@@ -65,8 +71,8 @@ a.article-title:hover {
 }
 
 .article-svg {
-  width: 25px;
-  height: 25px;
+  width: 15px;
+  height: 15px;
   vertical-align: middle;
 }
 
@@ -94,9 +100,9 @@ a.article-title:hover {
   font-size: 12px;
 }
 
-  .btn {
-    background-color: lightgray;
-    color: black;
-    text-align: center;
-    font-size: 16px;
-  }
+.btn {
+  background-color: lightgray;
+  color: black;
+  text-align: center;
+  font-size: 16px;
+}
