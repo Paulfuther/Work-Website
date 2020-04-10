@@ -6,6 +6,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
+  font-family: Arial;
 }
 
 .bg-steel {
@@ -100,9 +101,10 @@ a.article-title:hover {
   font-size: 12px;
 }
 
-.btn {
-  background-color: lightgray;
+/*.btn {
+  background-color: white;
+  border-color: lightblue;
   color: black;
   text-align: center;
-  font-size: 16px;
+  font-size: 10px;
 }
