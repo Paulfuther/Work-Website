@@ -15,6 +15,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .site-header .navbar-nav .nav-link {
   color: black;
+  font-size: 10px;
 }
 
 .navbar-brand >img{
@@ -103,7 +104,7 @@ a.article-title:hover {
 
 .nav-tabs>a {
   color: black;
-  font-size: 12px;
+  font-size: 9px;
 }
 
 /*.btn {
