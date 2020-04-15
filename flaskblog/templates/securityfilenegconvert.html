@@ -4,31 +4,29 @@
 
 <body>  
   
-         
+          
             <div class="span6">
 
             <nav class="nav nav-tabs nav-fill">
             <a class="flex-sm-fill text-sm-center nav-link" href="kpiconvert">Growth KPI Convert</a>
             <a class="flex-sm-fill text-sm-center nav-link" href="carwashkpiconvert">Carwash KPI Convert</a>
-            <a class="flex-sm-fill text-sm-center nav-link active" href="tpfileconvert">Team Performance Convert</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="tpfileconvert">Team Performance Convert</a>
             <a class="flex-sm-fill text-sm-center nav-link" href="securityfileconvert">Security Log Convert</a>
-            <a class="flex-sm-fill text-sm-center nav-link" href="securityfilenegconvert">Sec Log Neg Sales Convert</a>
+            <a class="flex-sm-fill text-sm-center nav-link active" href="securityfilenegconvert">Sec Log Neg Sales Convert</a>
             </nav>
             </div>  
-            </br> 
+            </br>
       
-            <form id="upload-form" action="{{ url_for('tpfileupload')}}" method="POST" enctype="multipart/form-data">
-            <input type= "file" name="tpfileinputFile[]" multiple="true" >
+            <form id="upload-form" action="{{ url_for('securityfilenegupload')}}" method="POST" enctype="multipart/form-data">
+            <input type= "file" name="securityfileneginputFile[]" multiple="true" >
             <input type="submit" value"send">
 
             </br>
             </br>
             
-            <p style="font-size:11px" style="font-family:Courier New">Remember, this has to be a Team Performance .xlsx file </p>
+            <p style="font-size:11px" style="font-family:Courier New">Remember, this has to be a Security Log .rtf file </p>
 
-          
-
-   
+        
 </body>
 
 {% endblock content %}

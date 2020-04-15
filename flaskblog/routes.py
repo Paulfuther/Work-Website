@@ -17,6 +17,7 @@ from flaskblog import bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
 import secrets
 from PIL import Image
+import re
 
 chartstore = 48314
 
@@ -132,11 +133,6 @@ def securityfileupload():
         end = datetime.strptime('11:45:00', '%H:%M:%S').time()
 
         files = request.files.getlist('securityfileinputFile[]')
-        #os.chdir('/Users/mobile/Dropbox/BACK OFFICE SECURITY FILE/')
-        #print(os.getcwd())
-        #FileList = glob.glob('*.rtf')
-        #print(FileList)
-
         newdf = []
 
         for file in files:
@@ -144,40 +140,81 @@ def securityfileupload():
             excel_file = inputfilename
             store_number = file
             a = str(store_number)
-            print(a)
             b = re.search('\d+', a).group()
-            print(b)
-            print(store_number)
-
             df = pd.read_csv(excel_file, sep='\t', header=None)
             df.columns = ['Text']
-            print(df.dtypes)
-            print(df.head)
+
+            #use regular expresssions re to find character sets in a string of data
+            #in a dataframe
+
+            df['Date'] = df['Text'].str.extract(
+                r"([\d]{1,2} [ADJFMNOS]\w* [\d]{2})").copy()
+
 
             df2 = df[df['Text'].str.contains('Pump', na=False)].copy()
-            print(df2)
+            if df2.empty:
+                continue
+            df2['Store'] = b
+            newdf.append(df2)
+
+        newdf = pd.concat(newdf) 
+        newdf['Date'] = pd.to_datetime(newdf['Date'], dayfirst=True)
+        newdf['Time'] = newdf['Text'].str.extract(r"([\d]{1,2}\:[\d]{1,2}\:[\d]{1,2})")
+        newdf['Time'] = pd.to_datetime(newdf['Time'], format='%H:%M:%S').dt.time
+        newdf = newdf[newdf['Time'].between(start, end)]
+        newdf.set_index('Date', inplace=True) 
+
+    output = BytesIO()
+    writer = pd.ExcelWriter(output, engine='xlsxwriter')
+    newdf.to_excel(writer)
+    writer.save()
+    output.seek(0)
+
+    return send_file(output, attachment_filename="sfoutput.xlsx", as_attachment=True)
+
+
+@app.route("/securityfilenegconvert")
+def SecurityFilenegconvert():
+    return render_template('securityfilenegconvert.html', title='Security File Negative Sales Converter')
+
+
+@app.route("/securityfilenegupload", methods=['POST'])
+def securityfilenegupload():
+
+    if request.method == "POST":
+
+
+        files = request.files.getlist('securityfileneginputFile[]')
+        newdf = []
+
+        for file in files:
+            inputfilename = file
+            excel_file = inputfilename
+            store_number = file
+            a = str(store_number)
+            b = re.search('\d+', a).group()
+            df = pd.read_csv(excel_file, sep='\t', header=None)
+            df.columns = ['Text']
+            df['Date'] = df['Text'].str.extract('(.. ... ..)', expand=False).copy()
+
+            df2 = df[df['Text'].str.contains('NEGATIVE', na=False)].copy()
 
             if df2.empty:
                 continue
-
-            df2['Time'] = df2['Text'].str.extract('(..:..:..)', expand=True)
-            df2['Time'] = pd.to_datetime(
-                df2['Time'], format='%H:%M:%S').dt.time
-            df2 = df2[df2['Time'].between(start, end)]
-
-            df2['Date'] = df2['Text'].str.slice(start=0, stop=9)
-            df2['Date'] = pd.to_datetime(
-                df2['Date'], format='%d %b %y').dt.date
-            #df2['Date']=df2['Date'].datetime.strptime(b1, "%d %m %y").strftime("%b-%Y")
 
             df2['Store'] = b
             print(df2)
             newdf.append(df2)
 
+
         newdf = pd.concat(newdf)
 
-        #newdf.to_excel("Pumps to Prepay" + ".xlsx", engine='xlsxwriter')
-        #print(newdf.dtypes)
+        newdf['Date'] = pd.to_datetime(
+        newdf['Date'], dayfirst=True)  # .dt.strftime('%d %m %Y')
+
+        newdf['Time'] = newdf['Text'].str.extract(r"([\d]{1,2}\:[\d]{1,2}\:[\d]{1,2})")
+        newdf['Time'] = pd.to_datetime(newdf['Time'], format='%H:%M:%S').dt.time
+        newdf.set_index('Date', inplace=True)
 
     output = BytesIO()
     writer = pd.ExcelWriter(output, engine='xlsxwriter')
