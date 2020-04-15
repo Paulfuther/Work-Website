@@ -24,14 +24,17 @@ chartstore = 48314
 @app.route("/")
 @app.route("/home")
 def home():
+    
+    return render_template('home.html')
+
+
+@app.route("/blog")
+def blog():
     page = request.args.get('page', 1, type=int)
-    posts=Post.query.order_by(Post.date_posted.desc()).paginate(page = page, per_page=3)
-    return render_template('home.html',posts=posts)
-
-
-@app.route("/about")
-def about():
-    return render_template('about.html', title='About')
+    posts = Post.query.order_by(
+    Post.date_posted.desc()).paginate(page=page, per_page=3)
+  
+    return render_template('blog.html', posts=posts, title='Blog')
 
 
 @app.route("/applications")
@@ -555,7 +558,7 @@ def new_post():
         db.session.add(post)
         db.session.commit()
         flash('Your Post Has Been Created!', 'success')
-        return redirect(url_for('home'))
+        return redirect(url_for('blog'))
     return render_template('create_post.html', title='New Post',
                             form=form, legend='New Post')
 
@@ -595,7 +598,7 @@ def delete_post(post_id):
     db.session.delete(post)
     db.session.commit()
     flash('Your Post Has Been Deleted', 'success')
-    return redirect(url_for('home'))
+    return redirect(url_for('blog'))
 
 
 @app.route("/user/<string:username>")
