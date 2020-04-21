@@ -30,6 +30,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from sqlalchemy.sql import text, select
 from sqlalchemy import *
+from flask_moment import Moment
 
 
 
@@ -59,24 +60,7 @@ engine = create_engine('mysql://root:root@localhost/work')
 metadata = MetaData(engine)
 db2 = engine
 print(engine.table_names())
-table = Table('growthkpi', metadata,  autoload=True)
 
-def run(stmnt):
-    rs=stmnt.execute()
-    for row in rs:
-        print(row)
-
-
-#with engine.connect() as con:
- #   rs=con.execute('select * from growthkpi')
-  #  for row in rs:
-   #     print (row)
-     
-      
-s=table.select (and_(table.c.Store =='48314', table.c.Category=='Total Fuel Volume', 
-                     table.c.Date >= "2018-1-1"))
-     
-run(s)     
      
   
   
@@ -85,5 +69,6 @@ run(s)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 mysql = MySQL(app)
 Bootstrap(app)
+moment = Moment(app)
 
 from flaskblog import routes

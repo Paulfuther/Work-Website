@@ -3,8 +3,8 @@ $(document).ready(function(){
       url: "http://127.0.0.1:5000/data",
       method: "GET",
       success: function(newdata2) {
-    
-      
+       
+        console.log(newdata2);
 
       var date2 = [];
       var volume2 = [];
@@ -21,7 +21,7 @@ $(document).ready(function(){
          // date3.push(newdata2[i].date)
         //  volume3.push(newdata2[i].volume)    
        // }
-        //console.log(date2)
+        console.log(date2);
         //console.log(volume2)
         //console.log(date3)
         //console.log(volume3)

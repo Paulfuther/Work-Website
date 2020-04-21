@@ -1,0 +1,73 @@
+#cur = mysql.connection.cursor()
+    #query = """SELECT Date, Amount 
+     #    FROM growthkpi
+      #   WHERE category = 'Total C-Store Margin ($)'
+       #  and store = %s
+       #  AND date BETWEEN '2019-01-1' and (SELECT max(Date) FROM growthkpi) 
+       #  """ % (chartstore)
+    #cur.execute(query)
+    #rv = cur.fetchall()
+
+
+    #def run(stmnt):
+ #   rs = stmnt.execute()
+  #  for row in rs:
+   #     print(row)
+
+
+#with engine.connect() as con:
+ #   rs=con.execute('select * from growthkpi')
+  #  for row in rs:
+   #     print (row)
+
+
+cur2 = mysql.connection.cursor()
+    query2 = """SELECT Date, Amount
+         FROM growthkpi
+         WHERE category = 'Total Fuel Volume'
+         and store = %s
+         AND date BETWEEN '2019-01-1' and (SELECT max(Date) FROM growthkpi) 
+    
+         """ % (chartstore)
+    cur2.execute(query2)
+    rv2 = cur2.fetchall()
+
+    cur3 = mysql.connection.cursor()
+    query3 = """SELECT Date, Amount
+         FROM growthkpi
+         WHERE category = 'Total Fuel Volume'
+         and store = %s
+         AND date BETWEEN '2018-01-1' and (SELECT max(Date) FROM growthkpi) 
+    
+         """ % (chartstore)
+
+
+  cur3.execute(query3)
+    rv3 = cur3.fetchall()
+
+
+
+
+// $(document).ready(function(){
+    $.ajax({
+      url: "http://127.0.0.1:5000/cstoresales",
+      method: "GET",
+      success: function(newdata) {
+         var datenew = [];
+         var marginnew = [];
+         
+         for (var i in newdata) {
+           datenew.push(newdata[i].date);
+           marginnew.push(newdata[i].margin);
+         }  
+      console.log(newdata);
+      console.log(datenew);
+      console.log(marginnew);
+      }
+  
+  
+
+
+      
+  });
+//});

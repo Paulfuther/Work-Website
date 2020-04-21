@@ -19,10 +19,13 @@ import secrets
 from PIL import Image
 import re
 import mysql
+from sqlalchemy.sql import text, select
+from sqlalchemy import *
+from sqlalchemy import extract
 
 
 chartstore = 48314
-
+engine = create_engine('mysql://root:root@localhost/work')
 
 @app.route("/")
 @app.route("/home")
@@ -466,63 +469,54 @@ def login():
     return render_template('login.html', title='Login', form=form)
 
 
+#This route used sql alchemy to access the grwothkpi tables in the MySql database
 
 @app.route("/cstoresales")
 def data():
-    cur = mysql.connection.cursor()
-    query = """SELECT Date, Amount 
-         FROM growthkpi
-         WHERE category = 'Total C-Store Margin ($)'
-         and store = %s
-         AND date BETWEEN '2019-01-1' and (SELECT max(Date) FROM growthkpi) 
-         """ % (chartstore)
-    cur.execute(query)
-    rv = cur.fetchall()
+    
+    metadata = MetaData(engine)
+    table = Table('growthkpi', metadata,  autoload=True)
+                              
+    s = select([table.c.Amount,
+        extract("month", table.c.Date,
+                )])\
+        .where(and_(table.c.Store == '48314',
+                table.c.Category == 'Total C-Store Margin ($)',
+                table.c.Date >= "2019-01-01"))
 
+        
+    rs = s.execute()
+    #for row in rs:
+     #  print(row)
+    
     newdata = []
     content = {}
-    for result in rv:
-       content = {'date': result[0], 'margin': result[1]}
+    for result in rs:
+       
+       content = {'date': result[1], 'margin': result[0]}
        newdata.append(content)
        content = {}
+       print(newdata)
+       
     return jsonify(newdata)
-
 
 @app.route("/data")
 def seconddata():
-    cur2 = mysql.connection.cursor()
-    query2 = """SELECT Date, Amount
-         FROM growthkpi
-         WHERE category = 'Total Fuel Volume'
-         and store = %s
-         AND date BETWEEN '2019-01-1' and (SELECT max(Date) FROM growthkpi) 
     
-         """ % (chartstore)
-    cur2.execute(query2)
-    rv2 = cur2.fetchall()
+    metadata = MetaData(engine)
+    table = Table('growthkpi', metadata,  autoload=True)
 
-    cur3 = mysql.connection.cursor()
-    query3 = """SELECT Date, Amount
-         FROM growthkpi
-         WHERE category = 'Total Fuel Volume'
-         and store = %s
-         AND date BETWEEN '2018-01-1' and (SELECT max(Date) FROM growthkpi) 
-    
-         """ % (chartstore)
-
-    cur3.execute(query3)
-    rv3 = cur3.fetchall()
-
-    print(rv2)
-    print('hey here it comes')
-    print(rv3)
-
+    s = table.select(and_(table.c.Store == '48314', 
+                          table.c.Category == 'Total Fuel Volume',
+                          table.c.Date >= "2019-1-1"))
+    rs2=s.execute()
     newdata2 = []
     content2 = {}
-    for result in rv2:
-       content2 = {'date': result[0], 'volume': result[1]}
+    for result in rs2:
+       content2 = {'date': result[0], 'volume': result[3]}
        newdata2.append(content2)
        content2 = {}
+       #print(newdata2)
     return jsonify(newdata2)
 
 
@@ -530,25 +524,9 @@ def seconddata():
 def charts():
     return render_template('charts.html')
 
-
 @app.route("/dashboard")
 def dashboard():
     return render_template('dashboard.html')
-
-    #print(cur.description)
-
-    #print()
-
-    #month = [];
-    #amount = [];
-
-    #for row in cur:
-     #   month.push
-    #   print(row)
-
-    #return jsonify({'results' : sample(range(1,10) , 5)})
-
-
 
 @app.route("/logout")
 def logout():
