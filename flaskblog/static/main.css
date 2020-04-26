@@ -7,6 +7,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
   font-family: Arial;
+  
 }
 
 .bg-steel {
@@ -107,10 +108,21 @@ a.article-title:hover {
   font-size: 9px;
 }
 
-/*.btn {
-  background-color: white;
-  border-color: lightblue;
-  color: black;
+
+.card {
+width: 40%;
+}
+
+.card {
   text-align: center;
+}
+
+.card-text {
   font-size: 10px;
+}
+
+.dashboard-header {
+  font-size: 15px;
+  text-align: center;
+  
 }

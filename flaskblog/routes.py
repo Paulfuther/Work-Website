@@ -486,8 +486,6 @@ def data():
 
         
     rs = s.execute()
-    #for row in rs:
-     #  print(row)
     
     newdata = []
     content = {}
@@ -496,7 +494,7 @@ def data():
        content = {'date': result[1], 'margin': result[0]}
        newdata.append(content)
        content = {}
-       print(newdata)
+       #print(newdata)
        
     return jsonify(newdata)
 
@@ -506,14 +504,18 @@ def seconddata():
     metadata = MetaData(engine)
     table = Table('growthkpi', metadata,  autoload=True)
 
-    s = table.select(and_(table.c.Store == '48314', 
-                          table.c.Category == 'Total Fuel Volume',
-                          table.c.Date >= "2019-1-1"))
+    s = select([table.c.Amount,
+        extract("month", table.c.Date,
+                )])\
+        .where(and_(table.c.Store == '48314',
+                table.c.Category == 'Total Fuel Volume',
+                table.c.Date >= "2019-01-01"))
+   
     rs2=s.execute()
     newdata2 = []
     content2 = {}
     for result in rs2:
-       content2 = {'date': result[0], 'volume': result[3]}
+       content2 = {'date': result[1], 'volume': result[0]}
        newdata2.append(content2)
        content2 = {}
        #print(newdata2)

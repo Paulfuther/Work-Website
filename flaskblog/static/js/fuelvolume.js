@@ -1,26 +1,26 @@
-$(document).ready(function () {
+$(document).ready(function(){
     $.ajax({
-      url: "http://127.0.0.1:5000/cstoresales",
+      url: "http://127.0.0.1:5000/data",       
       method: "GET",
-      success: function (newdata) {
-      var datenew = [];
-      var marginnew = [];  
-        for (var i in newdata) {
-          datenew.push(newdata[i].date);
-          marginnew.push(newdata[i].margin);
-          }; 
+      success: function (newdata2) {
+      var datenew2 = [];
+      var volume2 = [];
+        for (var i in newdata2) {
+          datenew2.push(newdata2[i].date);
+          volume2.push(newdata2[i].volume);
+           };
       var chartdata = {
-        labels: datenew,
+        labels: datenew2,
         datasets: [{
-          label: 'C Store Sales',
-          data: marginnew,
+          label: 'Fuel Volume',
+          data: volume2,
           backgroundColor: '#b3d9ff',
           }]
           };
-      var ctx = $("#storemargin");
+      var ctx = $("#mycanvas");
       var barGraph = new Chart(ctx, {
           type: 'bar',
-          data: chartdata, 
+          data: chartdata,
             options: {
               scales: {
                 xAxes: [{
@@ -37,19 +37,19 @@ $(document).ready(function () {
                         'quarter': 'MMM YY',
                         'year': 'MMM YY',
                         },
+                      }
+                }],
+                yAxes: [{
+                    gridLines: {
+                      display: false
+                    },
+                    ticks:{
+                      beginAtZero: true
+                    }
+                  }]
                 }
-             }],
-             yAxes:[{
-               gridLines:{
-                 display:false
-               },
-               ticks: {
-                 beginAtZero: true
                }
-             }]
-             }
-           }
-      })
-    },
+            })
+      },
+    });
   });
-});
