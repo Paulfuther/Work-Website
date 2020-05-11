@@ -5,7 +5,7 @@
   <head>
 
    <!-- {{ moment.include_jquery() }}
-   {{ moment.include_moment() }} -->
+        {{ moment.include_moment() }} -->
 
 
     <!-- Required meta tags -->
@@ -26,62 +26,72 @@
   <body>
 
     <div class="menu-btn">
-    <i class="fas fa-bars fa-2x"></i>
-    </div>
+        
+        <i class="fas fa-bars fa-1x"></i>
+        
+        
+    </div>   
+
+      
+      
+
+
     <div class = "container" >
 
       <!--  Nave bar -->
-
-   
-      <nav class="main-nav" >
         
-          <!-- <img src="/static/images/PaulFuther.jpg" > -->
-          <a href="{{ url_for('home')}}"><img src="static/images/PaulFuther.jpg" class= "logo"> </a>
-          <ul class = "main-menu-show">
-              <li> <a href="{{ url_for('home')}}">Home</a></li>
-              <li> <a href="{{ url_for('blog')}}">Blog</a></li>
-              <li> <a href="{{ url_for('Applications')}}">Apps</a></li>
-              <li> <a href="{{ url_for('dashboard')}}">Charts</a></li>
-          </ul>
+   
+              <nav class="main-nav" >
+                
+                  <!-- <img src="/static/images/PaulFuther.jpg" > -->
+                  <a href="{{ url_for('home')}}"><img src="static/images/PaulFuther.jpg" class= "logo"> </a>
+                  <ul class = "main-menu">
+                      <li> <a href="{{ url_for('home')}}">Home</a></li>
+                      <li> <a href="{{ url_for('blog')}}">Blog</a></li>
+                      <li> <a href="{{ url_for('Applications')}}">Apps</a></li>
+                      <li> <a href="{{ url_for('dashboard')}}">Charts</a></li>
+                  </ul>
 
-          <!-- Navbar Right Side -->
+                  <!-- Navbar Right Side -->
 
-          <ul class = "right-menu"  >
-            
-              
-              {% if current_user.is_authenticated %}
-              <li> <a href="{{ url_for('new_post')}}">Post</a></li>
-              <li> <a href="{{ url_for('account')}}">Account</a></li>
-              <li> <a href="{{ url_for('logout')}}">Logout</a></li>
-              {% else %}
-              <li> <a href="{{ url_for('login')}}">Login</a></li>
-              <li> <a href="{{ url_for('register')}}">Register</a></li>
-              {% endif %} 
-              <li> <a href="https://www.instagram.com/paul.futher/"><i class = "fab fa-instagram"></i></a></li>
-              <li> <a href="https://www.facebook.com/paul.futher.7"><i class = "fab fa-facebook"></i></a></li>  
-              <li> <a href="https://github.com/Paulfuther"><i class = "fab fa-github"></i></a></li>
-          </ul>
-      </nav>
+                  <ul class = "right-menu"  >
+                    
+                      
+                      {% if current_user.is_authenticated %}
+                      <li> <a href="{{ url_for('new_post')}}">Post</a></li>
+                      <li> <a href="{{ url_for('account')}}">Account</a></li>
+                      <li> <a href="{{ url_for('logout')}}">Logout</a></li>
+                      {% else %}
+                      <li> <a href="{{ url_for('login')}}">Login</a></li>
+                      <li> <a href="{{ url_for('register')}}">Register</a></li>
+                      {% endif %} 
+                      <li> <a href="https://www.instagram.com/paul.futher/"><i class = "fab fa-instagram"></i></a></li>
+                      <li> <a href="https://www.facebook.com/paul.futher.7"><i class = "fab fa-facebook"></i></a></li>  
+                      <li> <a href="https://github.com/Paulfuther"><i class = "fab fa-github"></i></a></li>
+                  </ul>
+              </nav>
     </div>  
 
-         <main role="main" class="container">
-          <div class="row">
-            <div class="col-md-12">
-           
-              {% with messages = get_flashed_messages(with_categories=true)%}
-                {%if messages%}
-                  {% for category, message in messages %}
-                    <div class="alert alert-{{ category}}">
-                      {{ message }}
-                    </div>
-                  {% endfor %}
-                {% endif %}
-              {% endwith %}
-              {% block content %}{% endblock %}
-            </div>
-            
-          </div>
-        </main>
+             <main role="main" class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                
+                    {% with messages = get_flashed_messages(with_categories=true)%}
+                      {%if messages%}
+                        {% for category, message in messages %}
+                          <div class="alert alert-{{ category}}">
+                            {{ message }}
+                          </div>
+                        {% endfor %}
+                      {% endif %}
+                    {% endwith %}
+                    {% block content %}{% endblock %}
+                  </div>
+                  
+                </div>
+
+                
+              </main>
 
 
 
@@ -95,6 +105,21 @@
               <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/af.js"><script>
               <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
               <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+              <script>
+              
+              const btn = document.querySelector('.menu-btn');
+
+              function menus(){
+                document.querySelector('.main-menu').classList.toggle('show');
+                document.querySelector('.right-menu').classList.toggle('show');
+              }
+              
+              btn.addEventListener('click',menus);
+              
+              
+              
+              </script>  
+
 
               
 
@@ -105,3 +130,5 @@
 
 
 </html>
+
+
