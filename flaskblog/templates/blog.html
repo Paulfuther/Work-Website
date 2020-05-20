@@ -14,6 +14,7 @@
 
                           <ul class="media-body-topleft">
                             <img src="{{ url_for('static', filename='profile_pics/' + post.author.image_file)}}" class="blogimage">
+                            
                             <li> <a class="mr-2" href="{{ url_for('user_posts', username=post.author.username) }}">{{ post.author.username }}</a></li>
                           </ul>    
 

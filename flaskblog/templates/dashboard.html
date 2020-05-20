@@ -4,54 +4,42 @@
 
 <body>  
 
-    <div class="row">
-        <div class="col">
-          <div class= "dashboard-header">
-          <a >Chart Dashboard </a>
-          <br/>
-          </div>
-        </div>
+<div class="chartheading">
+ <div class="dashboardheading">Chart Dashboard</div>
+</div>
+
+    <div class="container-charts">
+ 
+                     
+                          <div class="chartcard">
+                                <div class="chartheading">Fuel Volume</div>
+                                  <canvas id="mycanvas" width="1" height="1"></canvas>
+                                  <script type="text/javascript" src="static/js/fuelvolume.js"></script>
+                          </div>
+                  
+                          <div class="chartcard">
+                                <div class="chartheading">C Store Sales</div>
+                                 <canvas id="storemargin" width="1" height="1" ></canvas>
+                                 <script type="text/javascript" src="static/js/cstoresales.js"></script>
+                          </div>
+                      
+                          <div class="chartcard">
+                              
+                                <div class="chartheading">C Store Margin Dollars</div>
+                                <canvas id="cstoremargin"  width="1" height="1"></canvas>
+                                <script type="text/javascript" src="static/js/cstoremargin.js"></script>
+                          </div>
+                    
+                       
+                          <div class="chartcard">
+                               
+                                 four
+                                 <canvas id="storemargin"  width="1" height="1" ></canvas>
+                                 <script type="text/javascript" src="static/js/cstoresales.js"></script>
+                          </div>
+                     
     </div>
-            <div class="row">  
-                  <div class="col-md-6 py-1">
-                    <div class="card w-100"> 
-                      <div class="card-body">
-                           
-                            <canvas id="mycanvas" width="75" height="75"></canvas>
-                            <script type="text/javascript" src="static/js/fuelvolume.js"></script>
-                      </div>
-                    </div>
-                  </div>
-                      <div class="col-md-6 py-1">
-                        <div class="card w-100">
-                          <div class="card-body">
-                                 
-                                 <canvas id="storemargin" width="75" height="75"></canvas>
-                                 <script type="text/javascript" src="static/js/cstoresales.js"></script>
-                          </div>
-                        </div> 
-                     </div>   
-             </div>
-            <div class="row">  
-                  <div class="col-md-6 py-1">
-                    <div class="card w-100"> 
-                      <div class="card-body">
-                            <h9 class="card-title">C-Store Sales</h9>
-                            <canvas id="mycanvas" width="75" height="75"></canvas>
-                            <script type="text/javascript" src="static/js/last.js"></script>
-                      </div>
-                    </div>
-                  </div>
-                      <div class="col-md-6 py-1">
-                        <div class="card w-100">
-                          <div class="card-body">
-                                 <h9 class="card-title">Carwash Sales</h9>
-                                 <canvas id="storemargin" width="75" height="75"></canvas>
-                                 <script type="text/javascript" src="static/js/cstoresales.js"></script>
-                          </div>
-                        </div> 
-                     </div>   
-             </div>
+
 </body>
 
 {% endblock content %}

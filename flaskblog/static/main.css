@@ -39,10 +39,67 @@ ul {
 }
 
 .container {
+  
   width: 95%;
   max-width: 1100px;
   margin: auto;
+  
 }
+
+
+/* Dashboard */
+
+/*.chartjs.hidden.iframe {
+  width: 100px;
+} */
+
+
+.container-charts {
+  display: grid;
+  justify-items: stretch;
+  align-items: stretch;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-rows: auto;
+  grid-row-gap: 1em;
+  margin-top: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+  
+
+}
+
+.chartheading {
+  display: grid;
+  text-align: center;
+}
+
+
+.dashboardheading {
+  font-size: 14px;
+  padding-bottom: 1em;
+}
+
+.chartcard {
+  
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 5px 5px lightgray;
+}
+
+.chartheading {
+  font-size: 14px;
+  padding-bottom: 1em;
+  
+ 
+}
+
+.container-charts >div {
+  padding: 1em;
+}
+
+
 
 /* Blog */
 
@@ -92,6 +149,7 @@ ul {
 .card .blogimage {
   width: 30px;
   border-radius: 50% ;
+  
 }
 
 

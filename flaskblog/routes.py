@@ -481,7 +481,7 @@ def data():
         extract("month", table.c.Date,
                 )])\
         .where(and_(table.c.Store == '48314',
-                table.c.Category == 'Total C-Store Margin ($)',
+                table.c.Category == 'Total C-Store Sales ($)',
                 table.c.Date >= "2019-01-01"))
 
         
@@ -491,12 +491,42 @@ def data():
     content = {}
     for result in rs:
        
-       content = {'date': result[1], 'margin': result[0]}
+       content = {'date': result[1], 'sales': result[0]}
        newdata.append(content)
        content = {}
        #print(newdata)
        
     return jsonify(newdata)
+
+
+@app.route("/cstoremargin")
+def thirddata():
+
+    metadata = MetaData(engine)
+    table = Table('growthkpi', metadata,  autoload=True)
+
+    s = select([table.c.Amount,
+                extract("month", table.c.Date,
+                        )])\
+        .where(and_(table.c.Store == '48314',
+                    table.c.Category == 'Total C-Store Margin ($)',
+                    table.c.Date >= "2019-01-01"))
+
+    rs3 = s.execute()
+
+    newdata3 = []
+    content3 = {}
+    for result in rs3:
+
+       content3 = {'date': result[1], 'margin': result[0]}
+       newdata3.append(content3)
+       content3 = {}
+       #print(newdata3)
+
+    return jsonify(newdata3)
+
+
+
 
 @app.route("/data")
 def seconddata():

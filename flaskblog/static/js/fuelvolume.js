@@ -22,6 +22,9 @@ $(document).ready(function(){
           type: 'bar',
           data: chartdata,
             options: {
+              legend: {
+                display: false
+              },
               scales: {
                 xAxes: [{
                   gridLines:{
@@ -37,8 +40,10 @@ $(document).ready(function(){
                         'quarter': 'MMM YY',
                         'year': 'MMM YY',
                         },
+                        
                       }
                 }],
+              
                 yAxes: [{
                     gridLines: {
                       display: false
@@ -48,8 +53,9 @@ $(document).ready(function(){
                     }
                   }]
                 }
-               }
-            })
+              }
+              
+      })
       },
     });
   });

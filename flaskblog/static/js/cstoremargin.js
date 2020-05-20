@@ -1,26 +1,26 @@
-$(document).ready(function () {
+$(document).ready(function(){
     $.ajax({
-      url: "http://127.0.0.1:5000/cstoresales",
+      url: "http://127.0.0.1:5000/cstoremargin",       
       method: "GET",
-      success: function (newdata) {
-      var datenew = [];
-      var marginnew = [];  
-        for (var i in newdata) {
-          datenew.push(newdata[i].date);
-          marginnew.push(newdata[i].sales);
-          }; 
+      success: function (newdata3) {
+      var datenew3 = [];
+      var volume3 = [];
+        for (var i in newdata3) {
+          datenew3.push(newdata3[i].date);
+          volume3.push(newdata3[i].margin);
+           };
       var chartdata = {
-        labels: datenew,
+        labels: datenew3,
         datasets: [{
-          label: 'C Store Sales',
-          data: marginnew,
+          label: 'Margin $',
+          data: volume3,
           backgroundColor: '#b3d9ff',
           }]
           };
-      var ctx = $("#storemargin");
+      var ctx = $("#cstoremargin");
       var barGraph = new Chart(ctx, {
           type: 'bar',
-          data: chartdata, 
+          data: chartdata,
             options: {
               legend: {
                 display: false
@@ -40,19 +40,22 @@ $(document).ready(function () {
                         'quarter': 'MMM YY',
                         'year': 'MMM YY',
                         },
+                        
+                      }
+                }],
+              
+                yAxes: [{
+                    gridLines: {
+                      display: false
+                    },
+                    ticks:{
+                      beginAtZero: true
+                    }
+                  }]
                 }
-             }],
-             yAxes:[{
-               gridLines:{
-                 display:false
-               },
-               ticks: {
-                 beginAtZero: true
-               }
-             }]
-             }
-           }
+              }
+              
       })
-    },
+      },
+    });
   });
-});
