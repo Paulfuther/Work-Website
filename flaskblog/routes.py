@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, request, send_file, url_for, redirect, flash, abort
 from flaskblog import app, db, Bcrypt
-from flaskblog.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm
+from flaskblog.forms import EmployeeForm, LoginForm, PostForm, RegistrationForm, UpdateAccountForm
 from flaskblog.models import User, Post
 from io import BytesIO
 import os
@@ -32,6 +32,13 @@ engine = create_engine('mysql://root:root@localhost/work')
 def home():
     
     return render_template('home.html')
+
+
+@app.route("/hr", methods=['GET', 'POST'])
+def hr():
+    form = EmployeeForm()
+    return render_template('employee.html', form=form)
+
 
 
 @app.route("/blog")

@@ -29,3 +29,18 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
+
+class Employee(db.Model):
+    id=db.Column(db.Integer, primary_key=True)
+    firstname = db.Column(db.String(20), unique=True, nullable=False)
+    nickname = db.Column(db.String(20), unique = False, nullable=True)
+    Lastname = db.Column(db.String(20), unique = True, nullable=False)
+    email=db.Column(db.String(120), unique=True, nullable=False)
+    SIN = db.Column(db.Integer, unique=True, nullable=False)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    Startdate = db.Column(db.DateTime())
+    Enddate = db.Column(db.DateTime())
+   
+    
+    
