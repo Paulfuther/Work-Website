@@ -61,10 +61,10 @@ class PostForm(FlaskForm):
     
     
 class EmployeeForm(FlaskForm):
-    firstname = StringField('firstname') ##, validators= [DataRequired(), Length(min=2, max=20)])
-    nickname = StringField('nickname')#, vlaidators= [Optional(), Length(max=20)])
-    lastname = StringField('lastname')#, validators = [DataRequired(), Length(min=2, max=20) ])
-    email = StringField('email')#, validators = [DataRequired(), Email()])
+    firstname = StringField('Firstname') ##, validators= [DataRequired(), Length(min=2, max=20)])
+    nickname = StringField('Nickname')#, vlaidators= [Optional(), Length(max=20)])
+    lastname = StringField('Lastname')#, validators = [DataRequired(), Length(min=2, max=20) ])
+    email = StringField('Email')#, validators = [DataRequired(), Email()])
     mobilephone = StringField('mobile')#, vlidators = [DataRequired(), Length(min=9, max= 12)])
     sin = StringField('sin')# , validators = [DataRequired(), Length(min=9, max=9)])
     startdate = FormField(DateField)                        
