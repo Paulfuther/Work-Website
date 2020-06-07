@@ -39,6 +39,17 @@ def hr():
     form = EmployeeForm()
     return render_template('employee.html', form=form)
 
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(
+            form.password.data).decode('utf-8')
+        user = User(username=form.username.data,
+                    email=form.email.data, password=hashed_password)
+        db.session.add(user)
+        db.session.commit()
+        flash('Employee has been added to the database', 'success')
+        return redirect(url_for('hr'))
+    return render_template('employee.html', title='HR', form=form)
+
 
 
 @app.route("/blog")
