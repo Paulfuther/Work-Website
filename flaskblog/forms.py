@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField, FormField, DateField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField, FormField, DateField, SelectField
 from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, Optional
 from flaskblog.models import User
@@ -65,7 +65,11 @@ class EmployeeForm(FlaskForm):
     firstname = StringField('Firstname') ##, validators= [DataRequired(), Length(min=2, max=20)])
     nickname = StringField('Nickname')#, vlaidators= [Optional(), Length(max=20)])
     lastname = StringField('Lastname')#, validators = [DataRequired(), Length(min=2, max=20) ])
-    store = StringField('Store')
+    store = SelectField('Store' , choices = [('Home Store', 'Home Store'),("396", "396"),('398','398'),
+                                             ('402','402'),('414','414'),('1616','1616'),('8156','8156'),
+                                             ('8435','8435'),('33410','33410'),
+                                             ('33485','33485'),('48314', '48314'),
+                                             ('65077','65077'),('65231','65231')])
     addressone = StringField('Address Line 1')
     addresstwo = StringField('Address Line 2')
     apt = StringField('Unit/Apt')
