@@ -18,6 +18,8 @@ body {
   height: 100vh;
   background: url('./profile_pics/IMG_0229.JPG')
   no-repeat center center/cover;
+  opacity: 0.3;
+  
 }
 
 
