@@ -26,11 +26,12 @@
   <body>
 
     <div class="menu-btn">
-        
         <i class="fas fa-bars fa-1x"></i>
-        
-        
     </div>   
+
+    <div class="app-btn">
+      <i class="fas fa-bars fa-1x"></i>
+    </div>
 
       
       
@@ -74,7 +75,7 @@
               </nav>
     </div>  
 
-             <main role="main" class="container">
+            <main role="main" class="container">
                 <div class="row">
                   <div class="col-md-12">
                 
@@ -93,7 +94,7 @@
                 </div>
 
                 
-              </main>
+              </main> 
 
 
 
@@ -123,6 +124,20 @@
               
               </script>  
 
+              <script>  
+              
+              const app = document.querySelector('.app-btn');
+
+              function menus(){
+                document.querySelector('.app-menu').classList.toggle('show');
+               
+              }
+              
+              app.addEventListener('click',menus);
+              
+              
+              
+              </script>  
 
               
 
