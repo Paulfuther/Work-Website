@@ -146,12 +146,9 @@ ul {
 
 }
 
-.button {
-  align-items: center;
-  margin-left: 20px;
-}
 
-button {
+
+.hrbutton {
   align-items: center;
   border-radius: 20px;
   border: none;
@@ -162,13 +159,33 @@ button {
   
 }
 
-button:active {
-  transform: scale(0.95);
+.hrbutton:active {
+  transform: scale(0.75);
 }
 
-button:focus {
-  outline: none;
+.hrbutton:focus {
+  outline: black;
 }
+
+.hrbutton:hover {
+  background: darkolivegreen;
+  color: #ffffff;
+}
+
+a.hrbutton {
+  align-items: center;
+  border-radius: 20px;
+  border: none;
+  background: #eee;
+  font-size: 12px;
+  padding: 10px 10px;
+  margin-top: 20px;
+
+}
+
+
+
+
 
 /* Dashboard */
 

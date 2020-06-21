@@ -37,17 +37,33 @@ def home():
 @app.route("/hr", methods=['GET', 'POST'])
 def hr():
     form = EmployeeForm()
-    return render_template('employee.html', form=form)
-
+        
     if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(
-            form.password.data).decode('utf-8')
-        user = User(username=form.username.data,
-                    email=form.email.data, password=hashed_password)
-        db.session.add(user)
+        print("hello")   
+        emp = Employee(firstname=form.firstname.data,
+                            nickname=form.nickname.data,
+                            lastname=form.lastname.data,
+                            store=form.store.data,
+                            addressone=form.addressone.data,
+                            addresstwo=form.addresstow.data,
+                            apt=form.apt.data,
+                            city=form.city.data,
+                            province=form.province.data,
+                            country=form.country.data,
+                            email=form.email.data,
+                            mobilephone=form.mobilephone.data,
+                            sin=form.sin.data,
+                            startdate=form.startdate.data,
+                            enddate=form.enddate.data,)
+        db.session.add(emp)
         db.session.commit()
         flash('Employee has been added to the database', 'success')
+        
+        print("firstname")
+        
         return redirect(url_for('hr'))
+    
+    print("did not work")
     return render_template('employee.html', title='HR', form=form)
 
 
