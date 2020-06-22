@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify, request, send_file, url_for, redirect, flash, abort
 from flaskblog import app, db, Bcrypt
 from flaskblog.forms import EmployeeForm, LoginForm, PostForm, RegistrationForm, UpdateAccountForm
-from flaskblog.models import User, Post
+from flaskblog.models import User, Post, Employee
 from io import BytesIO
 import os
 from werkzeug.utils import secure_filename
@@ -38,30 +38,30 @@ def home():
 def hr():
     form = EmployeeForm()
         
-    if form.validate_on_submit():
-        print("hello")   
-        emp = Employee(firstname=form.firstname.data,
+    #if form.validate_on_submit():
+    print("hello")   
+    emp = Employee(firstname=form.firstname.data,
                             nickname=form.nickname.data,
-                            lastname=form.lastname.data,
+                            Lastname=form.Lastname.data,
                             store=form.store.data,
                             addressone=form.addressone.data,
-                            addresstwo=form.addresstow.data,
+                            addresstwo=form.addresstwo.data,
                             apt=form.apt.data,
                             city=form.city.data,
                             province=form.province.data,
                             country=form.country.data,
                             email=form.email.data,
                             mobilephone=form.mobilephone.data,
-                            sin=form.sin.data,
-                            startdate=form.startdate.data,
-                            enddate=form.enddate.data,)
-        db.session.add(emp)
-        db.session.commit()
-        flash('Employee has been added to the database', 'success')
+                            SIN=form.SIN.data,
+                            Startdate=form.startdate.data,
+                            Enddate=form.enddate.data,)
+    db.session.add(emp)
+    db.session.commit()
+    flash('Employee has been added to the database', 'success')
         
-        print("firstname")
+    print(emp.firstname, emp.Lastname, emp.SIN)
         
-        return redirect(url_for('hr'))
+    #return redirect(url_for('hr'))
     
     print("did not work")
     return render_template('employee.html', title='HR', form=form)

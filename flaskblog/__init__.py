@@ -55,11 +55,11 @@ login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 
 
-engine = create_engine('mysql://root:root@localhost/work')
+#engine = create_engine('mysql://root:root@localhost/work')
 #meta=MetaData(engine).reflect()
-metadata = MetaData(engine)
-db2 = engine
-print(engine.table_names())
+#metadata = MetaData(engine)
+#db2 = engine
+#print(engine.table_names())
 
      
   

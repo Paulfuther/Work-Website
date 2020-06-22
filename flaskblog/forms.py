@@ -64,7 +64,7 @@ class PostForm(FlaskForm):
 class EmployeeForm(FlaskForm):
     firstname = StringField('Firstname', validators= [DataRequired(), Length(min=2, max=20)])
     nickname = StringField('Nickname', validators= [Optional(), Length(max=20)])
-    lastname = StringField('Lastname', validators = [DataRequired(), Length(min=2, max=20) ])
+    Lastname = StringField('Lastname', validators = [DataRequired(), Length(min=2, max=20) ])
     store = SelectField('Store' , choices = [('Home Store', 'Home Store'),("396", "396"),('398','398'),
                                              ('402','402'),('414','414'),('1616','1616'),('8156','8156'),
                                              ('8435','8435'),('33410','33410'),
@@ -78,7 +78,7 @@ class EmployeeForm(FlaskForm):
     country = StringField('Country')
     email = StringField('Email', validators = [DataRequired(), Email()])
     mobilephone = StringField('mobile', validators = [DataRequired(), Length(min=9, max= 12)])
-    sin = StringField('sin' , validators = [DataRequired(), Length(min=9, max=9)])
+    SIN = StringField('sin' , validators = [DataRequired(), Length(min=9, max=9)])
     startdate = DateField('Start Date', format = '%y-%m-%d')                       
     enddate = DateField('End Date', format='%y-%m-%d')
     submit = SubmitField('Add Employee')
