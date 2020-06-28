@@ -3,7 +3,7 @@ from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField, FormField, DateField, SelectField
 from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, Optional
-from flaskblog.models import User
+from flaskblog.models import User, Employee
 from flask_login import current_user
 
 
@@ -63,29 +63,42 @@ class PostForm(FlaskForm):
     
 class EmployeeForm(FlaskForm):
     firstname = StringField('Firstname', validators= [DataRequired(), Length(min=2, max=20)])
-    nickname = StringField('Nickname', validators= [Optional(), Length(max=20)])
-    Lastname = StringField('Lastname', validators = [DataRequired(), Length(min=2, max=20) ])
+    nickname = StringField('Nickname', validators= [Optional()])
+    lastname = StringField('Lastname', validators = [DataRequired(), Length(min=2, max=20) ])
     store = SelectField('Store' , choices = [('Home Store', 'Home Store'),("396", "396"),('398','398'),
                                              ('402','402'),('414','414'),('1616','1616'),('8156','8156'),
                                              ('8435','8435'),('33410','33410'),
                                              ('33485','33485'),('48314', '48314'),
                                              ('65077','65077'),('65231','65231')])
-    addressone = StringField('Address Line 1')
-    addresstwo = StringField('Address Line 2')
-    apt = StringField('Unit/Apt')
-    city = StringField('City')
-    province = StringField('Province')
-    country = StringField('Country')
-    email = StringField('Email', validators = [DataRequired(), Email()])
+    addressone = StringField('Address Line 1' ,validators=[DataRequired(), Length(min=2, max=100)])
+    addresstwo = StringField('Address Line 2' ,validators=[DataRequired(), Length(min=2, max=100)])
+    apt = StringField('Unit/Apt', validators = [Optional()])
+    city = StringField('City' ,validators=[DataRequired(), Length(min=2, max=20)])
+    province = StringField('Province' ,validators=[DataRequired(), Length(min=2, max=20)])
+    country = StringField('Country' ,validators=[DataRequired(), Length(min=2, max=20)])
+    email = StringField('Email', validators = [DataRequired(), Length(min=10, max=100), Email()])
     mobilephone = StringField('mobile', validators = [DataRequired(), Length(min=9, max= 12)])
     SIN = StringField('sin' , validators = [DataRequired(), Length(min=9, max=9)])
-    startdate = DateField('Start Date', format = '%y-%m-%d')                       
-    enddate = DateField('End Date', format='%y-%m-%d')
+    Startdate = DateField('Start Date', format = '%Y-%m-%d', validators=[Optional()])                       
+    Enddate = DateField('End Date', format='%m/%d/%Y', validators = [Optional()])
     submit = SubmitField('Add Employee')
     
     
     
+    def validate_mobilephone(self, mobilephone):
+        user = Employee.query.filter_by(mobilephone=mobilephone.data).first()
+        if user:
+            raise ValidationError(
+                'That mobile is Taken. Please choose a different one')
     
-    
-    
+    def validate_email(self, email):
+        emp = Employee.query.filter_by(email=email.data).first()
+        if emp:
+            raise ValidationError('That email is Taken. Please choose a different one brto')
 
+    
+        
+    def validate_SIN(self, SIN):
+        user = Employee.query.filter_by(SIN=SIN.data).first()
+        if user:
+            raise ValidationError('That SIN is Taken. Please choose a different one')  

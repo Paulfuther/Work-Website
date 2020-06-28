@@ -36,33 +36,35 @@ def home():
 
 @app.route("/hr", methods=['GET', 'POST'])
 def hr():
-    form = EmployeeForm()
-        
-    #if form.validate_on_submit():
-    print("hello")   
-    emp = Employee(firstname=form.firstname.data,
-                            nickname=form.nickname.data,
-                            Lastname=form.Lastname.data,
-                            store=form.store.data,
-                            addressone=form.addressone.data,
-                            addresstwo=form.addresstwo.data,
-                            apt=form.apt.data,
-                            city=form.city.data,
-                            province=form.province.data,
-                            country=form.country.data,
-                            email=form.email.data,
-                            mobilephone=form.mobilephone.data,
-                            SIN=form.SIN.data,
-                            Startdate=form.startdate.data,
-                            Enddate=form.enddate.data,)
-    db.session.add(emp)
-    db.session.commit()
-    flash('Employee has been added to the database', 'success')
-        
-    print(emp.firstname, emp.Lastname, emp.SIN)
-        
-    #return redirect(url_for('hr'))
     
+    form = EmployeeForm()    
+    if form.validate_on_submit():
+        
+        emp = Employee(firstname=form.firstname.data,
+                                    nickname=form.nickname.data,
+                                    store=form.store.data,
+                                    addressone=form.addressone.data,
+                                    addresstwo=form.addresstwo.data,
+                                    apt=form.apt.data,
+                                    city=form.city.data,
+                                    province=form.province.data,
+                                    country=form.country.data,
+                                    email=form.email.data,
+                                    mobilephone=form.mobilephone.data,
+                                    SIN=form.SIN.data,
+                                    Startdate=form.Startdate.data,
+                                    Enddate=form.Enddate.data,
+                                    lastname = form.lastname.data)
+                                    
+        db.session.add(emp)
+        db.session.commit()
+            
+        flash('Employee has been added to the database', 'success')
+                
+        #print(emp.firstname)#, emp.lastname, emp.SIN)
+        
+        return render_template('employee.html', title='HR', form=form)#redirect(url_for('hr'))
+    print(form.errors.items())
     print("did not work")
     return render_template('employee.html', title='HR', form=form)
 

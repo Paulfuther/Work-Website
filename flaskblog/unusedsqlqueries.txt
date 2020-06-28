@@ -71,3 +71,20 @@ cur2 = mysql.connection.cursor()
       
   });
 //});
+
+
+ <!-- 
+
+                {% if form.mobilephone.errors %}
+                    <ul class="errors">
+                        {% for error in form.mobilephone.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+         -->
+
+
+
+
+         
