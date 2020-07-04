@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+
+{% block content%}
+
+
+    <div class="hr-container">    
+        <!--<div method = "GET" action  = "" class = "hrlist" > -->
+
+                <div>
+                <a class = "hrbutton" <a href="{{ url_for('hrlist')}}">List of Employees</a>
+                </div>
+                <div>
+                <a class = "hrbutton" <a href="{{ url_for('hrhome')}}">HR Main Page</a>
+                </div>
+                 <div>
+                
+                <select id="storelist" name = "storelist" calss = "hrbutton">
+                <option value="396">396</option>
+
+
+                </div> 
+        
+        <!-- </div> -->
+    </div>    
+            <div class = "tableheader">
+
+                    <!-- <div class = "tableheader"> -->
+                    <div> Store</div>
+                    <div> Frist Name</div>
+                    <div> Last Name</div>
+                    <div> Mobile Phone</div>
+                    <!-- </div> -->
+            </div>
+                           
+
+                        {% for staff in gsa %}
+
+                        <div class = "tablecard">
+
+                        <div class = "row"> {{staff.store}}</div>   
+                        <div class = "row"> {{staff.firstname}}</div>
+                        <div class = "row"> {{staff.lastname}}</div> 
+                        <div class = "row"> {{staff.mobilephone}}</div> 
+                        
+                        </div>
+
+                        {% endfor %}
+
+{% endblock content %}

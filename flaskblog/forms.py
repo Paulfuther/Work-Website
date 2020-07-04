@@ -89,16 +89,16 @@ class EmployeeForm(FlaskForm):
         user = Employee.query.filter_by(mobilephone=mobilephone.data).first()
         if user:
             raise ValidationError(
-                'That mobile is Taken. Please choose a different one')
+                'That mobile is Taken')
     
     def validate_email(self, email):
         emp = Employee.query.filter_by(email=email.data).first()
         if emp:
-            raise ValidationError('That email is Taken. Please choose a different one brto')
+            raise ValidationError('That email is Taken')
 
     
         
     def validate_SIN(self, SIN):
         user = Employee.query.filter_by(SIN=SIN.data).first()
         if user:
-            raise ValidationError('That SIN is Taken. Please choose a different one')  
+            raise ValidationError('That SIN is Taken')  

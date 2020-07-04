@@ -96,7 +96,67 @@ ul {
   padding: 0px 30px 0px 30px;
 }
 
+/* Hr List Table */
 
+.tableheader {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-right: 20px;
+  margin-left: 20px;
+  height: 100%;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  
+}
+
+.tableheader >div {
+  border-bottom: solid;
+  padding-bottom: 5px;
+}
+
+.tablegrid > span {
+  padding: 8px 8px;
+  border-top: 1px solid black;
+}
+
+.tablecard {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  margin: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-right: 20px;
+  margin-left: 20px;
+  height: 100%;
+  border-radius: 15px;
+  margin-bottom: 5px;
+}
+
+.tablecard:nth-child(odd) {
+  background: #eee;
+}
+
+
+.hr-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  margin-right: 20px;
+  margin-left: 20px;
+  height: 100%;
+  box-shadow: 5px 5px lightgray;
+  border-radius: 15px;
+  margin-bottom: 50px;
+}
 
 /* Hr Form */
 
@@ -120,19 +180,23 @@ ul {
   margin: auto;
   justify-content: center;
   align-items: center;
-  padding: 5px 5px 0 5px;
+  padding: 15px 15px 15px 15px;
 }
 
-.form-hrinfo  div {
+/*.form-hrinfo  div {
   align-items: center;
-  padding-top: 5px;
-}
+  padding-top: 5px 5px 5px 5px;
+}*/
 
 .form {
   background: #eee;
+  color: grey;
+  margin-left: 10px;
+  margin-bottom: 10px;
   border: none;
-  width: 100%;
-  padding: 12px 15px;
+  width: 95%;
+  padding: 15px 15px 15px 15px;
+  border-radius: 8px;
 
 }
 
@@ -142,11 +206,29 @@ ul {
   text-emphasis: none;
   text-emphasis-color: grey;
   width: 100%;
-  padding: 12px 15px;
+  padding: 5px 5px 5px 5px;
 
 }
 
+.input-container [data-error] {
+  border-color: red;
+  color: red;
+  background: light red;
 
+
+
+}
+
+.formerror {
+  height: 10px;
+  font-size: 8px;
+  text-align: center;
+  color: red;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+
+  
+}
 
 .hrbutton {
   align-items: center;
@@ -469,7 +551,7 @@ a.hrbutton {
   .main-nav ul.right-menu{
     display: block;
     position: absolute;
-    top:200px;
+    top:250px;
     left:0;
     background: #f2f2f2;
     width: 50%;
@@ -550,6 +632,54 @@ a.hrbutton {
     align-items: center;
     padding: 0 5px 0 5px;
   }
+
+  .hrlist {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin: auto;
+    justify-content: center;
+  }
+
+  .hr-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    padding-top: 30px;
+    padding-bottom: 5px;
+    
+    height: 100%;
+    box-shadow: 5px 5px lightgray;
+    border-radius: 15px;
+   
+    margin: 10px 10px 10px 10px;
+  }
+
+  .hr-container >div {
+    padding-bottom: 30px;
+  }
+
+  .tableheader {
+    display: none;
+    
+  }
+
+  .tablecard {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-right: 20px;
+    margin-left: 20px;
+    height: 100%;
+    box-shadow: 5px 5px lightgray;
+    border-radius: 15px;
+    margin-bottom: 5px;
+  }
+
+
 
 
 }

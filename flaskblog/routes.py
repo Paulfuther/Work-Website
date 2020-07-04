@@ -34,6 +34,23 @@ def home():
     return render_template('home.html')
 
 
+@app.route("/hrhome")
+def hrhome(): 
+    return render_template('hrhome.html')
+
+#@app.route("hrreport")
+#def hrreport():
+ #   gsa = Employee.query.all()
+  #  return render_template('hrreport.html')
+
+@app.route("/hrlist", methods =['GET', 'POST'])
+def hrlist():
+    gsa = Employee.query.filter(store=storelist)
+    #gsa = Employee.query.all()
+    for staff in gsa:
+        print(staff.firstname)
+    return render_template('hrlist.html', gsa=Employee.query.all())
+
 @app.route("/hr", methods=['GET', 'POST'])
 def hr():
     
@@ -61,12 +78,11 @@ def hr():
             
         flash('Employee has been added to the database', 'success')
                 
-        #print(emp.firstname)#, emp.lastname, emp.SIN)
-        
-        return render_template('employee.html', title='HR', form=form)#redirect(url_for('hr'))
+        return redirect(url_for('hr'))
+    
     print(form.errors.items())
-    print("did not work")
-    return render_template('employee.html', title='HR', form=form)
+    #print("did not work")
+    return render_template('employee.html', title='Employee Information', form=form)
 
 
 
