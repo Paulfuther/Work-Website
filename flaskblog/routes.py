@@ -45,11 +45,29 @@ def hrhome():
 
 @app.route("/hrlist", methods =['GET', 'POST'])
 def hrlist():
-    gsa = Employee.query.filter(store=storelist)
+    #gsa = Employee.query.filter(store=storelist)
     #gsa = Employee.query.all()
+    #for staff in gsa:
+    #    print(staff.firstname)
+    return render_template('hrlist.html')
+
+
+@app.route("/search", methods=['GET', 'POST'])
+def search():
+    form=request.form  
+    search_value=form['search_string']
+    if search_value == "all":
+        gsa = Employee.query.all()
+        return render_template('hrlist.html', gsa=gsa) 
+      
+    gsa = Employee.query.filter_by(store=search_value).all()
+        #gsa = Employee.query.all()
     for staff in gsa:
         print(staff.firstname)
-    return render_template('hrlist.html', gsa=Employee.query.all())
+    return render_template('hrlist.html', gsa=gsa)
+
+
+
 
 @app.route("/hr", methods=['GET', 'POST'])
 def hr():

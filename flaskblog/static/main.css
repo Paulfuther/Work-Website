@@ -119,6 +119,46 @@ ul {
   padding-bottom: 5px;
 }
 
+.hrbutton2 {
+  align-items: center;
+  border-radius: 20px;
+  border: none;
+  background: #eee;
+  font-size: 12px;
+  padding: 10px 10px;
+  margin-top: 20px;
+
+}
+
+.hrbutton2:active {
+  transform: scale(0.75);
+}
+
+.hrbutton2:focus {
+  outline: black;
+}
+
+.hrbutton2:hover {
+  background: darkolivegreen;
+  color: #ffffff;
+}
+
+.hrbutton3 {
+  align-items: center;
+  border-radius: 20px;
+  border: none;
+  background: #eee;
+  font-size: 12px;
+  padding:  10px 10px 10px 10px;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.hrbutton3:active {
+  border: none;
+  outline-color: white;
+}
+
 .tablegrid > span {
   padding: 8px 8px;
   border-top: 1px solid black;
@@ -148,6 +188,7 @@ ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
+  align-items: center;
   padding-top: 30px;
   padding-bottom: 50px;
   margin-right: 20px;
