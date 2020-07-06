@@ -1,14 +1,12 @@
 {% extends "layout.html" %}
-
-
-{% block content%}
-
+{% block content %}
+  
 <div   class="form-container">
-    <form method = "POST" action  = "" class = "form-hrinfo">
+    <form method = "POST" action  = "/addupdatedgsa" class = "form-hrinfo">
     
         {{form.hidden_tag()}}
 
-        <div> {{form.firstname(class = "form", placeholder="First Name")}}  </div> 
+        <div> {{form.firstname(class = "form")}}  </div> 
         <div> {{form.nickname(class = "form", placeholder="Nick Name")}}</div>   
         <div> {{form.lastname(class = "form" ,placeholder="Last Name")}} </div>
         <div> {{form.store(class = "form", placeholder="Home Store")}} 
@@ -56,11 +54,16 @@
 
             <div>
             {{form.submit(class_="hrbutton")}}
-            <a class = "hrbutton" <a href="{{ url_for('home')}}">Edit an Employee</a>
             </div>
+            <!-- <div>
+            {{form.submit(class_="hrbutton")}}
+            </div>
+             <div>
+            <a class = "hrbutton" <a href="{{ url_for('home')}}">Edit an Employee</a>
+            </div> -->
     
     </form>
 </div>
-      
-{% endblock content %}
 
+
+{% endblock content %}

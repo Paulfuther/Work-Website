@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField, FormField, DateField, SelectField
-from wtforms.fields.html5 import DateField
-from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, Optional
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField, FormField, DateField, SelectField, IntegerField
+from wtforms.fields.html5 import DateField, TelField
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, Optional, InputRequired
 from flaskblog.models import User, Employee
 from flask_login import current_user
 
@@ -60,12 +60,17 @@ class PostForm(FlaskForm):
     content = TextAreaField('Content', validators=[DataRequired()])
     submit = SubmitField('Post')
     
+class TelephoneForm(FlaskForm):
+    area_code = IntegerField('Area Code', validators=[DataRequired()])
+    number = IntegerField('Number', validators=[DataRequired(), Length(min=7, max=7)] )
+
+
     
 class EmployeeForm(FlaskForm):
     firstname = StringField('Firstname', validators= [DataRequired(), Length(min=2, max=20)])
     nickname = StringField('Nickname', validators= [Optional()])
     lastname = StringField('Lastname', validators = [DataRequired(), Length(min=2, max=20) ])
-    store = SelectField('Store' , choices = [('Home Store', 'Home Store'),("396", "396"),('398','398'),
+    store = SelectField('Store' ,choices = [('Home Store', 'HomeStore'),("396", "396"),('398','398'),
                                              ('402','402'),('414','414'),('1616','1616'),('8156','8156'),
                                              ('8435','8435'),('33410','33410'),
                                              ('33485','33485'),('48314', '48314'),
@@ -77,11 +82,13 @@ class EmployeeForm(FlaskForm):
     province = StringField('Province' ,validators=[DataRequired(), Length(min=2, max=20)])
     country = StringField('Country' ,validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators = [DataRequired(), Length(min=10, max=100), Email()])
+    #mobilephone = TelField(validators=[DataRequired(), Length(min=10, max=10)])
     mobilephone = StringField('mobile', validators = [DataRequired(), Length(min=9, max= 12)])
     SIN = StringField('sin' , validators = [DataRequired(), Length(min=9, max=9)])
     Startdate = DateField('Start Date', format = '%Y-%m-%d', validators=[Optional()])                       
     Enddate = DateField('End Date', format='%m/%d/%Y', validators = [Optional()])
     submit = SubmitField('Add Employee')
+    submit = SubmitField('Edit Employee')
     
     
     
@@ -102,3 +109,10 @@ class EmployeeForm(FlaskForm):
         user = Employee.query.filter_by(SIN=SIN.data).first()
         if user:
             raise ValidationError('That SIN is Taken')  
+
+            
+    def validate_store(self, store):
+        
+        if store.data == "Home Store":
+            print("homestore")
+            raise ValidationError('Please Enter a Store')       

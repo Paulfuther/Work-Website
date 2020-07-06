@@ -30,7 +30,6 @@ engine = create_engine('mysql://root:root@localhost/work')
 @app.route("/")
 @app.route("/home")
 def home():
-    
     return render_template('home.html')
 
 
@@ -38,17 +37,9 @@ def home():
 def hrhome(): 
     return render_template('hrhome.html')
 
-#@app.route("hrreport")
-#def hrreport():
- #   gsa = Employee.query.all()
-  #  return render_template('hrreport.html')
 
 @app.route("/hrlist", methods =['GET', 'POST'])
 def hrlist():
-    #gsa = Employee.query.filter(store=storelist)
-    #gsa = Employee.query.all()
-    #for staff in gsa:
-    #    print(staff.firstname)
     return render_template('hrlist.html')
 
 
@@ -57,17 +48,64 @@ def search():
     form=request.form  
     search_value=form['search_string']
     if search_value == "all":
-        gsa = Employee.query.all()
+        gsa = Employee.query.order_by(Employee.store).all()
+        
+        for staff in gsa:
+            print(staff.id)
         return render_template('hrlist.html', gsa=gsa) 
       
-    gsa = Employee.query.filter_by(store=search_value).all()
-        #gsa = Employee.query.all()
+    gsa1 = Employee.query.filter_by(store=search_value)
+    gsa = gsa1.order_by(Employee.store).all()
+        
     for staff in gsa:
         print(staff.firstname)
-    return render_template('hrlist.html', gsa=gsa)
+    return render_template('hrlist.html', gsa=form)
 
+@app.route("/updategsa/<int:staff_id>", methods=['GET', 'POST'])
+def updategsa(staff_id):
+    
+    form=EmployeeForm()
+    #search_value = form['search_string']
+    gsa = Employee.query.get(staff_id)
+    #gsa = Employee.query.filter_by(id=search_value)
+    #print(staff_id)
+    print(gsa.firstname, gsa.lastname)
+    form = EmployeeForm(obj=gsa)
+    form.populate_obj(gsa)
+    return render_template('employeeupdate.html',form=form)#, form = form, gsa=gsa)
 
+@app.route("/addupdatedgsa", methods = ['GET', 'POST'])
+def addupdatedgsa():
+    
+    form= EmployeeForm()
+    print("post")
+    print(form.store.data)
+    print(form.id.data)
+    #if form.validate_on_submit():
+    emp = Employee(firstname=form.firstname.data,
+                           nickname=form.nickname.data,
+                           store=form.store.data,
+                           addressone=form.addressone.data,
+                           addresstwo=form.addresstwo.data,
+                           apt=form.apt.data,
+                           city=form.city.data,
+                           province=form.province.data,
+                           country=form.country.data,
+                           email=form.email.data,
+                           mobilephone=form.mobilephone.data,
+                           SIN=form.SIN.data,
+                           Startdate=form.Startdate.data,
+                           Enddate=form.Enddate.data,
+                           lastname=form.lastname.data)
 
+    db.session.add(emp)
+    db.session.commit()
+
+    flash('Employee has been update', 'success')
+
+    return redirect(url_for('hr'))
+    
+    return render_template('employeeupdate.html', form=form)
 
 @app.route("/hr", methods=['GET', 'POST'])
 def hr():
