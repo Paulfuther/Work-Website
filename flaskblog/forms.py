@@ -88,7 +88,7 @@ class EmployeeForm(FlaskForm):
     Startdate = DateField('Start Date', format = '%Y-%m-%d', validators=[Optional()])                       
     Enddate = DateField('End Date', format='%m/%d/%Y', validators = [Optional()])
     submit = SubmitField('Add Employee')
-    submit = SubmitField('Edit Employee')
+    
     
     
     
@@ -112,7 +112,51 @@ class EmployeeForm(FlaskForm):
 
             
     def validate_store(self, store):
+        if store.data == "Home Store":
+            raise ValidationError('Please Enter a Store') 
         
+    #def validate_lastname(self, lastname):
+     #  if len(lastname.data) <3:
+      #      raise ValidationError('Must be 2 to 20 characters') 
+        
+        
+class EmployeeUpdateForm(FlaskForm):
+    
+    firstname = StringField('Firstname', validators=[
+                            DataRequired(), Length(min=2, max=20)])
+    nickname = StringField('Nickname', validators=[Optional()])
+    lastname = StringField('Lastname', validators=[
+                           DataRequired(), Length(min=2, max=20)])
+    store = SelectField('Store', choices=[('Home Store', 'HomeStore'), ("396", "396"), ('398', '398'),
+                                          ('402', '402'), ('414', '414'), ('1616',
+                                                                           '1616'), ('8156', '8156'),
+                                          ('8435', '8435'), ('33410', '33410'),
+                                          ('33485', '33485'), ('48314', '48314'),
+                                          ('65077', '65077'), ('65231', '65231')])
+    addressone = StringField('Address Line 1', validators=[
+                             DataRequired(), Length(min=2, max=100)])
+    addresstwo = StringField('Address Line 2', validators=[
+                             DataRequired(), Length(min=2, max=100)])
+    apt = StringField('Unit/Apt', validators=[Optional()])
+    city = StringField('City', validators=[
+                       DataRequired(), Length(min=2, max=20)])
+    province = StringField('Province', validators=[
+                           DataRequired(), Length(min=2, max=20)])
+    country = StringField('Country', validators=[
+                          DataRequired(), Length(min=2, max=20)])
+    email = StringField('Email', validators=[
+                        DataRequired(), Length(min=10, max=100), Email()])
+    mobilephone = StringField('mobile', validators=[
+                              DataRequired(), Length(min=9, max=12)])
+    SIN = StringField('sin', validators=[DataRequired(), Length(min=9, max=9)])
+    Startdate = DateField('Start Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+    Enddate = DateField('End Date', format='%m/%d/%Y', validators=[Optional()])
+    submit = SubmitField('Delete Employee')
+    submit = SubmitField('Edit Employee')
+
+    def validate_store(self, store):
+
         if store.data == "Home Store":
             print("homestore")
-            raise ValidationError('Please Enter a Store')       
+            raise ValidationError('Please Enter a Store')

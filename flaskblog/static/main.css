@@ -22,7 +22,27 @@ body {
   
 }
 
+/* .messagescontainer {
+  display: grid;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  margin-right: 20px;
+  margin-left: 20px;
+  height: 100%;
+  box-shadow: 5px 5px lightgray;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+}  */
 
+.alerts {
+  width: 50%;
+  height: 50%;
+  margin:0 auto;
+  text-align: center;
+  font-size: 12px;
+  color : red;
+}
 
 .menu-btn {
   cursor: pointer;
@@ -100,7 +120,7 @@ ul {
 
 .tableheader {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   margin: auto;
   padding-top: 30px;
   padding-bottom: 5px;
@@ -167,7 +187,7 @@ ul {
 
 .tablecard {
   display: grid;
-  grid-template-columns: repeat(5,1fr);
+  grid-template-columns: repeat(6, 1fr );
   margin: auto;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -178,7 +198,9 @@ ul {
   height: 100%;
   border-radius: 15px;
   margin-bottom: 5px;
+  justify-items: start;
 }
+
 
 .tablecard:nth-child(odd) {
   background: #eee;

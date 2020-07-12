@@ -36,8 +36,10 @@
                         <!-- <div class = "tableheader"> -->
                         <div> Store</div>
                         <div> Frist Name</div>
+                        <div> Nickname</div>
                         <div> Last Name</div>
                         <div> Mobile Phone</div>
+                      
                         <div> Options</div>
                        
                         <!-- </div> -->
@@ -48,11 +50,14 @@
 
                         <div class = "tablecard">
 
-                        <div class = "row"> {{staff.store}}</div>   
-                        <div class = "row"> {{staff.firstname}}</div>
-                        <div class = "row"> {{staff.lastname}}</div> 
-                        <div class = "row"> {{staff.mobilephone}}</div> 
-                        <a class = "hrbutton2" <a href="/updategsa/{{staff.id}}">Update</a>
+                        <div class = "hritem"> {{staff.store}}</div>   
+                        <div class = "hritem"> {{staff.firstname}}</div>
+                        <div class = "hritem"> {{staff.nickname}}</div>
+                        <div class = "hritem"> {{staff.lastname}}</div> 
+                        <div class = "hritem"> {{staff.mobilephone}}</div> 
+                     
+                        
+                        <a class = "hrbutton2" <a href="/updategsa{{staff.id}}">Update</a>
                         
                         </div>
 

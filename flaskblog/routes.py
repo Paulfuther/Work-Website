@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, request, send_file, url_for, redirect, flash, abort
 from flaskblog import app, db, Bcrypt
-from flaskblog.forms import EmployeeForm, LoginForm, PostForm, RegistrationForm, UpdateAccountForm
+from flaskblog.forms import EmployeeForm, LoginForm, PostForm, RegistrationForm, UpdateAccountForm, EmployeeUpdateForm
 from flaskblog.models import User, Post, Employee
 from io import BytesIO
 import os
@@ -22,6 +22,7 @@ import mysql
 from sqlalchemy.sql import text, select
 from sqlalchemy import *
 from sqlalchemy import extract
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 
 
 chartstore = 48314
@@ -59,53 +60,69 @@ def search():
         
     for staff in gsa:
         print(staff.firstname)
-    return render_template('hrlist.html', gsa=form)
+    return render_template('hrlist.html', gsa=gsa)
 
-@app.route("/updategsa/<int:staff_id>", methods=['GET', 'POST'])
+@app.route("/updategsa<int:staff_id>", methods=['GET', 'POST'])
 def updategsa(staff_id):
     
-    form=EmployeeForm()
-    #search_value = form['search_string']
+    # Here we are getting the row of data based on the index, which is staff_id and 
+    #generatating a query under gsa  
+    #form is then populated with that data and published  
+    
+    #when changes are made the form.data attribut is changed also      
+    #you can then compare the new form data using .data with old data use gsa.data    
+    #note below that some data is int and some is text. they need to be the same for the compares
+    
+    
     gsa = Employee.query.get(staff_id)
-    #gsa = Employee.query.filter_by(id=search_value)
+    form = EmployeeUpdateForm(obj=gsa)
+    
+    #user = Employee.query.filter_by(mobilephone.data).first()
     #print(staff_id)
-    print(gsa.firstname, gsa.lastname)
-    form = EmployeeForm(obj=gsa)
-    form.populate_obj(gsa)
-    return render_template('employeeupdate.html',form=form)#, form = form, gsa=gsa)
-
-@app.route("/addupdatedgsa", methods = ['GET', 'POST'])
-def addupdatedgsa():
+    #print(gsa.firstname, gsa.lastname)
+    #print(gsa.SIN, gsa.mobilephone)
     
-    form= EmployeeForm()
-    print("post")
-    print(form.store.data)
-    print(form.id.data)
-    #if form.validate_on_submit():
-    emp = Employee(firstname=form.firstname.data,
-                           nickname=form.nickname.data,
-                           store=form.store.data,
-                           addressone=form.addressone.data,
-                           addresstwo=form.addresstwo.data,
-                           apt=form.apt.data,
-                           city=form.city.data,
-                           province=form.province.data,
-                           country=form.country.data,
-                           email=form.email.data,
-                           mobilephone=form.mobilephone.data,
-                           SIN=form.SIN.data,
-                           Startdate=form.Startdate.data,
-                           Enddate=form.Enddate.data,
-                           lastname=form.lastname.data)
-
-    db.session.add(emp)
-    db.session.commit()
-
-    flash('Employee has been update', 'success')
-
-    return redirect(url_for('hr'))
+    gsaphone = gsa.mobilephone
+    gsasin = gsa.SIN  
+    gsaemail = gsa.email
+    phone = form.mobilephone.data
+    sin = int(form.SIN.data)
     
-    return render_template('employeeupdate.html', form=form)
+    emp = Employee.query.filter_by(mobilephone=text(phone)).first()
+    emailcheck = Employee.query.filter_by(email=form.email.data).first()
+    sincheck = Employee.query.filter_by(SIN=sin).first()
+    
+    if gsaphone == phone:
+        print("same mobile")
+    else:
+        if emp:
+            flash("mobile already used")
+            return render_template('employeeupdate.html', form=form, gsa=gsa)
+
+    if gsasin == sin:
+       print("same sin")
+    else:
+        if sincheck:
+            flash("sin already used")
+            return render_template('employeeupdate.html', form=form, gsa=gsa)
+        
+    if gsa.email == form.email.data:
+       print("same email")
+    else:
+        if emailcheck:
+            flash("email already used")
+            return render_template('employeeupdate.html', form=form, gsa=gsa)
+  
+    
+    if form.validate_on_submit():
+        form.populate_obj(gsa)   
+        db.session.commit()
+        flash("info updated")
+      
+    return render_template('employeeupdate.html', form=form, gsa=gsa)
+
+
+
 
 @app.route("/hr", methods=['GET', 'POST'])
 def hr():

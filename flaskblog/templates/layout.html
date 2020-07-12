@@ -77,19 +77,23 @@
 
             <main role="main" class="container">
                 <div class="row">
-                  <div class="col-md-12">
-                
-                    {% with messages = get_flashed_messages(with_categories=true)%}
+                  
+                <div>   <!-- class= "messagescontainer">  -->
+                    {% with messages = get_flashed_messages()%}
                       {%if messages%}
-                        {% for category, message in messages %}
-                          <div class="alert alert-{{ category}}">
-                            {{ message }}
+                        {% for message in messages %}
+                          <div class = "alerts">
+                           {{ message }} 
                           </div>
-                        {% endfor %}
+                          {% endfor %}
+                        
+                        
                       {% endif %}
                     {% endwith %}
+
+                </div>
                     {% block content %}{% endblock %}
-                  </div>
+                 
                   
                 </div>
 

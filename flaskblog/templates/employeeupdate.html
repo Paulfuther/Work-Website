@@ -2,10 +2,10 @@
 {% block content %}
   
 <div   class="form-container">
-    <form method = "POST" action  = "/addupdatedgsa" class = "form-hrinfo">
+    <form method = "POST" action  = "" class = "form-hrinfo">
     
         {{form.hidden_tag()}}
-
+        
         <div> {{form.firstname(class = "form")}}  </div> 
         <div> {{form.nickname(class = "form", placeholder="Nick Name")}}</div>   
         <div> {{form.lastname(class = "form" ,placeholder="Last Name")}} </div>
@@ -13,19 +13,16 @@
                     {% if form.store.errors %}
                         {% for error in form.store.errors %}
                         <div class = "formerror">{{ error }}</div>
-                        {% endfor %}
-                        
+                        {% endfor %}                        
                     {% endif %}
         </div>
         <div> {{form.mobilephone(class = "form" ,placeholder="Phone Number")}} 
                     {% if form.mobilephone.errors %}
                         {% for error in form.mobilephone.errors %}
                         <div class = "formerror">{{ error }}</div>
-                        {% endfor %}
-                        
+                        {% endfor %}                      
                     {% endif %}
-        </div>
-    
+        </div>   
         <div> {{form.Startdate(class = "form" ,placeholder="Start Date")}} </div>
         <div> {{form.Enddate(class = "form" ,placeholder="End Date")}} </div>
         <div> {{form.addressone(class = "form" ,placeholder="Address Line 1")}} </div>
@@ -35,32 +32,22 @@
         <div> {{form.province(class = "form" ,placeholder="Province")}} </div>
         <div> {{form.country(class = "form" ,placeholder="Country")}} </div>
         <div> {{form.SIN(class = "form", placeholder="SIN")}} 
-
                     {% if form.SIN.errors %}
                         {% for error in form.SIN.errors %}
                         <div class = "formerror">{{ error }}</div>
-                        {% endfor %}
-                        
-                    {% endif %}
+                        {% endfor %}                        
+                    {% endif %}       
         </div>
         <div> {{form.email(class = "form", placeholder="E-Mail")}} 
                     {% if form.email.errors %}
                         {% for error in form.email.errors %}
                         <div class = "formerror">{{ error }}</div>
-                        {% endfor %}
-                        
+                        {% endfor %}                        
                     {% endif %}
         </div>
-
-            <div>
-            {{form.submit(class_="hrbutton")}}
-            </div>
-            <!-- <div>
-            {{form.submit(class_="hrbutton")}}
-            </div>
-             <div>
-            <a class = "hrbutton" <a href="{{ url_for('home')}}">Edit an Employee</a>
-            </div> -->
+                <div>
+                {{form.submit(class_="hrbutton")}}
+                </div>
     
     </form>
 </div>
