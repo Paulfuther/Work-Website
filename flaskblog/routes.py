@@ -51,15 +51,15 @@ def search():
     if search_value == "all":
         gsa = Employee.query.order_by(Employee.store).all()
         
-        for staff in gsa:
-            print(staff.id)
+        #for staff in gsa:
+         #   print(staff.id)
         return render_template('hrlist.html', gsa=gsa) 
       
     gsa1 = Employee.query.filter_by(store=search_value)
     gsa = gsa1.order_by(Employee.store).all()
         
-    for staff in gsa:
-        print(staff.firstname)
+    #for staff in gsa:
+        #print(staff.firstname)
     return render_template('hrlist.html', gsa=gsa)
 
 @app.route("/updategsa<int:staff_id>", methods=['GET', 'POST'])
@@ -115,14 +115,15 @@ def updategsa(staff_id):
   
     
     if form.validate_on_submit():
-        form.populate_obj(gsa)   
-        db.session.commit()
-        flash("info updated")
-      
+        if form.submit.data:
+            form.populate_obj(gsa)   
+            db.session.commit()
+            flash("info updated")
+        elif form.delete.data:
+            
+            Employee.query.filter_by(id=staff_id).delete()
+            db.session.commit()
     return render_template('employeeupdate.html', form=form, gsa=gsa)
-
-
-
 
 @app.route("/hr", methods=['GET', 'POST'])
 def hr():
@@ -156,8 +157,6 @@ def hr():
     print(form.errors.items())
     #print("did not work")
     return render_template('employee.html', title='Employee Information', form=form)
-
-
 
 @app.route("/blog")
 def blog():

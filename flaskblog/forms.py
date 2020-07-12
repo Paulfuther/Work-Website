@@ -152,7 +152,7 @@ class EmployeeUpdateForm(FlaskForm):
     Startdate = DateField('Start Date', format='%Y-%m-%d',
                           validators=[Optional()])
     Enddate = DateField('End Date', format='%m/%d/%Y', validators=[Optional()])
-    submit = SubmitField('Delete Employee')
+    delete = SubmitField('Delete Employee')
     submit = SubmitField('Edit Employee')
 
     def validate_store(self, store):
