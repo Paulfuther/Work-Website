@@ -39,6 +39,12 @@ def hrhome():
     return render_template('hrhome.html')
 
 
+@app.route("/hrfile<int:staff_id>")
+def hrfile(staff_id):
+    gsa = Employee.query.get(staff_id)
+    return render_template('hrfile.html', gsa=gsa)
+
+
 @app.route("/hrlist", methods =['GET', 'POST'])
 def hrlist():
     return render_template('hrlist.html')

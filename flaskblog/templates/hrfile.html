@@ -1,0 +1,1203 @@
+{% extends "layout.html" %}
+
+
+{% block content%}
+
+
+<div class="hr-container">
+
+
+    
+
+            <div>
+            <a class = "hrbutton" <a href="{{ url_for('hrlist')}}">List of Employees</a>
+            </div>
+            <div>
+            <a class = "hrbutton" <a href="{{ url_for('hrhome')}}">HR Main Page</a>
+            </div>
+            <div>
+            <a class = "hrbutton" <a href="{{ url_for('hr')}}">Add Employee</a>
+            </div>
+    
+</div>
+
+
+<div class="file-container">
+
+
+<header class ="hrheader">
+<p>WELCOME TO: {{gsa.store}} </p>
+<p>1900 Dundas St London Ontario </p>
+<p>N5W 3G4</p>
+</header>
+<p></p>
+<span class = "hrfilename"> DEAR {{gsa.firstname}}{{gsa.lastname}} </span>
+<p></p>
+<p class = "hrp">
+You have been hand-picked from a field of many to join our winning team.  We look forward to your contribution to our team effort in striving to meet our targets and goals.  We expect a lot from you, but we will give a lot in return.
+
+This conditional offer of employment is based on successful completion of our three-day Paypoint Training Program.
+</p>
+
+<h4 class ="hrp"> OUR SERVICE STRATEGY</h4>
+<p class = "hrp">
+“We will Genuinely deliver fast, friendly and responsive service, so that our Guests feel welcome and appreciates.”
+
+Our team commitment at site 00396 is to meet our business objectives of offering Genuine Guest service, by keeping our store clean, handling Guest concerns effectively, offering Guests the opportunity to participate in our Petro-Points Loyalty Program and to purchase added-calue items in-store. 
+
+You’ll start to get the hang of our Guests’ needs once you work the Paypoint and see your trainer in action!</p>
+
+<p class = "hrp">I maintain an open door policy.  Please feel free to come to me with any questions or matters of concern. Problems will be dealt with quickly, fairly and in an orderly fashion.  A happy team is a Winning Team!
+
+Work schedules are prepare in advance. Once posted, these schedules are not subject to change without management authorization.  Paydays are the 5th and the 20th day of each month.  Pay period cut off is the 15th and the end of each month. If you are not able to work your scheduled shift, it is your responsibility to arrange with another employee for coverage. We will talk more about this during your training.
+
+<p class = "hrp"> At Petro-Canada Site {{gsa.store}} we are very much a team and strive to help each other where possible. We like to have a lot of FUN and it shows in the people that work here. Our secret to success is to attract a Winning Team with high expectations and drive. We feel we have done that by hiring you!  
+
+As the Manager, I believe I’m only as good as the people I hire. I can provide you with the tools and training needed so you are in a position to win, but at the end of the day, it’s all up to you! </p>
+<p class = "hrp">
+~I look forward to working with you~ 
+
+Welcome to the team!
+</p>
+<p class = "hrp">
+
+Priyan Trivedi
+</p>
+
+</p>
+
+
+
+<p class= "hrp">
+Required Action Policies Checklist
+Effective Date:  January 3, 2016
+Last Reviewed by Owner:  January 3, 2016
+<p>
+<p class = "hrp">
+Petro-Canada Site {{gsa.store}}
+<p>
+<p class = "hrp">
+(This is a SAMPLE checklist.  Ensure you are not going against employment standards or human rights legislation.)
+<p>
+<div class = "hrp">
+<li>	RULE #1 - Use your best judgment. </li>
+
+<li>	GUESTS come first. They pay our wages.  Let the paperwork tasks, side conversations and the telephone wait while you serve our Guests.  If there is a concern or complaint, here are a few guidelines to follow: </il> 
+<li>	LISTEN - get the whole story from the Guest.</li>
+<li>	EMPATHIZE - put yourself in the Guest’s shoes, show genuine concern and caring. </li> 
+<li>	ACT - be fast and responsive when taking action for the Guest.</li>
+<li>	WRAP-UP – tell the Guest the next steps, what you will do, and that you value their business.</li>
+<li>	RECOVERY recommendations:</li>
+<li>	Handle complaints with a POSITIVE ATTITUDE. <li>
+<li>	Conduct yourself PROFESSIONALLY.</li>
+<li>	Surprise the complaining Guest by giving them something extra, within your Associates Guidelines on offering free products or discounts for Complaint recovery.</li>
+<li>	It may not be always necessary to offer recovery funds for every complaint.  You can use your best judgment to offer the Guest one of the items approved by the Associate.</li>
+
+<li>	SECURITY is a top priority.  Cash in the till drawers will be kept to a minimum; drop as often as needed.  Do not have any denominations larger than $20.00 in your drawer. </li>
+<li>	The midnight Employee is NOT to leave the building unless there is an emergency situation. There are no exceptions.  Day and afternoon shift should never have more than $100.00 in the till, and midnight should never have more than $50.00. </li>
+
+<li>	TELEPHONE etiquette is very important. Always answer the phone with a SMILE in the following manner: </li> 
+<li>	“Good morning / afternoon / evening, 00396 Petro-Canada, Amritpal Kaur.” How can I help you? Do not deviate from this format.</il>
+
+<li>	SAFETY EQUIPMENT will be explained and you will need to know the location of all fire extinguishers, first aid kit, spill kit, emergency shut off switches and the location of the site’s Emergency Response Manual including all MSDS sheets. </li>
+
+<li>	EMERGENCY NUMBERS will be explained and emergency policies must be adhered to for the protection of you, our Guests and Suncor Energy assets. </li>
+
+<li>	SAFETY AT THE PUMPS includes turning off ignitions while refuelling, no smoking around the pumps and using approved CSA or ULC jerry cans only.  Rental jerry cans are NOT available.</li>
+
+<li>	STAFF PURCHASES are to be rung in prior to consuming products and you will need to keep your receipt for review. No tabs allowed, all purchases must be paid for immediately.</li>
+
+<li>	STAFF SMOKING is only permitted in the designated area.</li>
+<li>	PETS are not allowed in the store with the exception of Guide dogs.</li>
+<li>	RETURN POLICY- everything is 100% refundable.  However, returns over $7.00 must have manager’s authorization.  Be wary of sunglasses, cameras, suntan lotion, batteries and other high-ticket items coming back for refund.  These are popular scams for return and theft.</li>
+
+<li>	SHOPLIFTING - if the offender is an adult, we will call the police and lay criminal charges.  If the offender is a minor, we will ask the child to stay and call the parents to discuss the situation and ask how they would like things handled.  </li> 
+
+<li>	TELEPHONE calls to and from friends and family while on shift are not permitted. Only emergency calls are allowed.</li>
+
+<li>	ATTEMPT to falsify company records; i.e., cash out reports, counts, or end of day reporting is cause for termination.</li>
+
+<li>	CONSUMPTION of alcohol or illegal drugs while on site and buying or selling of such material will be cause for immediate termination.</li>
+
+<li>	READING is not permitted on site unless it is related to the job.</li>
+
+<li>	DISCLOSURE of sensitive information such as sales figures, gas volume and site targets is strictly prohibited. Disclosure of this data is cause for termination. </li>
+
+<li>	LARGE BILLS such as $50 or $100 are to be dropped in the safe immediately after receiving. More than four $20 dollar bills are to be skimmed and dropped as well. This is extremely important for Robbery Prevention.</li>
+
+<li>	SITE OPERATING PROCEDURES are the foundation of Suncor Energy’s training and will assist you in the development of your job. These procedures are updated regularly. </li>
+
+<li>	UNIFORMS must be worn when on shift and shirts must be TUCKED in. Shirts and nametags will be provided. You will need BLACK cotton/poly blend pants and black comfortable shoes. Jeans are not allowed.</li>
+
+<li>	KEYS are assigned as needed and must be put back in their place when you are finished with them.</li>
+
+<li>	PAYPOINT etiquette is very important.
+<ul>
+<li>1	NEVER talk with other Employees while Guests are waiting in line. </li>
+<li>2	ALWAYS put down the phone to serve a Guest who is waiting in line.</li>
+<li>3	NEVER talk inappropriately or use profane language while working on shift.</li>
+<li>4	ALWAYS wear the approved uniform and nametag while working on shift.</li>
+</ul>
+<li>	ASK your employer questions if you are unsure of any aspect of safety and security with your job.  It is your responsibility to comply with legislation. </li>
+
+During your training period, you will learn more about these policies.
+
+I understand that these required actions are the site policies to be adhered to during my employment at Petro-Canada Site 00396
+
+
+Employee Signature					Manager  Priyan Trivedi
+										
+Date 05/04/2020
+
+
+Required Action Policy for Tobacco Products
+1.	WHAT IS REQUIRED?
+ 	To comply with federal and provincial tobacco regulations. 
+ 	You must request ID from anyone purchasing tobacco products, who looks to be younger than 25. 
+2.	 WHY?  
+ 	To ensure we are not selling tobacco products to minors.
+ 	It is against the law to sell tobacco products to minors.  A person who distributes tobacco products to a minor is guilty of an offence, and could be punished with: 
+	Loss of employment
+	Face personal fines of $4,000 to $100,000
+	Loss of license to sell tobacco products, as well as face additional fines of $10,000 to $150,000. (for the Associate)
+3.	 WHO?
+ 	 Each and every Guest that wants to buy tobacco products.
+4.	REQUIRED ACTION
+ 	Guests that look under the age of 25 are asked for (picture) I.D. when purchasing tobacco products.
+ 	Ask for (picture) I.D. if they look under 25 before quoting the price of tobacco products.
+ 	Ask for (picture) I.D. if they look under 25 before placing tobacco products on the counter.
+ 	Don’t let an angry Guest stop you from asking for (picture) I.D.  IT’S THE LAW!
+5.	I.D. THAT MAKES THE GRADE
+ 	Driver’s license
+ 	Passport
+ 	Certificate of Canadian Citizenship
+ 	Canadian permanent resident card
+ 	Canadian Armed Forces I.D. card
+ 	Any documents issued by a federal or provincial authority or a foreign government that contain a photo, date of birth and signature are also acceptable.
+ 	IMPORTANT – School I.D. cannot be accepted as proof of age.
+6.	EXPECTED RESULTS
+ 	No Employee is charged with selling tobacco products to a minor.
+ 	Employees always remember to ask for I.D.
+ 	No Employee receives a warning letter about selling to a minor.
+ 	Employees are supported by the manager for asking ALL Guests for I.D. who want to buy tobacco products.
+7.	SIGN OFF
+ 	 I have read and understand my role in complying with this Required Action Policy.
+Employee Signature:                                                              Date:   05/04/2020                                              
+
+For protection of both the Employee and Associate, once you have read the above required actions please have the Employee sign this document in understanding and acceptance of the above mentioned guidelines.  Please file this form in the Employee file for future reference or upon request from a provincial tobacco inspector.
+
+Required Action Policy for Lottery Products
+Effective Date:  April 1, 2016
+Last Reviewed by Owner:  April 1, 2016
+
+
+1.	WHAT IS REQUIRED?
+ 	To comply with Local Lottery Corporation regulations. 
+ 	To read, understand and comply with the SOP ENMCCL108 Petro-Canada Fair Game Promise.
+
+2.	 WHY?
+ 	To ensure we are not selling lottery products to minors.
+ 	To ensure all lottery tickets are validated properly and fraud prevention procedures are followed.
+ 	To ensure our Guests have a safe and enjoyable experience playing lottery at all Petro-Canada locations.
+ 	Auditors will visit Associates, measure compliance and levy penalties.  
+3.	 WHO?
+ 	 Each and every Guest who looks to be under 25 year old, that wants to buy lottery products should be asked for ID.
+ 	 Every Employee must adhere to the proper validation and purchase procedures.
+4.	REQUIRED ACTIONS
+ 	Always check photo ID during the purchase and validation process for anyone who looks under the age of 25 to ensure the Guest is of the age of majority.
+ 	Ensure that the ticket checker is fully functional and available and that the play area is clean and fully stocked
+ 	Ensure that the lottery terminal screen is always clearly viewable by the Guest during any transaction
+ 	Only sell, validate or redeem lottery tickets/products when the customer is present in the store.
+ 	Do not validate any ticket that has not been signed.  If the ticket has not been signed, ask the Guest to sign it. 
+ 	Always return the original ticket to the Guest along with the validation slip.
+ 	Do not purchase or validate your own tickets at your place of employment (your own site).  This does not apply to Quebec.
+5.	I.D. THAT MAKES THE GRADE
+ 	Driver’s license or Passport, or any other form of Government Issued Photo I.D.
+ 	Certificate of Canadian Citizenship or Canadian permanent resident card.
+ 	Canadian Armed Forces I.D. card.
+ 	Any documents issued by a federal or provincial authority or a foreign government that contain a photo, date of birth and signature are also acceptable.
+ 	IMPORTANT – School I.D. cannot be accepted as proof of age.
+6.	EXPECTED RESULTS
+ 	No Employee sells lottery to a minor.
+ 	Employees always remember to ask for I.D.
+ 	External auditors find the site to be in compliance with all Local Lottery Corporation regulations. (Ontario Only)
+ 	Employees are supported by the manager in asking ALL Guests who want to purchase lottery for I.D. who look under 25 years old and in using the proper lottery ticket validation and purchase procedures.
+7.	SIGN OFF
+ 	 I have read and understand my role in complying with this Required Action Policy.
+ 	I have read and understand the information in the SOP Petro-Canada Fair Game Promise.
+
+Employee Signature:                                                                                                Date:  05/04/2020 
+
+For protection of both the Employee and Associate, once you have read the above required actions, please have the Employee sign this document in understanding and acceptance of the above mentioned guidelines.  Please file this form in the Employee file for future reference.
+
+Petro-Canada Site 00396
+Payroll Information Sheet
+
+NAME:	Amritpal Kaur
+
+ADDRESS:	
+POSTAL CODE:	
+PHONE:	
+S.I.N.:	
+DATE OF BIRTH:	
+STARTING DATE:	05/04/2020
+
+STARTING WAGE:	$14.00/hr
+
+COPY OF I.D.:	
+EMERGENCY CONTACT:	Name:                                           Relationship:
+	Home Tel:__________________ Work Tel:_____________________                               
+
+
+	ATTACH A VOID CHEQUE OR SAVINGS ACCOUNT BOOK FOR AUTOMATIC DEPOSIT
+
+
+
+
+
+
+												
+
+
+
+Retain in the employee's file.
+
+"Disclosure - use of personal information.  Personal information for payroll purposes is shared with our 3rd party payroll provider (insert name ex. Ceridian).  Business systems to schedule staff and administer payroll, which also contain personal information, are provided by Petro-Canada and Quick Service Software. Access to these business systems is restricted and governed by Petro-Canada's Privacy Policies and Procedures" 
+
+EMPLOYEE SIGNATURE: 
+
+SIGNING DATE: 	05/04/2020
+Petro-Canada Site 00396
+Uniform Sign Out Sheet
+
+
+I have received the following uniform:
+
+
+	Employee Long Sleeved shirt(s)
+
+	Employee Short Sleeved shirt(s)
+
+	Black Baseball Cap(s)
+
+	Name Tags
+
+	Black vest
+
+	Petro-Canada jacket
+
+	Petro-Canada rain gear
+
+	Petro-Canada car wash overalls
+
+Note: No other non-approved clothes, hats, buttons and pins are to be worn.
+
+I understand that the above items are assigned to me for use while working at Petro-Canada site 00396. 
+
+I am responsible to return them with reasonable wear and tear at the end of my employment. 
+
+
+
+
+Employee Signature					 Priyan Trivedi
+							Manager
+
+05/04/2020
+
+Date
+
+
+
+
+
+
+ 
+Schedule B
+Suncor Energy Fraud Prevention Program
+Site Staff Policy Acknowledgement
+Effective Date: April 28, 2010
+Last Reviewed by Owner: Jan 14, 2013 
+
+The Employee acknowledges the critical importance of following a fraud prevention program in accordance with Site Operating Procedures. 
+In the performance of this Site Staff Site Policy/Acknowledgement and every activity connected with the prevention of debit and/or credit card fraud at Petro-Canada branded sites, the Site Staff shall comply fully with all applicable federal, provincial or municipal laws and site operating procedures (Site Operating Procedures) as prepared by Suncor Energy.  
+Should the Site Staff wilfully engage in a fraudulent or deceptive business practice or act in a manner that is detrimental to Suncor Energy’s image and/or policies related to the prevention of credit / debit card fraud, and/or suspected criminal/fraudulent activities, it may result in termination of employment, a possible criminal investigation and subsequent charges.  
+The Site Staff will comply with all Site Policies (rules and regulations) at all times.  After having the necessary skills and expertise, the trained Site Staff shall use best efforts to adhere to performance standards and responsibilities as described in this Retail Site Operating Procedure: 
+a)	Site Staff shall advise the Associate of any persons that have approached him/her to participate in fraudulent credit and/or debit card activities, including the installation of: electronic devices and/or photographic equipment. 
+b)	Site Staff shall adequately protect all customers from the installation of electronic devices and / or surveillance cameras that are focused on the PINPads at the Paypoint counter, the keypads and card readers on the Automated Fuel Dispensers (AFDs), or connected to the Paypoint computer for the purposes of recording confidential card or PIN data.
+c)	When processing credit card transactions at the in-store Paypoint, the Site Staff will ensure that the customer’s credit card is tapped or inserted in the card reader terminal in full view at all times. 
+d)	When processing debit card transactions at the in-store Paypoint, the Site Staff will ensure that customers tap or insert their own debit card in the PINPad terminal.  
+e)	In the performance of the Site Staff services, including the processing of any card transactions, the Site Staff shall ensure that all such signage used in accordance with the site operating procedures/policies referring to preventing fraud are clearly displayed and/or affixed to the PINPads. 
+f)	Site Staff shall co-operate fully with the Associate and not permit the loitering of unauthorized persons behind or in front of the Paypoint area.  
+g)	Site Staff shall provide his/her Petro-Points account number to the Associate for tracking activity and fraud detection purposes.  
+h)	Site Staff will ensure that the Petro-Points earned by a customer are accredited only to the paying Guest.  Facilitation of inappropriate use of Petro-Points for personal or Guest benefit will result in disciplinary action and will be deemed as fraudulent which may lead to permanent revoking of the Petro-Points account.  
+i)	As noted under Privacy legislation, Site Staff shall adequately protect and can only use a customer's personal information for the purposes for which it was collected, or for security or safety reasons.  The Site Staff SHALL NOT use this information for any other purpose or reason.  
+i.e. The Site Staff shall not use a customer's information to contact them for personal reasons; the Site Staff shall not provide customer information to anyone without proper authorization; the Site Staff shall not watch the site video to view a customer for personal reasons.
+In the performance of this Site Policy / Acknowledgement the Site Staff shall furnish the Associate with such evidence of personal representation in accordance with Suncor Energy Site Operating Procedures.  Site Staff will provide accurate information as described below:  
+•	Full name
+•	Residence address
+•	Residence phone number (cell numbers are not accepted)
+•	Social insurance number (SIN)
+•	Date of birth
+•	Photocopy of driver’s license or other photo identification
+•	Verified references
+
+I, the undersigned, hereby acknowledge the receipt of the Site Staff Site Policy Acknowledgement and understand its content.
+I also authorize Suncor Energy, or its Associate or representatives, to release my information to the police and/or the applicable financial institution(s) during an investigation of credit/debit card and/or suspected criminal/fraudulent activities at Petro-Canada sites.
+
+Employee’s Name: Amritpal Kaur 	 		Site Number: 00396
+
+Employee’s Signature: __________________________ 		Associate Name:  Priyan Trivedi
+
+Date: 05/04/2020					Associate Signature: __________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Schedule A
+Suncor Energy Fraud Prevention Program
+Site Manager/Car Wash Manager/Bookkeeper Site Policy Acknowledgement
+Last Updated: April 1, 2016
+While in the employment of  Priyan TrivediAssociate, I the undersigned Amritpal Kaur and assuming the responsibility of a : GSA agree to the following:
+The Site Manager / Car Wash Manager / Bookkeeper acknowledges the critical importance of implementing a fraud prevention program in accordance with Site Operating Procedures. 
+Any reference to Site Manager/Car Wash Manager/Bookkeeper in this Site Manager/Car Wash Manager/Bookkeeper Site Policy Acknowledgement will include each of their respective employees 
+In the performance of this Site Manager/Car Wash Manager/Bookkeeper Site Policy Acknowledgement and every activity connected with the prevention of credit and/or debit card fraud at Petro-Canada branded sites, the Site Manager/Car Wash Manager/Bookkeeper shall comply fully with all applicable federal, provincial or municipal laws and Site Operating Procedures (SOPs) as prepared by Suncor Energy.  
+Should the Site Manager/Car Wash Manager/Bookkeeper and / or Employee in the employment of the Associate wilfully engage in a fraudulent or deceptive business practice or act in a manner that is detrimental to site’s image and / or policies related to the prevention of, credit/debit card fraud, and/or suspected criminal/fraudulent activities, this action may result in counselling, notice of non-renewal and/or termination of employment with Associate and could lead to possible criminal investigation and subsequent charges. 
+In performing the service of processing Petro-Points transactions at the Paypoint located in the store, the Site Manager and Employee will ensure that the Petro-Points earned by a Guest are accredited only to the paying Guest. Facilitation of inappropriate use of Petro-Points for personal or Guest benefit will result in a disciplinary action and will be deemed as fraudulent use which may lead to permanent revoking of the Petro-Points card. Therefore, Site Manager/Car Wash Manager/Bookkeeper shall provide his/her Petro-Points account number to the Associate when newly acquired or in the event of any changes to the account. Acct # : Click here to enter text.
+In performing the Site Operating Procedures, Site Manager/Car Wash Manager shall diligently and carefully provide all necessary training to the Employees, materials (signage), tools & equipment and supervision to prevent fraud at our sites and shall be fully responsible for all work and services performed by its employees and Employees.    
+The Site Manager/Car Wash Manager/Bookkeeper will comply with all rules and regulations at all times and after having the necessary skills and expertise the trained Site Manager/Car Wash Manager/Bookkeeper shall use best efforts to adhere to performance standards and responsibilities as described in this Site Operating Procedure. 
+Site Manager shall provide a copy of the Suncor Energy Fraud Prevention Program – Employee Site Policy Acknowledgement (see schedule B), to all Employees for execution / signature, ensuring all Employees are made fully aware of and comply with laws and Site Operating Procedures as described below:  
+a) Employee shall advise the Site Manager/Car Wash Manager/Bookkeeper of any persons that have approached the Employee to participate in fraudulent activities, including the installation of electronic devices and/or photographic equipment. 
+b) In performing the service of processing credit card transactions at the Paypoint located in the store, the Site Manager and Employee will ensure that the Guest’s credit card is tapped or inserted in the card reader terminal in full view at all times. 
+c) In performing the service of processing debit card transactions at the Paypoint located in the store, the Site Manager and Employee will ensure the Guests tap or insert their own debit card in the PINPad terminal. 
+d) In the performance of the Employee services, including the processing of any card transactions, the Site Manager and Employee shall ensure that all such signage used in accordance with the Site Operating Procedures referring to preventing fraud are clearly displayed and/or affixed to the PINPads. 
+e) Site Manager and Employee shall adequately protect all Guests from the installation of electronic devices and / or surveillance cameras that are focused on the PINPads at the Paypoint counter, the keypads and card readers on the Automated Fuel Dispensers (AFDs) or connected to the Paypoint computer for the purposes of recording confidential card or PIN data.
+f) Site Manager shall advise the Associate immediately of any persons that have approached them or another Employee to participate in fraudulent activities, including the installation of electronic devices and/or photographic equipment, or any other suspicious activities.
+g) Employee shall cooperate fully with the Site Manager/Car Wash Manager/Bookkeeper / Site Policy and not permit the loitering of friends or unauthorized persons behind or in front of the Paypoint area that may have purposes to ‘shoulder surf’ Guests for the purposes of recording confidential credit card or PIN data. 
+h) Site Manager and Employee will inspect PINPads at Paypoint counters, ensuring that PINPads have complete mobility at all times and are not affixed in any manner to the counter that may prevent the Guest from concealing their confidential personal identification information, card or PIN data.  
+i) Site Manager and Employee will inspect the keypads and card readers on the AFDs, ensuring that no unauthorized electronic devices and / or surveillance cameras are affixed in any manner that may prevent the Guest from concealing their confidential personal identification information, card or PIN data.
+As noted under the Privacy legislation, a Site Manager/Car Wash Manager/Bookkeeper/Employee shall adequately protect and can only use a Guest's personal information for the purposes for which it was collected, or for security or safety reasons.  The Site Manager/Car Wash Manager/Bookkeeper/ Employee SHALL NOT use this information for any other purpose or reason (for example – the Site Manager/Car Wash Manager/Bookkeeper/ Employee shall not use a Guest's information to contact them for personal reasons; the Site Manager/Car Wash Manager/Bookkeeper/ Employee shall not sell or provide a Guest’s information to someone who wants to contact the Guest; the Site Manager/Car Wash Manager/Bookkeeper/ Employee shall not watch the site video to view a Guest for personal reasons).
+In the performance of this Site Manager/Car Wash Manager/Bookkeeper Site Policy Acknowledgement the Site Manager shall develop and maintain for each employee, an Employee file. This Employee file will contain: 
+a)  Application Form: 
+•	Full name
+•	Residence address 
+•	Residence phone number (cell numbers are not accepted) 
+•	Social insurance number 
+•	Date of birth (cannot ask if it is not on application…obtain once hired)
+•	Photocopy of driver’s license or other photo identification 
+•	Verified references 
+b)  Resume if submitted
+c) Interview sheet  
+d) Criminal Reference Check 
+e) TD-1 government form (s)
+f) SIN # (must visually see card and match it to the SIN # used on hiring forms)
+g) Telephone Reference sheet  
+h) Tobacco required action sheet 
+i)  Alcohol required action sheet 
+j)  Lottery required action sheet
+k) Payroll information sheets
+l)  Copy of course certification
+m) Required Action Sheet for Personal Petro-Points Card
+n) Signed copy of Suncor Energy Fraud Prevention Program – Employee Site Policy Acknowledgement (Schedule B)
+Site Manager/Car Wash Manager/Bookkeeper agree to keep and maintain complete and accurate Employee files seven (7) years from Employee termination date, as required by law. 
+Suncor Energy shall have access to and the right to audit or inspect employee files relating in any way to this Site Operating Procedure. Any claims or discrepancies disclosed by such audit shall be made in writing to the Associate within a reasonable period of time after the completion of the audit and Site Manager/Car Wash Manager/Bookkeeper shall work with the Associate to promptly resolve these issues. Site Manager/Car Wash Manager/Bookkeeper or the Associate shall make no charge to Suncor Energy for such resolution to the audit. 
+The Site Manager shall develop and maintain shift schedules / time sheets for all employees and accurately record / complete and update these sheets should changes be made from time to time. 
+Site Manager agrees to keep and maintain complete and accurate shift schedules / time sheets for a minimum of twelve (12) months to assist investigators in determining which Employee was working at the Paypoint at the time of the suspected fraudulent activity.  
+The parties agree to be bound by the provisions of this Site Manager/Car Wash Manager/Bookkeeper Site Policy Acknowledgement and acknowledge that any Site Manager/Car Wash Manager/Bookkeeper found committing or permitting any type of credit/debit/Petro-Points card fraud and/or suspected criminal/fraudulent activities and have neglected to follow the terms and conditions outlined in the Site Operating Procedure could be subject to: 
+•	Counselling,
+•	Contract non-renewal 
+•	Contract termination, and / or  
+•	Criminal investigation   
+I, the undersigned, hereby acknowledge the receipt of the Site Manager/Car Wash Manager/Bookkeeper Site Policy Acknowledgement and understand its content.
+I also authorize Associate, or its representatives, to release my information to the police and/or the applicable financial institution(s) during an investigation of credit/debit card and/or suspected criminal/fraudulent activities at the below referenced retail site(s).
+
+
+Site Manager/Car Wash Manager/Bookkeeper’s Name: Priyan Trivedi
+		Site Number(s): 00396
+
+Site Manager/Car Wash Manager/Bookkeeper Signature:
+		Job Title: : GSA
+
+Date:  05/04/2020
+	Associate’s Signature:
+
+                                                                    
+
+
+Site Security Acknowledgement
+Effective Date:  April 27, 2016
+Last Review by Owner:  April 27, 2016
+
+Purpose: A form that all Site Staff must complete after reviewing and understanding the site security policies with their manager.
+Employee: Amritpal Kaur 	Site: 00396
+
+I Amritpal Kaur have reviewed and understand the following policies.  I agree for my own safety and the safety of other staff members that I will adhere to these policies.
+
+Signature:_______________________________________			Date:  05/04/2020
+
+SOP #	Policy Name	Date of Review	Completed
+ENMCPR441	Pay Window Procedures		
+ENMCCL002	Fuel-Theft Prevention		
+Web Based Training	Preventing Robberies & Theft		
+ENMCDS004	Robbery Do’s and Don’ts acknowledgement		
+ENMCCL001	Robbery and Shoplifting Prevention		
+ENMCPR329	Cash Safe Drop Guidelines and Amount Set-Up		
+ENRLDS077	Banking Policies		
+
+
+
+
+
+
+Work Place Safety – Our #1 Priority
+I, Priyan Trivedi (Manager) at site # 00396 have done all in my power and will continue to focus to ensure our employees are safe at work.
+I, Priyan Trivedi (Manager) met with Amritpal Kaur (Employee) on 05/04/2020 to discuss the following SOPs to ensure our workplace is safe.
+•	SOP ENMCPR441 – Pay Window Procedures 
+•	SOP ENMCDS550 - Working Alone Guidelines
+•	SOP ENMCCL002 – Fuel Theft (Drive-Off) Prevention
+•	SOP ENMCDS004 – Robbery and Theft DO’s & DON’T’s Acknowledgement 
+•	SOP ENMCPR441 – Pay Window Procedures
+We also discussed the set times when the Magnetic Lock System is to be used and when the doors are to be locked and the pay through window used.
+We also talked about the zero tolerance for Site Staff unlocking the doors, leaving the site during back shift, and confronting drive-off suspects.
+I, Amritpal Kaur (Employee), fully comprehend all safety policies and procedures.  I also understand that it is my duty and responsibility to ensure my safety at the workplace.
+
+
+_______________________			_________________________		05/04/2020
+Manager					Employee				Date
+
+Retain in employee’s file.
+
+
+ 
+Suncor Energy Privacy of Guest Information
+Effective Date:  October 16, 2015
+Last Reviewed by Owner:  October 16, 2015
+
+
+Purpose:  This package contains two Privacy of Guest Information Site Policy acknowledgements. Separate acknowledgements to be signed by all Associates and their Employees.   
+
+
+Acknowledgements attached 
+
+B.    Employee Site Policy Acknowledgement – to be signed by all Employees
+ 
+  
+Schedule B
+Suncor Energy Privacy of Guest Information Employee Site Policy Acknowledgement
+
+The Employee acknowledges the critical importance of implementing procedures to ensure that the personal information of Guests is kept private and confidential in accordance with privacy legislation and Site Operating Procedures (SOPs). 
+
+In the performance of this Employee Site Policy Acknowledgement and every activity connected with the protection of the personal information of Guests, the Employee shall comply fully with all applicable federal, provincial or municipal laws and SOPs as prepared by Suncor Energy.
+
+Should the Employee not comply with such legislation and SOPs, this action may result in the termination of employment of the Employee and could lead to possible investigation and damages, where applicable. 
+
+The Employee will comply with the Site Policies (rules and regulations) relating to privacy compliance at all times and after having the necessary skills and expertise the trained Employee shall use best efforts to adhere to performance standards and responsibilities as described in this Site Operating Procedure: 
+
+(a)	The Employee shall never record personal information about a Suncor Energy Guest unless it specifically relates to the completion of one of the following:
+
+•	SOP ENMCFM090 - Identification Tracking for Guest with No Form of Payment 
+•	SOP ENMCFM091- Promissory Note from Failure to Pay
+•	SOP ENMCFM061 - Fuel Theft (Drive-Off) Form
+•	SOP ENMCFM087 - Event Report Form, or
+•	SOP ENMCFM088 - Guest Resolution Form
+
+The Employee is never to use a Guest’s personal information. 
+It is never acceptable to photocopy a Guest’s personal information.
+
+(b)	The Employee may request identification from a Suncor Energy Guest for verification purposes only.  Situations where this policy applies are as follows:
+•	Age verification for tobacco, lottery or alcohol sales;
+•	High value transactions that include lottery, tobacco or gift cards as per the Credit Card Fraud Prevention SOP; or 
+•	Suspicious credit card transactions.
+When verifying a Suncor Energy Guest’s identification you are confirming:
+•	The age of the person (as it relates to tobacco, lottery or alcohol sales);
+•	The name listed on the identification compared against the name on a credit card;
+•	The name, address and driver’s license number against any of the completed forms listed in section (a).
+
+As previously stated, the Employee must never record personal information about a Suncor Energy Guest, except for the specific situations listed in section (a).
+
+(c)	The Employee shall ensure that all Personal Information received, handled or processed; is protected by security safeguards as determined by the Associate.
+
+(d)	The Employee shall follow the Associate’s policies and procedures regarding Personal Information.  The Employee agrees to protect, and not disclose, Personal Information under any circumstances not described in this SOP.
+
+(e)	The Employee agrees to be bound by the provisions of this Employee Site Policy Acknowledgement and acknowledge that if the Employee has neglected to follow the terms and conditions outlined in the Site Operating Procedure, the Employee could be subject to termination of his/her employment. 
+
+Acknowledgement of receipt and agreement to the terms herein of this Site Policy Acknowledgment was made as of the 
+_____________ day of  ____________,  20_____.
+
+Employee Name:  Amritpal Kaur	
+
+Employee Signature:  							 	
+
+Associate Signature:  							
+ 
+Appendix D – Employee Signoff
+Employee Dispensed Propane ERP Training Completion
+Employee Name	Training Date	Employee Signature
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+Site Staff Policy Acknowledgement on Serving Guests with Disabilities
+Last Updated:  August 19, 2011
+
+
+The Employee acknowledges the critical importance of following the general guidelines for serving Guests with disabilities, as outlined in the SOP ENMCDS090 - Suncor Policy for Serving Guests with Disabilities at Petro-Canada Sites.  
+
+
+The Employee will comply with all Site Policies (rules and regulations) at all times and, after having the necessary skills and expertise, the trained Employee shall use best efforts to adhere to performance standards and responsibilities as described in this Site Operating Procedure under the Topic of “Serving Guests with Disabilities.”
+
+I, the undersigned, hereby acknowledge the receipt of the Site Staff Policy Acknowledgement on serving Guests with disabilities and understand its content.
+
+
+
+Employee’s Name: Amritpal Kaur			Site Numbe 01616
+
+Employee’s Signature: ____________________		Associate’s Name:  Terry Futher
+
+Date: 05/04/2020					Associate’s Signature: ____________________	  
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+Petro-Canada Site:  00396
+Zero Tolerance Policies Checklist
+
+(This is a SAMPLE checklist.  Ensure you are not going against employment standards or human rights legislation.  Ensure items on the checklist can be enforced.)
+
+	THEFT = JOB LOSS + CRIMINAL CHARGES
+	
+	FAILURE to show up for assigned shift
+	
+	EXCESS money in till
+	
+	NOT executing Petro-Canada's Service standards
+	
+	NOT adhering to Site Operating Procedures
+
+	FAILURE to wear the proper Petro-Canada uniform at work
+	
+	SELLING tobacco products to a minor
+	
+	SELLING alcohol products to a minor
+	
+	COLLECTING Petro-Points from purchases other than your own
+	
+	NOT handling cash procedures properly
+
+
+
+I understand that breach of one or several of these items may result in the termination of my employment at the sole discretion of management or Petro-Canada site 00396 appointed personnel.
+
+
+
+
+
+Employee Signature					Manager: Priyan Trivedi
+
+
+
+Date:  05/04/2020
+
+
+
+
+Required Action Sheet for Personal Petro-Points Card
+Effective Date:  April 1, 2016
+Last Reviewed by Owner:  April 1, 2016
+
+Purpose:  This site operating procedure (SOP) outlines the proper use of a Petro-Points card by any site Employee applying for this card.  The site Employee must sign at the bottom of this form to acknowledge he/she has read and understands the contents of this form.
+
+•	Site Staff may apply for a personal Petro-Points card for accumulation of points on PERSONAL PURCHASES ONLY. 
+•	If a Guest, who is not collecting Petro-Points, offers Site Staff the points from their purchase, the Employee is NOT TO ACCEPT THE GUEST'S POINTS, AS THIS IS DEEMED TO BE A FRAUDULENT USE OF THE EMPLOYEE’S PETRO-POINTS CARD.
+•	SITE STAFF IS NOT ENTITLED TO COLLECT PETRO-POINTS ON PURCHASES WHERE A GUEST DOES NOT PRESENT A PETRO-POINTS CARD, AS THIS IS DEEMED TO BE A FRAUDULENT USE OF THE STAFF EMPLOYEE’S PETRO-POINTS CARD.
+•	Suncor Energy monitors Petro-Points usage.  Any Site Staff who uses their personal Petro-Points card fraudulently (on purchases other than their own) will have their Petro-Points card permanently revoked. 
+•	Suncor Energy has zero tolerance for fraudulent use of Petro-Points by any Employee.
+•	Facilitation of inappropriate or fraudulent use of Petro-Points for personal or Guest benefit will result in disciplinary action and may be deemed as grounds for dismissal.
+•	The practice of keeping Guest Petro-Points cards on site is prohibited. Any cards currently at the site or in the possession of a Site Staff member must be immediately returned to protect against their fraudulent use.
+
+•	The Instant enrollment program is for the exclusive use of Guests. The fictitious completion and subsequent use of collecting and redeeming points is considered fraudulent use of a Petro-Points card. Site staff found participating in this activity will expose themselves to disciplinary action and possible dismissal, as well as their Associate to chargebacks.
+
+I have read and understand my role in complying with this required action sheet for personal use of Petro-Points cards.
+
+
+
+Employee Signature		Date:  05/04/2020
+
+
+
+
+
+
+
+
+
+ROBBERY and Theft DO’s & DON’Ts Acknowledgement
+Effective Date: September 19, 2012
+Last Reviewed by Owner: June 9, 2015
+
+NOTE: The Law explicitly prohibits employers from deducting the cost of thefts from wages.
+Purpose:  Each employee must acknowledge that the Do’s & Don’ts have been read and understood.  Please retain a signed acknowledgement in each employee’s file.  Employee’s Signature: ___________________________________________________   Date:  05/04/2020
+
+Associate’s Signature:____________________________________________________
+Appearance Guidelines and Uniform Standards
+Effective Date:  August 7, 2012
+Last Reviewed by Owner:  May 1, 2015
+
+Purpose: This site operating procedure is intended to provide guidance to Associates and their site staff relative to uniform standards and general appearance guidelines.
+
+At locations operating under the 7-Eleven Performance Agent agreement, uniforms are to be worn as follows:
+•	In-store Employee to wear 7-Eleven uniform
+•	Full serve Employee to wear Petro-Canada uniform
+Appearance Guidelines
+Recommended	Not Recommended
+Uniform
+•	Must be clean and free of holes.	
+Hair
+•	Hair colours should be conservative and natural looking.
+•	Hair should be neat and clean.
+•	Hair should be worn in styles that are appropriate for a business environment. 
+•	Facial hair must be neatly trimmed and clean. 
+•	Long hair should be pulled into a pony tail and shall be well groomed throughout the day.	Hair
+•	Obtrusive, covers the face or is distracting. 
+•	Extreme coloured streaks and sparkles.
+Jewellery / Accessories
+•	Jewellery and accessories should be worn in moderation and should not distract from a professional image. 
+•	Accessories that are part of religious preferences will be given appropriate consideration based on the nature of the job and management approval. 
+•	Body piercing and tattoos should not be visible. 	Jewellery / Accessories
+•	Earrings larger than a quarter.
+•	Dangling earrings.
+•	More than 2 pairs of earrings. 
+•	More than one bracelet or wrist watch per arm.
+•	More than two simple rings on each hand (wedding/engagement rings are considered one ring).
+Odours
+•	Employees are expected to manage odours so that they do not distract or offend others. 	Odours
+•	The use of heavy colognes, perfumes, aftershave, lotions or heavily scented lotions.
+Fingernails
+•	Fingernails should be short, clean and appropriate for work settings.	Fingernails
+•	Fingernails and toenails should not be overly-decorative and/or long.
+Uniform Standards (Continued)
+Approved	Not Approved
+Signature Pieces
+•	Petro-Canada approved uniform golfshirt, long or short sleeve in red or black.
+•	Plain black or white t-shirt under long sleeve shirt (optional).
+•	Golfshirts do not have to be tucked in.
+•	Golfshirts must be of the appropriate size. 
+•	Approved uniforms are available from Unisync Group (see SOP ENMCCR029 - Uniform Program Catalogue).	Signature Pieces
+•	Faded or discoloured shirts (not red anymore) and not have any holes.
+•	Pants with holes in them.
+•	Long sleeve shirts worn under short sleeve golfshirts.
+
+Male or Female Dress Shirts for Associates or Site Managers only: 
+•	Petro-Canada white or blue shirt (short or long sleeves).
+Tie is optional for men.	Associates or Site Managers only - Male or Female Dress Shirts: 
+•	Wearing ties when working in the car wash facility or with any machinery in which the ties can get caught.
+Pants/Skirts
+•	Black pants, Bermuda length shorts, or skirt (knee-length or longer). 
+•	For safety, fabric must not have synthetic fibre content higher than 65%. (I.e. 65% polyester, 35% cotton or wool).
+	Pants/Skirts
+•	Jeans of any colour
+•	Leggings
+•	Sweat pants
+•	Stretch pants
+•	Lycra pants
+•	Warm-up/track/wind pants
+•	Sport shorts
+•	Cut-offs
+•	Pants made of leather, corduroy, velvet or nylon
+Accessories
+•	Belts must be black or brown
+•	Tie must be red or charcoal grey	Accessories
+•	Oversized belt buckle.
+•	Multi-coloured belts.
+•	Suspenders.
+Outerwear
+•	Petro-Canada fleece warmer or 3-in-1 winter jacket. 
+•	Yellow rain coat at Full Serve
+•	Safety vest (with tear aways) at all times at Full Service locations and during any outdoor activity at Self Serve locations.  	
+•	Safety vest worn at the paypoint (self serve)
+Headgear
+•	Headgear is optional, except for food services, where cap MUST be worn.
+•	Petro-Canada cap, toque or plain black toque.
+•	Religious headgear is acceptable.	Headgear
+•	Headgear worn backwards.
+Footwear
+•	Black, brown or white running or walking shoes.
+•	Back, brown or white boots in the winter.
+•	Socks may be black, grey, white or red.
+•	CSA approved safety boots at car wash sites.  A minimum of one employee must wear safety boots at all times (all day) to address any emergencies that could occur in the car wash.	Footwear
+•	Heals over one inch.
+•	For safety reasons, sandals and open toe shoes.
+Food Services (Made-to-order sandwiches, bake-off, coffee bar)
+•	Petro-Canada approved uniform golfshirt in red or black (short or long sleeve)
+•	Petro-Canada black apron over shirt and tied in back
+•	Petro-Canada cap is mandatory.	
+Name Badge
+•	Name badge must be visible to the Guest
+•	Name badge must be worn on the left hand side.
+•	Name badge must be from Petro-Canada designated supplier.
+	Name Badge
+•	Handwritten name badges.
+
+
+
+ 
+Uniform Standards for the Spring / Summer – Pictures
+
+The following graphic displays what Site Staff should look like in the spring / summer:
+
+  
+ 
+Uniform Standards for the Fall / Winter – Pictures
+
+The following graphic displays what Site Staff should look like in the fall / winter:
+  
+
+
+
+
+I have read this Site Operating Procedure and agree to follow the Appearance Standards and Uniform Guidelines as described above.  
+
+
+_____________________________	
+Employee Signature
+
+Date:  05/04/2020
+
+
+
+
+
+
+
+Competition Law
+Effective Date:  May 30, 2014
+Last Reviewed by Owner:  September 1, 2015
+
+Purpose:  this SOP is a reminder that strict adherence with Canada's competition laws is mandatory and that non-compliance with the Competition Act may result in serious monetary and criminal penalties to you and your staff.  The Act is designed to protect and promote competition and ensure a marketplace which benefits consumers.
+
+
+Suncor takes very seriously the need to ensure that all its employees and Associates comply with Canadian competition laws at all times. Failure to comply with the Competition Act in Canada may result in heavy fines, adverse publicity and civil suits by customers or suppliers seeking substantial damages. Furthermore, the Act specifies that the individuals involved may be personally liable to fines and terms of imprisonment; for example, a term of imprisonment of up to 14 years and/or a fine of up to $25 million for an offence under the provisions relating to arrangements between competitors and anti competitive conspiracies.
+
+Commitments and Responsibilities 
+From the Competition Act…	Suncor’s Commitment	Associate's Responsibility
+To reference only the most serious matters, it is a criminal offence to get into any kind of arrangement (written or verbal) with competitors, which includes other Associates, suppliers or customers for any of the following:
+•	To fix prices 
+•	To restrict the supply of products
+•	To divide up customers or markets
+•	To agree on bids
+•	Engage in misleading or false representations to the public.
+Associates and their employees must never hold discussions with other competitors, which include other Associates, regarding price, or customers, limiting supply of products, bids, pricing policies and methods, terms of sale, costs, allocation of markets or boycotts of our petroleum products.	•	Remind Associates that it is their responsibility to understand and abide by the law.
+•	Guide Associates on where and how to obtain information on the Competition Law.
+	•	Familiarize yourself and staff with the Competition Law.
+•	Educate staff on proper behaviour and practices.
+•	Monitor and enforce compliance at the site at all times
+•	Seek legal advice if unsure of practices. 
+•	Report concerns relating to the Competition Act, including possible violations of the Competition Act, to your Field Representative.
+For further information, please consult the Competition Bureau website at www.cb-bc.gc.ca or your legal counsel.
+
+
+ 
+
+Personnel and Property Protection Guidelines
+Effective Date: March 9, 2016
+Last Reviewed by Owner: March 9, 2016
+
+Purpose
+
+Suncor Energy believes 'Crime Prevention Programs' designed to safe-guard people and property is essential. This Security Guidelines Booklet is for use by all Associates and terminal operators and it should be viewed as a tool to assist you in establishing and maintaining a secure environment for your employees and customers.
+Security is not the responsibility of any one individual group; rather it requires the combined efforts of you, your staff, the Company and your local law enforcement agency. This united approach together with your leadership will go a long way toward achieving the ultimate in security protection.
+All businesses are potential targets for criminals. Your approach to security can make your business less vulnerable to criminal acts. You should make every effort to identify problem areas and minimize opportunities for criminals.
+In addition to describing security measures this booklet deals with fuel theft (drive-offs) and other criminal acts which may be directed against your business.
+Through prevention programs such as this, we all hope to reduce, or entirely eliminate criminal attacks. Please read this booklet carefully; your time will be well spent.
+
+Security Services
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Robbery 
+Robbery: is a theft accompanied by violence, threat of violence, use of a weapon or implied use of a weapon. We define robbery and an armed robbery as one in the same.Robbery Prevention MUST be a priority of your business practices. A well trained staff can greatly reduce the threat of robbery. The following preventative measures should become an operating standard of your business.
+Preventative Measures
+•	NEVER keep large sums of money in the till ( See Cash Control section for recommended amounts) 
+	Remove excess money and place it in a safe. 
+	Minimize the amount of readily available lottery and tobacco to just what you anticipate you will need after 11pm. The excess should be locked away and out of sight.
+•	DON'T clutter windows with displays or signs blocking the view. 
+	Allow for a clear view by passing motorists, pedestrians and police patrols.
+•	Keep your premises well lit at night (both inside and outside).
+•	DON'T answer questions about your business asked by strangers - insist on identification before giving any answers.
+•	Pay Attention to suspicious persons loitering around your business, particularly at opening and closing time.
+•	Be cautious of anyone seeking entry when you are closed.
+•	When making a bank deposit:
+	DO NOT carry money in a canvas money bag with the bank's name on it.
+	If you must carry money, place the canvas bag inside an unmarked bag and keep it in the trunk of your car
+	Vary as much as you can, including time of day, routes, clothing worn, vehicle etc. when making bank deposits. DON'T get into an obvious routine.
+•	If you are suspicious do not hesitate to call police
+
+In the event of a robbery there are 4 things the victim should know:
+1.	Remain calm
+•	Robbers are very tense and may be easily provoked. 
+•	The longer a robbery takes the more nervous the robber will become.
+•	DON'T ARGUE - once the robbery has started it's too late for robbers to change their minds.
+•	DON'T FIGHT - the money / product / or vehicle are not worth the risk of someone being hurt
+•	Attacking or resisting a robber does not make you a hero. NEVER try to be a hero.
+•	Robbers may resort to violence when they are nervous or startled. Tell the robber about any potential surprises - if someone is in the backroom, or expected soon. 
+•	If you must move in any way, tell the robber what you are about to do.
+
+2. Identification
+•	Take a good look at the suspect(s), but try NOT to be obvious. Don’t stare. 
+•	Notice any details, which will aid you in describing them and their mannerisms.
+•	When trying to determine age, height, weight and appearance compare them to yourself or someone you know well.
+•	Memorize peculiarities - tattoos, scars, rings, watches, shoes, left-handed or right-handed, and prominent physical features – THINGS THAT WILL NOT CHANGE!
+•	Remember type and colour of clothing worn.
+•	WEAPON: Describe type, colour and size.
+•	If possible, note a full description of the vehicle, if any, and the license number.
+•	Direct your employees not to discuss the crime amongst themselves or with witnesses until the police have arrived.
+•	Suggest that your employees and any witnesses make notes while the information is still fresh in their minds.
+
+3. After the robber leaves:
+•	Notify the police immediately by calling 911, or the Police Emergency number for your area.
+•	Give your address, telephone number and name.
+•	Remember the details and be as accurate as possible
+•	DON'T HANG UP UNTIL ALL THE INFORMATION HAS BEEN GIVEN. 
+•	Don't touch anything, stop all business and lock your doors. Preserve any items the suspect may have touched and prevent anyone from going into the area where the suspects were.
+
+4. When the police arrive:
+•	Answer their questions as accurately as possible. Tell them only what you saw or know.
+•	If you are not sure, say you are not.
+•	DON'T exaggerate when describing the suspect or what has been taken. Co-operate with police assigned to the case.
+
+Employees must notify their supervisor immediately following the robbery.
+NOTIFY YOUR SUNCOR ENERGY REPRESENTATIVE IMMEDIATELY FOLLOWING THE ROBBERY
+WHILE COOPERATION MAY NOT ALWAYS RESULT IN THE RECOVERY OF YOUR LOSSES, YOU MAY BE ABLE TO PREVENT OTHERS FROM BECOMING VICTIMS.
+
+How Best to Protect Your Property
+'Clean and well lit premises will alter criminal activity'. Bright lights are a self-protection measure. Nothing deters robbers and burglars more than having to operate in bright light.
+Lights 
+•	The ideal situation - both from a security standpoint and for customer appeal - would be to flood your whole business premises in a sea of light.
+•	The areas which are most vulnerable to the criminal and, therefore, should receive special lighting attention are:
+	Entrances - all entry points.
+	The yard.
+	Rear of the building.
+	Office - night light inside the building and over the safe.
+Locks 
+'Good locks will deter many potential break & enter (B&E) efforts'.
+Break & Enter (B&E): is the unlawful entry into a premise for the purpose of committing an offence (usually theft or damage to property). This ONLY occurs in a site that is closed, i.e. a non 24 hr. site. Entry into a locked room such as an office or locked or open vehicle is NOT a Break in but a theft.
+•	Install one inch deadbolt locks on all outside doors, and double cylinder, long-throw deadbolts on doors with glass panels.
+•	Control of keys is important.
+•	Make sure padlocks are solidly mounted and never left open - even on an open door. This practice will prevent key duplication.
+•	Change locks when a key is lost.
+•	Don't lock a burglar inside when you leave. Inspect all closets, washrooms and other hiding places before locking your business up.
+
+
+
+Doors 
+•	Metal lining on exterior doors resists drilling and sawing.
+•	Bars in the inside of doors prevent breaking the entire door and thus easy entry.
+•	Check door frames for looseness, rotting, or expansion capabilities
+•	Install non-removable hinge pins on doors that swing outward
+•	Routinely ensure that all doors are locked at closing time.
+•	ALL 24 hr. self service locations MUST have the main entrance electronically controlled by means of a magnetic or striker type lock mechanism activated from the area of the point of sale 
+
+Windows 
+'Windows should offer light, ventilation and visibility. Not easy access.
+•	Check window frames for looseness or rotting, and that the window locks work.
+•	All windows should be clear of obstruction, to allow for clear visibility into and out of the building.
+
+Alarms 
+For sites that operate less than 24 hrs a day, "An adequate alarm system provides constant attention".
+•	Alarms have a psychological value - they may scare the burglar or robber away. However, the installation of an alarm system can be expensive; the potential worth of an alarm system should be governed by the size of the inventory, location of the business, and the availability of local law enforcement people to answer the alarm.
+•	If your site has a history of Break ins, consideration should be given to a “cellular back up” alarm that will transmit the alarm even if telephone lines are cut.
+•	You might get a lower insurance rate if an alarm system is installed.
+•	Advertise that your station is equipped with an alarm.
+•	Ensure that all your staff are properly trained in alarm procedures. This will eliminate false alarms.
+
+Cash Registers / SAFES 
+•	Minimize cash on hand with frequent, irregular safe drops
+•	All sites must now have 3  safe compartments, 2 of which have time delay opening (each with a MINIMUM 2 minute delay ) they are :
+•	1 -An approved time delay opening, drop safe is now mandatory at all sites
+•	2 - All sites MUST have a time delay “coin” safe or compartment for the storage of coin, small bills, lottery and the like. ALL staff members MUST have access to the “coin” safe. It is strongly recommended that no more than $500 in small bills or coin be kept in this safe.  This safe MUST be kept locked at all times when not in immediate use. Hiding money is NOT permitted under any circumstances.
+•	3 - All sites MUST now have a  “Cash In Transit” safe for use should the site opt for armoured car cash pick up. If the site does not opt for CIT, the compartment may be used to store other valuable items.
+•	 ALL safes must be securely anchored to the floor, wall, other solid structure or millwork and located as close to the Paypoint as possible.
+•	Strictly limit the number of people having access to the keys or the safe combination for the primary drop and CIT safes. In British Columbia and Saskatchewan when a GSA is working alone after 11PM, these keys and/or combination for the drop and CIT safes must NOT be available.
+•	After store hours, leave empty cash drawers open. This will prevent unnecessary damage from a burglar hunting for cash
+
+These are recommended MAXIMUM amounts for Safe Drops and Cash Floats. Feel free to ‘drop’ smaller amounts. With the new “Coin safes” your site should be able to operate using lower amounts, please consider it for security and safety reasons.
+•	Safe Drop - Day - $100.00
+•	Safe Drop - Night - $50.00
+•	Cash Float - $75.00
+
+Closed Circuit Television (CCTV) 
+Each location should have a closed circuit television (CCTV) system. The objectives of such a system are:
+•	To deter a criminal.
+•	To capture an image of the criminal, should an incident occur.
+•	A CCTV system includes cameras (both internally and externally), monitors, and a DVR in a locked office or container.
+•	There are recommended specifications for the quantity and location of equipment at each size of store.
+•	Ensure that your DVR is recording and saving at least 30 days of footage.  If there are any issues with it contact your service provider for technical support.
+
+Theft Preventive Measures
+Theft: is the removal of property from its lawful owner without his/her consent and WITHOUT the use of a weapon, force or threat.
+Theft can occur in various ways, ranging from bad cheques, use of stolen credit cards, card skimming, shoplifting, fuel theft (drive-off) occurrences and internal thefts (cash, inventory, etc.) This section will attempt to outline preventative measures against the various forms of theft.
+Fuel Theft (Drive-off):  Driving away from the pump without paying is theft. 
+In an accidental fuel theft (drive-off), the person believes they have paid for the transaction, but the transaction is incomplete. In an intentional fuel theft (drive-off), the person knows they are committing a crime, but feels there is little risk.
+The following measures can be taken to help reduce the incidence of this type of crime.
+
+Fuel Theft (Drive-off) Prevention Measures 
+•	Stay Alert. Maintain high visibility to pump island and driveways.
+•	Pay special attention to those Guests who approach the far pumps, especially when the station is busy.
+•	Make eye contact with the Guest when activating pumps and/or greet Guest at Paypoint. Being visible to all Guests and greeting them will discourage theft.
+•	Monitor the pump island for CRIND confusion. Guests may be uncomfortable with the CRIND and may not know if they have correctly completed a transaction. If they are confused or frustrated, they are your potential accidental fuel theft (drive-off) thief.
+•	Use intercom at self-serve, if appropriate, to help Guests having problem with the CRIND.
+
+Fuel Theft (Drive-off) thief characteristics
+•	The fuel thief will wait until the Paypoint operator is busy with other Guests on the site.
+•	The thief will usually drive up to the pumps which are furthest away from the view of Paypoint operator.
+•	The license plate on the car may be covered with a rag or black plastic garbage bag, which is partially sticking out from the closed trunk of the car. The plates could also be muddied to obscure the numbers.
+•	The thief may appear nervous, frequently glancing at the Paypoint operator to make sure they are not being given any special attention while at the pumps
+
+When a Fuel Theft (Drive-off) occurs 
+•	DO NOT under any circumstances chase after the vehicle.
+•	Attempt to get the license number.
+•	Get a full description of the vehicle and the operator.
+•	Note the time and direction the vehicle left the lot.
+•	Obtain names and addresses of witnesses (if possible).
+•	Immediately call the police
+
+Shoplifting
+Shoplifting, in other words, is simply someone trying to take something from the store without actually paying for it.  In most cases, it is something easily concealed in a pocket or the like and is of limited value.  
+I STRONGLY RECOMMEND you do NOT attempt to apprehend or detain the suspect. Should you do so, you not only do you put yourself at risk physically should the person become aggressive, you also put yourself at risk of being sued or worse should you be mistaken and / or injure/ assault the suspect in some way.
+I recommend that if you observe someone hiding something on their person and they attempt to leave the store, you verbally (from behind the counter or from a safe distance) ask them if they have forgotten to pay for something. As with fuel theft (drive-offs), never chase or physically confront the thief. If the item taken is of some value or the suspect is a repeat offender, attempt to get a good description of the person, vehicle etc, retain the video footage and contact the police. Again NEVER chase or physically confront the suspect.
+Conclusion
+This booklet provides many ideas and suggestions on how to protect your business and your staff from the criminal. It is primarily designed to set you thinking about the problem of crime prevention and encourage you to take positive action toward formulating an effective crime prevention program for your business. 
+Look around the premises and ask yourself: "How secure is it?" "Would it be an easy victim of the robber, the burglar or the thief?"
+Asking questions like these is only the beginning. The right answers to these questions are evident in an effective program of crime prevention. Start today, work at it, improve it, and every day ask the question, "Can 1 do more?" You'll be glad you did.
+For further information or assistance regarding "security matters" contact your Suncor Energy Field Representative.
+
+
+
+
+
+
+
+
+
+
+
+ALL NEW STAFF MUST READ AND SIGN THIS BOOKLET BEFORE STARTING WORK THE FIRST TIME.
+ALL OTHER STAFF MUST READ AND SIGN THE ATTACHED SHEET A MINIMUM OF TWICE PER YEAR.
+Security Action Plan
+Name: Amritpal Kaur
+Date: 05/04/2020
+
+1. Robbery
+Areas of Weakness:
+Immediate Action Plan:
+
+2. How Best to Protect your Property
+Areas of Weakness:
+Immediate Action Plan:
+
+3. Fuel Theft (Drive-off) Prevention
+Immediate Action Plan:
+Discuss with Employees:
+
+4. Cheque, credit/debit card frauds and Shoplifting
+Immediate Action Plan:
+Discuss with Employees:
+
+5. Internal Theft
+Avoid the problem before it happens. Careful screening of employees is the most effective way to reduce shortages
+Immediate Action Plan:
+Discuss with Employees:
+
+
+
+
+
+
+
+Acknowledgement of Personnel and Property Protection Guidelines
+Effective Date:  April 1, 2016
+Last Reviewed by Owner:  April 1, 2016
+
+
+
+This is to confirm that I, the undersigned, Amritpal Kaur, employee of Priyan Trivedi  have read, understand and agree to follow the Personnel and Property Protection Guidelines.
+
+
+
+
+
+________________________________                                                              ________________________________
+Employee signature                                                                                              Associate signature
+
+
+Date: 05/04/2020
+
+
+
+
+
+
+
+
+
+
+
+Occupational Health and Safety Awareness and Training Regulation and Acknowledgement Form – Ontario Only
+Effective Date: April 4, 2014
+Last Reviewed by Owner: May 1, 2015
+
+
+Purpose:  This site operating procedure (SOP) gives a detailed account of the new regulation requiring health and safety awareness training for every worker and supervisor under Ontario’s Occupational Health and Safety Act (OHSA). The regulation comes into force July 1, 2014, allowing workplace parties the time to prepare. 
+
+Beginning July 1, 2014, employers in Ontario must ensure that all their workers and supervisors complete a basic occupational health and safety awareness training program.  Besides these new requirements, employers continue to have on-going duties under the OHSA to inform workers about workplace-specific hazards. These include the general duty to “provide information, instruction and supervision to a worker to protect the health or safety of the worker.
+
+Regulatory Requirements under the Occupational Health and Safety Awareness and Training Regulation
+
+Employers must:
+
+•	Ensure that workers complete a basic occupational health and safety awareness training program as soon as reasonably possible;
+
+•	Ensure that supervisors complete a basic occupational health and safety awareness training program within one week of working as a supervisor;
+
+•	Maintain a record of the training completed by workers and supervisors (refer to the Occupational Health and Safety Awareness Training Acknowledgement Form found on the last page of this SOP). This form is to be kept in the Safety and Security section of the Site Actions and Communication Binder – Introduction and Contents;
+
+•	Provide a worker or supervisor with written proof of completion of the training, if requested by the worker or supervisor (up to six months after ceasing to work for the employer). 
+
+Training for Workers
+
+The training program for workers must include instruction on:
+
+•	The duties and rights of workers under OHSA;	
+•	The duties of employers and supervisors under OHSA;
+•	Common workplace hazards and occupational illnesses;
+•	The role of joint health and safety committees (JHSCs) and of health and safety representatives under OHSA;
+•	Roles of the ministry, Workplace Safety and Insurance Board (WSIB), and Health and Safety Associations; and
+Information on and instruction requirements set out in the Workplace Hazardous Materials Information System (WHMIS) Regulation.
+
+ 
+Training for Supervisors
+
+The training program for supervisors must include instruction on:
+
+•	The duties and rights of workers under OHSA; 
+•	The duties of employers and supervisors under OHSA; 
+•	How to identify, assess and manage workplace hazards, the role of joint health and safety committees (JHSCs), and of health and safety representatives under OHSA; 
+•	Roles of the ministry, Workplace Safety and Insurance Board (WSIB), and Health and Safety Associations; and 
+•	Sources of information on occupational health and safety.
+Resources and Tools for Employers and other Workplace Parties
+The Ministry of Labour provides a number of resources and tools to help employers and other workplace parties comply with the requirements of the Occupational Health and Safety Awareness and Training Regulation. 
+In addition, electronic (e-learning) training tools are available in English and French online for free to help employers comply with the regulation requirements:
+•	Worker Health and Safety Awareness in 4 Steps 
+•	Supervisor Health and Safety Awareness in 5 Steps 
+The Worker and Supervisor modules above take 30 to 40 minutes to complete. They contain videos and simple quizzes that you cannot skip.  If you answer incorrectly, you will simply be provided with the correct answer and can move on to the next section. You will receive a "Proof of Completion" certificate once you complete the training. You must save and print the certificate before exiting the module. The Ministry of Labour will not store your certificate or keep a record of training. 
+
+•	Please keep a copy of the certificate in your Employee File.
+•	Sign the Occupational Health and Safety Awareness Training Acknowledgement Form found on the last page of this SOP and store it in the Safety and Security section of the Site Actions and Communication Binder – Introduction and Contents
+
+Next Steps for Associates
+1.	Complete the training and print the certificate so you know the material and can answer any questions your staff and/or supervisors may have. 
+
+2.	Start training your existing staff and supervisors today and place their printed certificates in their Employee Files.
+
+3.	This has been added to the document, “New Hire CL” located on the Associate Portal under: Support>Associate Forms>New Hire Checklist and Acknowledgement Form 
+
+4.	Ensure the Occupational Health and Safety Awareness Training Acknowledgement Form has been signed by all staff and placed in the Site Actions and Communication Binder – Introduction and Contents
+
+Note:  This will be added to the next version of the Safety Evaluation Assessment and Food Service Advisors will be checking the Site Actions and Communication Binder – Introduction and Contents but ultimately, Associates are responsible for keeping up to date on labour and government legislation requirements.
+ 
+Occupational Health and Safety Awareness Training Acknowledgement Form – Ontario Only 
+
+Employee Name	Training Date	Employee Signature
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock content %}

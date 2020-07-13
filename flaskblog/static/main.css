@@ -117,7 +117,7 @@ ul {
 
 .tableheader {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   margin: auto;
   padding-top: 30px;
   padding-bottom: 5px;
@@ -190,6 +190,20 @@ ul {
   color: #ffffff;
 }
 
+.hrbutton5 {
+  align-items: center;
+  border-radius: 20px;
+  border: none;
+  font-size: 12px;
+  padding: 10px 20px;
+}
+
+.hrbutton5:hover {
+  background: blue;
+  color: #ffffff;
+}
+
+
 .tablegrid > span {
   padding: 8px 8px;
   border-top: 1px solid black;
@@ -197,7 +211,7 @@ ul {
 
 .tablecard {
   display: grid;
-  grid-template-columns: repeat(7, 1fr );
+  grid-template-columns: repeat(8, 1fr );
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 30px;
@@ -230,6 +244,41 @@ ul {
   box-shadow: 5px 5px lightgray;
   border-radius: 15px;
   margin-bottom: 50px;
+}
+
+/* Hr file */
+
+.file-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 90%;
+  margin-left: 50px;
+
+}
+
+.hrheader {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.hrfilename {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.hrp {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
+.hrp li{
+  padding-bottom: 10px;
+}
+
+.hrp li ul li{
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 /* Hr Form */
