@@ -259,6 +259,18 @@ ul {
 .hrheader {
   padding-top: 20px;
   padding-bottom: 20px;
+  text-align: left;
+  font-size: 20px;
+}
+
+.hrheader p {
+  margin: 0auto;
+}
+
+.hrheaderdata {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: left;
 }
 
 .hrfilename {
@@ -281,6 +293,80 @@ ul {
   padding-top: 10px;
 }
 
+.sig {
+  padding-bottom: 5px;
+  padding-top: 80px;
+}
+
+.sigdate {
+  padding-top: 30px;
+}
+.sigcontainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.sigmarker {
+  padding-bottom: 10px;
+}
+
+.requiredgrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 90%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.requiredgrid div p li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.hrheading {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.hrfooter {
+  font-style: italic;
+  font-size: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.payrollgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 90%;
+  
+  
+}
+
+.payrollgrid div {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+
+
+.voidcheck {
+  display:grid;
+  
+  width: 90%;
+  height:150px;
+  border-width: 5px;
+  border-style: solid;
+}
 /* Hr Form */
 
 .form-container {
