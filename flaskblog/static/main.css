@@ -334,8 +334,8 @@ ul.a {
 }
 
 .sig {
-  padding-bottom: 1px;
-  padding-top: 1px;
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 .sigdate {
@@ -344,6 +344,7 @@ ul.a {
 .sigcontainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding-right: 20px;
 }
 
 .sigmarker {
