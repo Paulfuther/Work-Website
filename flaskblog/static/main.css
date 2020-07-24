@@ -466,6 +466,24 @@ ul.a {
   margin: auto;
 }
 
+.vacationpay {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 80%;
+  grid-auto-rows: 50px 200px;
+  margin: auto;
+  border: solid;
+}
+
+.vacationpay div {
+  border: solid;
+  border-width: 1px;
+  text-align: center;
+}
+
+
+
+
 
 .voidcheck {
   display:grid;
