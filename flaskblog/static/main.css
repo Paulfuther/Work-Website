@@ -273,19 +273,19 @@ ul {
   padding-left: 5px;
 }
 
-.file-container {
+/*.file-container {
   display: grid;
   grid-template-columns: 1fr;
   width: 90%;
   margin-left: 50px;
 
-}
+}*/
 
 .hrheader {
   padding-top: 1px;
   padding-bottom: 1px;
   text-align: left;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .hrheader p {
@@ -334,7 +334,7 @@ ul.a {
 }
 
 .sig {
-  padding-bottom: 15px;
+  padding-bottom: 5px;
   padding-top: 15px;
 }
 
@@ -351,6 +351,9 @@ ul.a {
   padding-bottom: 1px;
 }
 
+
+
+
 .requiredgrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -358,6 +361,7 @@ ul.a {
   padding-top: 20px;
   padding-bottom: 20px;
   font-size: 10px;
+  margin-left: 50px;
 }
 
 .requiredgrid div p li {
@@ -1028,3 +1032,18 @@ a.hrbutton {
 
 
 
+@media print {
+
+  iframe {
+    display: none;
+  }
+
+  .hr-container{
+    display: none;
+  }
+
+  /* .file-container {
+    column-width: 17em;
+    column-gap: 3em;
+  }*/
+}
