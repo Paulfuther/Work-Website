@@ -90,6 +90,33 @@
                         {% endfor %}            
                     {% endif %}
         </div>
+        <div> {{form.postal(class = "form", placeholder="Postal Code")}} 
+                    {% if form.postal.errors %}
+                        {% for error in form.postal.errors %}
+                        <div class = "formerror">{{ error }}</div>
+                        {% endfor %}            
+                    {% endif %}
+        </div>
+        <div>
+        
+        {{form.trainingid(class = "form", placeholder="Training User ID")}} 
+                    {% if form.trainingid.errors %}
+                        {% for error in form.trainingid.errors %}
+                        <div class = "formerror">{{ error }}</div>
+                        {% endfor %}            
+                    {% endif %}
+        
+        </div>
+        <div>
+        {{form.trainingpassword(class = "form", placeholder="Training Pasword")}} 
+                    {% if form.trainingpassword.errors %}
+                        {% for error in form.trainingpassword.errors %}
+                        <div class = "formerror">{{ error }}</div>
+                        {% endfor %}            
+                    {% endif %}
+        
+        </div>
+
 
             <div>
             {{form.submit(class_="hrbutton")}}

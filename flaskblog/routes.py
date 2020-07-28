@@ -95,12 +95,22 @@ def updategsa(staff_id):
     gsaphone = gsa.mobilephone
     gsasin = gsa.SIN  
     gsaemail = gsa.email
+    gsapostal = gsa.postal
+    gsatrainingid = gsa.trainingid
+    gsatrainingpassword = gsa.trainingpassword
     phone = form.mobilephone.data
     sin = int(form.SIN.data)
+    postal = form.postal.data
+    trainingid = form.trainingid.data
+    trainingpassword = form.trainingpassword.data
+    
     
     emp = Employee.query.filter_by(mobilephone=text(phone)).first()
     emailcheck = Employee.query.filter_by(email=form.email.data).first()
     sincheck = Employee.query.filter_by(SIN=sin).first()
+    postalcheck = Employee.query.filter_by(postal=postal).first()
+    trainingidcheck = Employee.query.filter_by(trainingid=trainingid).first()
+    trainingpasswordcheck = Employee.query.filter_by(trainingpassword=trainingpassword).first()
     
     if gsaphone == phone:
         print("same mobile")
@@ -122,7 +132,29 @@ def updategsa(staff_id):
         if emailcheck:
             flash("email already used")
             return render_template('employeeupdate.html', form=form, gsa=gsa)
-  
+        
+    if gsa.postal == form.postal.data:
+        print("same postal code")
+    else:
+        if postalcheck:
+            flash("postal already exists")
+            return render_template('employeeupdate.html', form=form, gsa=gsa)
+    
+    if gsa.trainingid == form.trainingid.data:
+            print("same user id ")
+    else:
+        if trainingidcheck:
+            flash("user id already exists")
+            return render_template('employeeupdate.html', form=form, gsa=gsa)
+    
+    if gsa.trainingpassword == form.trainingpassword.data:
+            print("same training password")
+    else:
+        if trainingpasswordcheck:
+            flash("training password already exists")
+            return render_template('employeeupdate.html', form=form, gsa=gsa)
+    
+    
     
     if form.validate_on_submit():
         if form.submit.data:
@@ -155,7 +187,10 @@ def hr():
                                     SIN=form.SIN.data,
                                     Startdate=form.Startdate.data,
                                     Enddate=form.Enddate.data,
-                                    lastname = form.lastname.data)
+                                    lastname = form.lastname.data,
+                                    postal = form.postal.data,
+                                    trainingid = form.trainingid.data,
+                                    trainingpassword = form.trainingpassword.data)
                                     
         db.session.add(emp)
         db.session.commit()

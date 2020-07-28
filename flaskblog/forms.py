@@ -88,7 +88,10 @@ class EmployeeForm(FlaskForm):
     Startdate = DateField('Start Date', format = '%Y-%m-%d', validators=[Optional()])                       
     Enddate = DateField('End Date', format='%m/%d/%Y', validators = [Optional()])
     submit = SubmitField('Add Employee')
-    
+    postal = StringField('Postal Code', validators=[
+                         DataRequired(), Length(min=6, max=6)])
+    trainingid = StringField('Training ID', validators = [DataRequired()])
+    trainingpassword = StringField('Training Password', validators = [DataRequired()])
     
     
     
@@ -152,8 +155,13 @@ class EmployeeUpdateForm(FlaskForm):
     Startdate = DateField('Start Date', format='%Y-%m-%d',
                           validators=[Optional()])
     Enddate = DateField('End Date', format='%m/%d/%Y', validators=[Optional()])
+    postal = StringField('Postal Code', validators=[DataRequired(), Length(min = 6, max=6)])
     delete = SubmitField('Delete Employee')
     submit = SubmitField('Edit Employee')
+    trainingid = StringField('Training ID', validators=[DataRequired()])
+    trainingpassword = StringField(
+        'Training Password', validators=[DataRequired()])
+    
 
     def validate_store(self, store):
 

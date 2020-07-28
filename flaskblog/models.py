@@ -49,7 +49,10 @@ class Employee(db.Model):
     updated_on = db.Column(db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
     Startdate = db.Column(db.DateTime(), nullable=True)
     Enddate = db.Column(db.DateTime(), nullable=True)
-   
+    postal = db.Column(db.String(6), nullable=False)
+    trainingid = db.Column(db.String(), nullable=False)
+    trainingpassword = db.Column(db.String(), nullable=False)
+       
     
     #def __repr__(self):
      #   return f"Employee('{self.firstname}', '{self.SIN}')"
