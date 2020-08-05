@@ -402,19 +402,25 @@ ul.a {
   padding-top: 20px;
   padding-bottom: 20px;
   width: 90%;
+  grid-auto-rows: 50px;
+  
+  
 }
 
 .payrollgrid div {
-  padding-top: 5px;
+  padding-top: 15px;
   padding-bottom: 5px;
   padding-left: 10px;
   border-style: solid;
   border-width: 1px;
+  
 }
 
 .competitiongrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  width: 80%;
+  margin: auto;
   
 
 }
@@ -447,7 +453,9 @@ ul.a {
   grid-template-columns: repeat(4, 1fr);
   padding-top: 5px;
   padding-bottom: 5px;
-  
+  grid-auto-rows: 50px;
+  width: 80%;
+  margin: auto;
 }
 
 .sitesecuritygrid div {
@@ -455,6 +463,8 @@ ul.a {
   border-width: 1px;
   padding-top: 5px;
   padding-bottom: 5px;
+  padding-left: 5px;
+  
 }
 
 .muniform {
@@ -1024,10 +1034,164 @@ a.hrbutton {
     margin-bottom: 5px;
   }
 
+  .payrollgrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 90%;
+  }
+
+  .sitesecuritygrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 80%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    grid-template-areas: 
+    "sop"
+    "sopname"
+    "sopreview"
+    "sopcompleted"
+    
+    "sectwo"
+    "title2"
+    "name2"
+    "review2"
+    "completed2"
+    "secthree"
+    "title3"
+    "name3"
+    "review3"
+    "completed3"
+    "secfour"
+    "title4"
+    "name4"
+    "review4"
+    "compelted4"
+    "secfive"
+    "title5"
+    "name5"
+    "review5"
+    "completed5"
+    "secsix"
+    "title6"
+    "name6"
+    "review6"
+    "completed6"
+    "secseven"
+    "title7"
+    "review7"
+    "completed7";
+  }
 
 
 
+
+  .uniformimagegrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 80%;
+    margin: auto;
+  }
+
+  .competitiongrid {
+    display: grid;
+    grid-template-areas: 
+    "compone"
+    "one"
+    "comptwo"
+    "two"
+    "compthree"
+    "three";
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .compone {
+    grid-area: compone;
+  }
+
+  .one {
+    grid-area: one;
+  }
+
+  .comptwo {
+    grid-area: comptwo;
+  }
+
+  .two {
+    grid-area: two;
+
+  }
+
+  .vacationpay {
+    display: grid;
+    grid-template-areas: 
+    "mon"
+    "hrs1"
+    "tue"
+    "hrs2"
+    "wed"
+    "hrs3"
+    "thur"
+    "hrs4"
+    "fri"
+    "hrs5"
+    "sat"
+    "hrs6"
+    "sun"
+    "hrs7";
+    grid-template-columns: 1fr;
+    width: 80%;
+    margin: auto;
+    border: solid;
+  }
+
+  .mon {
+    grid-area: mon;
+  }
+
+  .hrs1 {
+    grid-area: hrs1;
+  }
+  .tue {
+    grid-area: tue;
+  }
+  .hrs2 {
+   grid-area: hrs2;
+  }
+  .wed {
+    grid-area: wed;
+  }
+  .hrs3 {
+     grid-area: hrs3;
+  }
+  .thur {
+    grid-area: thur;
+  }
+  .hrs4 {
+     grid-area: hrs4;
+   }
+  .fri {
+    grid-area: fri;
+  }
+  .hrs5 {
+     grid-area: hrs5;
+  }
+  .sat {
+    grid-area: sat;
+  }
+  .hrs6 {
+     grid-area: hrs6;
+  }
+  .sun {
+    grid-area: sun;
+  }
+  .hrs7 {
+     grid-area: hrs7;
+  }
 }
+
 
 
 
