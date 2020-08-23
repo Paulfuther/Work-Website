@@ -19,7 +19,7 @@ $(document).ready(function(){
           };
       var ctx = $("#cstoremargin");
       var barGraph = new Chart(ctx, {
-          type: 'bar',
+          type: 'doughnut',
           data: chartdata,
             options: {
               legend: {

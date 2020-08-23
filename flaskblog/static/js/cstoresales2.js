@@ -25,7 +25,7 @@ $(document).ready(function(){
           ]
         };
   
-      var ctx = $("#storemargin");
+      var ctx = $("#storemargin2");
   
       var barGraph = new Chart(ctx, {
           type: 'bar',

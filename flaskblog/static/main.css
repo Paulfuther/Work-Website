@@ -8,7 +8,7 @@ body {
   font-family: 'Seqoe UI', Verdana, Geneva, Tahoma, sans-serif;
   background: white;
   color: #000;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
@@ -96,6 +96,34 @@ ul {
   
 }
 
+/*--- Login Form --*/
+
+.login {
+  display: grid;
+  align-content: center;
+  padding-top: 20px;
+
+}
+
+.logincard {
+  display: grid;
+  width: 50%;
+  border: 1px;
+  border-radius: 15px;
+  border-color: grey;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  box-shadow: 5px 5px lightgray;
+  margin: auto;
+}
+
+.logincardbody {
+  padding: 20px;
+}
+
+.logincardbody div {
+  padding-top: 5px;
+}
 
 /* Upload Form */
 
@@ -257,7 +285,6 @@ ul {
   font-size: 10px;
   margin: auto;
 }
-
 .appearancegrid div {
   padding-top: 5px;
   padding-bottom: 5px;
@@ -266,13 +293,11 @@ ul {
   border-style: solid;
   border-width: 1px;
 }
-
 .appearancegrid div li{
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 5px;
 }
-
 /*.file-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -287,57 +312,46 @@ ul {
   text-align: left;
   font-size: 16px;
 }
-
 .hrheader p {
   margin: 0auto;
 }
-
 .hrheadersmall {
   padding-top: 1px;
   padding-bottom: 1px;
   text-align: left;
   font-size: 15px;
 }
-
 .security {
   padding-left: 20px;
 }
-
 ul.a {
   list-style: decimal;
 }
-
 .hrheaderdata {
   padding-top: 1px;
   padding-bottom: 1px;
   text-align: left;
 }
-
 .hrfilename {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-
 .hrp {
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
 }
-
 .hrp li{
   padding-bottom: 10px;
 }
-
 .hrp li ul li{
   padding-bottom: 10px;
   padding-top: 10px;
 }
-
 .sig {
   padding-bottom: 5px;
   padding-top: 15px;
 }
-
 .sigdate {
   padding-top: 1px;
 }
@@ -346,14 +360,9 @@ ul.a {
   grid-template-columns: 1fr 1fr;
   padding-right: 20px;
 }
-
 .sigmarker {
   padding-bottom: 1px;
 }
-
-
-
-
 .requiredgrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -363,28 +372,23 @@ ul.a {
   font-size: 10px;
   margin-left: 50px;
 }
-
 .requiredgrid div p li {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-
 .requiredgrid div p br li {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-
 .robbery {
   align-items: center;
   width:80%;
   height: 35pc;
 }
-
 .hrheading {
   padding-top: 10px;
   padding-bottom: 20px;
 }
-
 .hrfooter {
   font-style: italic;
   font-size: 8px;
@@ -395,7 +399,6 @@ ul.a {
   text-align: center;
   text-justify: inter-word;
 }
-
 .payrollgrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -406,7 +409,6 @@ ul.a {
   
   
 }
-
 .payrollgrid div {
   padding-top: 15px;
   padding-bottom: 5px;
@@ -415,7 +417,6 @@ ul.a {
   border-width: 1px;
   
 }
-
 .competitiongrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -424,7 +425,6 @@ ul.a {
   
 
 }
-
 .competitiongrid div {
   border: solid;
   border-width: 1px;
@@ -433,7 +433,6 @@ ul.a {
   padding-top: 5px;
   padding-bottom: 5px;
 }
-
 .empstandardsgrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -441,7 +440,6 @@ ul.a {
   margin: auto;
   
 }
-
 .empstandards {
   align-items: center;
   width: 80%;
@@ -457,7 +455,6 @@ ul.a {
   width: 80%;
   margin: auto;
 }
-
 .sitesecuritygrid div {
   border:  solid;
   border-width: 1px;
@@ -466,20 +463,17 @@ ul.a {
   padding-left: 5px;
   
 }
-
 .muniform {
   align-items: center;
   width: 80%;
   height: 16pc;
 }
-
 .uniformimagegrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   width: 80%;
   margin: auto;
 }
-
 .vacationpay {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -488,17 +482,11 @@ ul.a {
   margin: auto;
   border: solid;
 }
-
 .vacationpay div {
   border: solid;
   border-width: 1px;
   text-align: center;
 }
-
-
-
-
-
 .voidcheck {
   display:grid;
   
@@ -527,8 +515,6 @@ ul.a {
   border-radius: 15px;
   
 }
-
-
 .form-hrinfo {
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -537,7 +523,6 @@ ul.a {
   align-items: center;
   padding: 15px 15px 15px 15px;
 }
-
 /*.form-hrinfo  div {
   align-items: center;
   padding-top: 5px 5px 5px 5px;
@@ -554,7 +539,6 @@ ul.a {
   border-radius: 8px;
 
 }
-
 .form2 {
   background: #eee;
   border: none;
@@ -564,7 +548,6 @@ ul.a {
   padding: 5px 5px 5px 5px;
 
 }
-
 .input-container [data-error] {
   border-color: red;
   color: red;
@@ -573,7 +556,6 @@ ul.a {
 
 
 }
-
 .formerror {
   height: 10px;
   font-size: 8px;
@@ -584,7 +566,6 @@ ul.a {
 
   
 }
-
 .hrbutton {
   align-items: center;
   border-radius: 20px;
@@ -595,20 +576,16 @@ ul.a {
   margin-top: 20px;
   
 }
-
 .hrbutton:active {
   transform: scale(0.75);
 }
-
 .hrbutton:focus {
   outline: black;
 }
-
 .hrbutton:hover {
   background: darkolivegreen;
   color: #ffffff;
 }
-
 a.hrbutton {
   align-items: center;
   border-radius: 20px;
@@ -621,60 +598,52 @@ a.hrbutton {
 }
 
 
-
-
-
 /* Dashboard */
 
 /*.chartjs.hidden.iframe {
   width: 100px;
 } */
 
-
 .container-charts {
   display: grid;
-  justify-items: stretch;
-  align-items: stretch;
-  /*grid-template-columns: 1fr 1fr;*/
+  grid-template-columns: 1fr 1fr;
+  /*
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  */
   grid-template-rows: auto;
   grid-row-gap: 1em;
   margin-top: 20px;
   margin-left: 50px;
   margin-right: 50px;
   
-
 }
-
 .chartheading {
   display: grid;
   text-align: center;
 }
-
-
 .dashboardheading {
+  display: grid;
+  text-align: center;
   font-size: 14px;
   padding-bottom: 1em;
 }
-
 .chartcard {
-  
+  position: relative;
+  height: 100%;
+  width: 90%;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
   text-align: center;
   box-shadow: 5px 5px lightgray;
 }
-
 .chartheading {
   font-size: 14px;
-  padding-bottom: 1em;
+  padding-bottom: 4em;
   
- 
 }
-
 .container-charts >div {
-  padding: 1em;
+  padding: 2em;
 }
 
 
@@ -690,7 +659,6 @@ a.hrbutton {
   margin-top: 20px;
   
 }
-
 .card {
   display: grid;
   width: 50%;
@@ -702,60 +670,46 @@ a.hrbutton {
   box-shadow: 5px 5px lightgray;
   
 }
-
 .cardbody {
   padding: 10px;
 }
-
 .cardheader {
   display: flex;
 }
-
 .card ul {
   display: flex;
   margin-bottom: 10px;
 }
-
 .card ul li{
   padding: 0 5px;
 }
-
 .card ul.media-body-topleft {
   flex: 1;
   justify-content: flex-start;
 }
-
-
 .card .blogimage {
   width: 30px;
   border-radius: 50% ;
   
 }
-
-
 .media-body {
   margin-bottom: 20px;
   margin-left: 35px;
 }
-
 .article-title {
   text-transform: capitalize;
   font-size: 14px;
 }
-
 .article-content {
   margin-top: 10px;
 }
-
 .media-body a  {
   align-items: center;
 }
-
 .div-button {
   margin-top: 10px;
   
 }
-
 .button {
   border: 1px solid grey;
   border-radius: 8px;
@@ -778,27 +732,21 @@ a.hrbutton {
   padding: 20px 0;
   font-size: 13px;
 }
-
 .main-nav .logo {
   width: 110px;
 }
-
 .main-nav ul {
   display: flex;
 }
-
 .main-nav ul li {
   padding: 0 5px;
 }
-
 .main-nav ul li a {
   padding-bottom: 2px;
 }
-
 .main-nav ul li a:hover{
   border-bottom: 2px solid #262626;
 }
-
 .main-nav ul.main-menu {
   flex:1;
   margin-left: 20px;
@@ -816,31 +764,25 @@ a.hrbutton {
   padding: 20px 0;
   font-size: 12px;
 }
-
 .app-nav ul {
   display: flex;
 }
-
 .app-nav ul li {
   padding: 0 5px;
   
 }
-
 .app-nav ul li a {
   padding-bottom: 5px;
  
 }
-
 .app-nav ul li:hover {
   background-color: rgb(236, 234, 234);
 
 }
-
 .app.nav ul.app-menu {
   flex: 1;
   margin-left: 20px;
 }
-
 .app-menu {
   max-width: 700px;
   margin: 0 auto;
@@ -1190,11 +1132,25 @@ a.hrbutton {
   .hrs7 {
      grid-area: hrs7;
   }
+
+
+  .container-charts {
+    display: grid;
+    justify-items: stretch;
+    align-items: stretch;
+    grid-template-columns: 1fr;
+    /*grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+   */
+    grid-template-rows: auto;
+    
+    grid-row-gap: 1em;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+
+  }
+
 }
-
-
-
-
 
 @media print {
 
