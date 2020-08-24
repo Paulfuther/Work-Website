@@ -19,7 +19,7 @@ $(document).ready(function () {
           };
       var ctx = $("#storemargin");
       var barGraph = new Chart(ctx, {
-          type: 'bar',
+          type: 'line',
           data: chartdata, 
             options: {
               legend: {
@@ -30,24 +30,31 @@ $(document).ready(function () {
                   gridLines:{
                     display:false
                     },
-                    type: 'category',
+                    ticks: {
+                      beginAtZero: true
+                    
+                    },
+                    type: 'time',
+                    distribution: 'series',
                     time: {
                     unit: 'month',
+                    
                     displayFormats: {
-                        'day': 'MMM YY',
-                        'week': 'MMM YY',
-                        'month': 'MMM YY',
-                        'quarter': 'MMM YY',
-                        'year': 'MMM YY',
-                        },
+                     //   'day': 'MMM YY',
+                     //   'week': 'MMM YY',
+                       month: 'MMM',
+                    //    'quarter': 'MMM YY',
+                    //    'year': 'MMM YY',
+                   //     }, //
                 }
+              }
              }],
              yAxes:[{
                gridLines:{
                  display:false
                },
                ticks: {
-                 beginAtZero: true
+                 beginAtZero: false
                }
              }]
              }

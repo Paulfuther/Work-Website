@@ -647,8 +647,8 @@ def data():
     table = Table('growthkpi', metadata,  autoload=True)
                               
     s = select([table.c.Amount,
-        extract("month", table.c.Date,
-                )])\
+                 table.c.Date,
+                ])\
         .where(and_(table.c.Store == '48314',
                 table.c.Category == 'Total C-Store Sales ($)',
                 table.c.Date >= "2019-01-01"))
