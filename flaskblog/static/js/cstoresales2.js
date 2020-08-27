@@ -43,8 +43,8 @@ $(document).ready(function(){
                   //max: datenew[12],
                   displayFormats: {
                    
-                   'day': 'MMM YY',
-                   'month': 'MMM YY',
+                   'day': 'MMM DD',
+                   'month': 'MMM',
                     'quarter': 'MMM YY',
                     'year': 'MMM YY',
                   }

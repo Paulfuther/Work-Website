@@ -30,13 +30,14 @@ $(document).ready(function(){
                   gridLines:{
                     display:false
                     },
-                    type: 'category',
+                    type: 'time',
                     time: {
-                    unit: 'month',
-                    displayFormats: {
-                        'day': 'MMM YY',
+                      parser: "MMM",
+                      unit: 'day',
+                      displayFormats: {
+                        day: 'MMM YY',
                         'week': 'MMM YY',
-                        'month': 'MMM YY',
+                         month: 'MMM',
                         'quarter': 'MMM YY',
                         'year': 'MMM YY',
                         },

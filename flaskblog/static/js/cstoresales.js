@@ -4,10 +4,15 @@ $(document).ready(function () {
       method: "GET",
       success: function (newdata) {
       var datenew = [];
-      var marginnew = [];  
-        for (var i in newdata) {
+       
+        for (let i=0; i < newdata.length; i++)  //var i in newdata)// 
+        {
           datenew.push(newdata[i].date);
-          marginnew.push(newdata[i].sales);
+        };
+      var marginnew = [];
+        for (let k = 0; k < newdata.length; k++)
+        {
+          marginnew.push(newdata[k].sales);
           }; 
       var chartdata = {
         labels: datenew,
@@ -19,7 +24,7 @@ $(document).ready(function () {
           };
       var ctx = $("#storemargin");
       var barGraph = new Chart(ctx, {
-          type: 'line',
+          type: 'bar',
           data: chartdata, 
             options: {
               legend: {
@@ -35,17 +40,15 @@ $(document).ready(function () {
                     
                     },
                     type: 'time',
-                    distribution: 'series',
+                    //distribution: 'series',//
                     time: {
-                    unit: 'month',
+                      parser: "DD-MMM-YYYY HH:mm:ss",
+                      unit: 'month',
                     
-                    displayFormats: {
-                     //   'day': 'MMM YY',
-                     //   'week': 'MMM YY',
-                       month: 'MMM',
-                    //    'quarter': 'MMM YY',
-                    //    'year': 'MMM YY',
-                   //     }, //
+                      displayFormats: {
+                      
+                      day: 'MMM YY',
+                  
                 }
               }
              }],
