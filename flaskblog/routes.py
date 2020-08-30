@@ -33,11 +33,9 @@ engine = create_engine('mysql://root:root@localhost/work')
 def home():
     return render_template('home.html')
 
-
 @app.route("/hrhome")
 def hrhome(): 
     return render_template('hrhome.html')
-
 
 @app.route("/ert")
 def ert():
@@ -48,11 +46,9 @@ def hrfile(staff_id):
     gsa = Employee.query.get(staff_id)
     return render_template('hrfile.html', gsa=gsa)
 
-
 @app.route("/hrlist", methods =['GET', 'POST'])
 def hrlist():
     return render_template('hrlist.html')
-
 
 @app.route("/search", methods=['GET', 'POST'])
 def search():
@@ -211,26 +207,21 @@ def blog():
   
     return render_template('blog.html', posts=posts, title='Blog')
 
-
 @app.route("/applications")
 def Applications():
     return render_template('applications.html', title='Applications')
-
 
 @app.route("/kpiconvert")
 def Kpiconvert():
     return render_template('kpiconvert.html', title='KPI Converter')
 
-
 @app.route("/carwashkpiconvert")
 def CarwashKPIconvert():
     return render_template('carwashkpiconvert.html', title='Carwash KPI Converter')
 
-
 @app.route("/tpfileconvert")
 def TPFileconvert():
     return render_template('teamperformanceconvert.html', title='Team Performance File Converter')
-
 
 @app.route("/tpfileupload", methods=['POST'])
 def tpfileupload():
@@ -292,11 +283,9 @@ def tpfileupload():
 
     return send_file(output, attachment_filename="sfoutput.xlsx", as_attachment=True)
 
-
 @app.route("/securityfileconvert")
 def SecurityFileconvert():
     return render_template('securityfileconvert.html', title='Security File Converter')
-
 
 @app.route("/securityfileupload", methods=['POST'])
 def securityfileupload():
@@ -346,11 +335,9 @@ def securityfileupload():
 
     return send_file(output, attachment_filename="sfoutput.xlsx", as_attachment=True)
 
-
 @app.route("/securityfilenegconvert")
 def SecurityFilenegconvert():
     return render_template('securityfilenegconvert.html', title='Security File Negative Sales Converter')
-
 
 @app.route("/securityfilenegupload", methods=['POST'])
 def securityfilenegupload():
@@ -514,7 +501,6 @@ def carwashkpiupload():
 
     return render_template("applications.html")
 
-
 @app.route("/upload", methods=['POST'])
 def upload():
 
@@ -637,7 +623,6 @@ def login():
 
     return render_template('login.html', title='Login', form=form)
 
-
 #This route used sql alchemy to access the grwothkpi tables in the MySql database
 
 @app.route("/cstoresales")
@@ -651,7 +636,7 @@ def data():
                 ])\
         .where(and_(table.c.Store == '48314',
                 table.c.Category == 'Total C-Store Sales ($)',
-                table.c.Date >= "2019-01-01"))
+                table.c.Date >= "2017-04-01"))
 
         
     rs = s.execute()
@@ -666,7 +651,6 @@ def data():
        #print(newdata)
        
     return jsonify(newdata)
-
 
 @app.route("/cstoremargin")
 def thirddata():
@@ -694,9 +678,6 @@ def thirddata():
 
     return jsonify(newdata3)
 
-
-
-
 @app.route("/data")
 def seconddata():
     
@@ -720,6 +701,29 @@ def seconddata():
        #print(newdata2)
     return jsonify(newdata2)
 
+@app.route("/carwashmargin")
+def carwashmargin():
+
+    metadata = MetaData(engine)
+    table = Table('car wash', metadata,  autoload=True)
+
+    s = select([table.c.Amount,
+                    table.c.Date,
+                        ])\
+        .where(and_(table.c.Store == '48314',
+                    table.c.Classification == 'revenue',
+                    table.c.Item == 'CW Commission Revenue (before crop)',
+                    table.c.Date >= "2019-04-01"))
+
+    rs4 = s.execute()
+    newdata4 = []
+    content4 = {}
+    for result in rs4:
+       content4 = {'date': result[1], 'commissions': result[0]}
+       newdata4.append(content4)
+       content4 = {}
+       #print(newdata4)
+    return jsonify(newdata4)
 
 @app.route("/charts")
 def charts():
@@ -744,7 +748,6 @@ def save_picture(form_picture):
     i.thumbnail(output_size)
     i.save(picture_path)
     return picture_fn
-
 
 @app.route("/account", methods=['GET', 'POST'])
 @login_required
@@ -785,7 +788,6 @@ def post(post_id):
     post=Post.query.get_or_404(post_id)
     return render_template('post.html', title=post.title, post=post)
 
-
 @app.route("/post/<int:post_id>/update", methods=['GET', 'POST'])
 @login_required
 def update_post(post_id):
@@ -806,7 +808,6 @@ def update_post(post_id):
     return render_template('create_post.html', title='Update Post',
                             form=form, legend='Update Post')
 
-
 @app.route("/post/<int:post_id>/delete", methods=['POST'])
 @login_required
 def delete_post(post_id):
@@ -818,9 +819,7 @@ def delete_post(post_id):
     flash('Your Post Has Been Deleted', 'success')
     return redirect(url_for('blog'))
 
-
 @app.route("/user/<string:username>")
-
 def user_posts(username):
     page = request.args.get('page', 1, type=int)
     user = User.query.filter_by(username=username).first_or_404()

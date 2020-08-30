@@ -18,6 +18,7 @@ $(document).ready(function(){
           datasets : [
             {
               label: 'C Store Margin Dollars',
+              fill: false,
               data: marginnew,
               backgroundColor: '#b3d9ff',
               borderColor: 'blue',

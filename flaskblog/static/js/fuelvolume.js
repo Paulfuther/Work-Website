@@ -30,7 +30,7 @@ $(document).ready(function(){
                   gridLines:{
                     display:false
                     },
-                    type: 'time',
+                    type: 'category',
                     time: {
                       parser: "MMM",
                       unit: 'day',

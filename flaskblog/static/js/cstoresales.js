@@ -4,27 +4,24 @@ $(document).ready(function () {
       method: "GET",
       success: function (newdata) {
       var datenew = [];
-       
+      var marginnew = [];
         for (let i=0; i < newdata.length; i++)  //var i in newdata)// 
         {
-          datenew.push(newdata[i].date);
-        };
-      var marginnew = [];
-        for (let k = 0; k < newdata.length; k++)
-        {
-          marginnew.push(newdata[k].sales);
+        datenew.push(newdata[i].date);
+        marginnew.push(newdata[i].sales);
           }; 
       var chartdata = {
         labels: datenew,
         datasets: [{
           label: 'C Store Sales',
+          fill: false,
           data: marginnew,
           backgroundColor: '#b3d9ff',
           }]
           };
       var ctx = $("#storemargin");
       var barGraph = new Chart(ctx, {
-          type: 'bar',
+          type: 'line',
           data: chartdata, 
             options: {
               legend: {
@@ -32,32 +29,30 @@ $(document).ready(function () {
               },
               scales: {
                 xAxes: [{
+                  offset: true,
+                  ticks: {
+                    autoSkip: false,
+                        autoSkip: false,
+                        maxRotation: 90,
+                        minRotation: 90,  
+                    beginAtZero: true,
+                  },
                   gridLines:{
-                    display:false
-                    },
-                    ticks: {
-                      beginAtZero: true
-                    
-                    },
+                    display:false},
                     type: 'time',
-                    //distribution: 'series',//
                     time: {
                       parser: "DD-MMM-YYYY HH:mm:ss",
-                      unit: 'month',
-                    
+                      unit: 'month',                   
                       displayFormats: {
-                      
-                      day: 'MMM YY',
-                  
-                }
-              }
-             }],
+                      month: 'MMM YY',}
+                    }
+              }],
              yAxes:[{
                gridLines:{
                  display:false
                },
                ticks: {
-                 beginAtZero: false
+                 beginAtZero:false
                }
              }]
              }
