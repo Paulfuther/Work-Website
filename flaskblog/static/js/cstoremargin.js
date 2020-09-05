@@ -5,9 +5,11 @@ $(document).ready(function(){
       success: function (newdata3) {
       var datenew3 = [];
       var volume3 = [];
+      var store3 =[];
         for (var i in newdata3) {
           datenew3.push(newdata3[i].date);
           volume3.push(newdata3[i].margin);
+          store3.push(newdata3[i].margin)
            };
       var chartdata = {
         labels: datenew3,

@@ -46,8 +46,6 @@ $(document).ready(function () {
                     displayFormats: {
                     month: 'MMM YY',
                 },
-                   
-                    
                 } 
                 }],
                 yAxes:[{

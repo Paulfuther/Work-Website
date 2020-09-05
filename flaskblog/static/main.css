@@ -517,7 +517,7 @@ ul.a {
 }
 .form-hrinfo {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(2,1fr);
   margin: auto;
   justify-content: center;
   align-items: center;
@@ -531,7 +531,7 @@ ul.a {
 .form {
   background: #eee;
   color: grey;
-  margin-left: 10px;
+  
   margin-bottom: 10px;
   border: none;
   width: 95%;
@@ -563,9 +563,25 @@ ul.a {
   color: red;
   padding-bottom: 5px;
   margin-bottom: 5px;
-
-  
 }
+
+.formtitle {
+  height: 10px;
+  font-size: 14px;
+  text-align: left;
+  color: black;
+  padding-bottom: 30px;
+  padding-left: 10px;
+  
+
+}
+
+.gsaupdateimage {
+  width: 100px;
+  border-radius: 50%;
+  padding-bottom: 20px;
+}
+
 .hrbutton {
   align-items: center;
   border-radius: 20px;
@@ -928,6 +944,17 @@ a.hrbutton {
     justify-content: center;
     align-items: center;
     padding: 0 5px 0 5px;
+  }
+
+  .formtitle {
+    height: 10px;
+    font-size: 14px;
+    text-align: center;
+    color: black;
+    padding-bottom: 30px;
+    padding-left: 10px;
+
+
   }
 
   .hrlist {

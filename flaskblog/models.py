@@ -52,6 +52,9 @@ class Employee(db.Model):
     postal = db.Column(db.String(6), nullable=False)
     trainingid = db.Column(db.String(), nullable=False)
     trainingpassword = db.Column(db.String(), nullable=False)
+    manager =db.Column(db.String)
+    image_file = db.Column(db.String(20), nullable=False,
+                           default='default.jpg')
        
     
     #def __repr__(self):

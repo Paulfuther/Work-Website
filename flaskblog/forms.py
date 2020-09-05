@@ -92,7 +92,10 @@ class EmployeeForm(FlaskForm):
                          DataRequired(), Length(min=6, max=6)])
     trainingid = StringField('Training ID', validators = [DataRequired()])
     trainingpassword = StringField('Training Password', validators = [DataRequired()])
-    
+    manager = SelectField('manager', choices=[(
+                          'Manager Name', 'Manager Name'), ( 'Terry', "Terry"),
+                                        ( 'Steph','Steph'),( 'Wanda','Wanda'),( 'Sahib', 'Sahib'),
+                                        ( 'Paul', 'Paul')])
     
     
     def validate_mobilephone(self, mobilephone):
@@ -156,11 +159,18 @@ class EmployeeUpdateForm(FlaskForm):
                           validators=[Optional()])
     Enddate = DateField('End Date', format='%m/%d/%Y', validators=[Optional()])
     postal = StringField('Postal Code', validators=[DataRequired(), Length(min = 6, max=6)])
+    manager = SelectField('manager', choices=[(
+                          'Manager Name', 'Manager Name'), ('Terry', "Terry"),
+        ('Steph', 'Steph'), ('Wanda', 'Wanda'), ('Sahib', 'Sahib'),
+        ('Paul', 'Paul')])
+
     delete = SubmitField('Delete Employee')
     submit = SubmitField('Edit Employee')
     trainingid = StringField('Training ID', validators=[DataRequired()])
     trainingpassword = StringField(
         'Training Password', validators=[DataRequired()])
+    hrpicture = FileField( validators=[
+                        FileAllowed(['jpg', 'png'])])
     
 
     def validate_store(self, store):

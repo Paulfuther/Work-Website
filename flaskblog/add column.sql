@@ -1,3 +1,3 @@
 -- SQLite
 alter table employee
-add postal string;
+add manager string;

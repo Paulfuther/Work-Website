@@ -163,3 +163,71 @@ width: 40%;
   font-size: 10px;
 }
 
+
+
+ <div> {{form.firstname(class = "form")}}  </div> 
+        <div> {{form.nickname(class = "form", placeholder="Nick Name")}}</div>   
+        <div> {{form.lastname(class = "form" ,placeholder="Last Name")}} </div>
+        <div> {{form.store(class = "form", placeholder="Home Store")}} 
+                    {% if form.store.errors %}
+                        {% for error in form.store.errors %}
+                        <div class = "formerror">{{ error }}</div>
+                        {% endfor %}                        
+                    {% endif %}
+        </div>
+        <div> {{form.mobilephone(class = "form" ,placeholder="Phone Number")}} 
+                    {% if form.mobilephone.errors %}
+                        {% for error in form.mobilephone.errors %}
+                        <div class = "formerror">{{ error }}</div>
+                        {% endfor %}                      
+                    {% endif %}
+        </div>   
+        <div> {{form.Startdate(class = "form" ,placeholder="Start Date")}} </div>
+        <div> {{form.Enddate(class = "form" ,placeholder="End Date")}} </div>
+        <div> {{form.addressone(class = "form" ,placeholder="Address Line 1")}} </div>
+        <div> {{form.addresstwo(class = "form" ,placeholder="Address Line 2")}} </div>
+        <div> {{form.apt(class = "form" ,placeholder="Unit/Apt")}} </div>
+        <div> {{form.city(class = "form" ,placeholder="City")}} </div>
+        <div> {{form.province(class = "form" ,placeholder="Province")}} </div>
+        <div> {{form.country(class = "form" ,placeholder="Country")}} </div>
+        <div> {{form.SIN(class = "form", placeholder="SIN")}} 
+                    {% if form.SIN.errors %}
+                        {% for error in form.SIN.errors %}
+                        <div class = "formerror">{{ error }}</div>
+                        {% endfor %}                        
+                    {% endif %}       
+        </div>
+        <div> {{form.email(class = "form", placeholder="E-Mail")}} 
+                    {% if form.email.errors %}
+                        {% for error in form.email.errors %}
+                        <div class = "formerror">{{ error }}</div>
+                        {% endfor %}                        
+                    {% endif %}
+        </div>
+                <div> {{form.postal(class = "form", placeholder="Postal Code")}} 
+                            {% if form.postal.errors %}
+                                {% for error in form.postal.errors %}
+                                <div class = "formerror">{{ error }}</div>
+                                {% endfor %}            
+                            {% endif %}
+                </div>
+
+            <div>
+        
+                        {{form.trainingid(class = "form", placeholder="Training User ID")}} 
+                                    {% if form.trainingid.errors %}
+                                        {% for error in form.trainingid.errors %}
+                                        <div class = "formerror">{{ error }}</div>
+                                        {% endfor %}            
+                                    {% endif %}
+        
+        </div>
+        <div>
+                        {{form.trainingpassword(class = "form", placeholder="Training Pasword")}} 
+                                    {% if form.trainingpassword.errors %}
+                                        {% for error in form.trainingpassword.errors %}
+                                        <div class = "formerror">{{ error }}</div>
+                                        {% endfor %}            
+                                    {% endif %}
+        
+        </div>

@@ -68,6 +68,20 @@ def search():
         #print(staff.firstname)
     return render_template('hrlist.html', gsa=gsa)
 
+
+def save_hrpicture(form_hrpicture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_hrpicture.filename)
+    hrpicture_fn = random_hex + f_ext
+    print(hrpicture_fn)
+    picture_path = os.path.join(
+        app.root_path, 'static/empfiles', hrpicture_fn)
+    output_size = (125, 125)
+    i = Image.open(form_hrpicture)
+    i.thumbnail(output_size)
+    i.save(picture_path)
+    return hrpicture_fn
+
 @app.route("/updategsa<int:staff_id>", methods=['GET', 'POST'])
 def updategsa(staff_id):
     
@@ -82,7 +96,9 @@ def updategsa(staff_id):
     
     gsa = Employee.query.get(staff_id)
     form = EmployeeUpdateForm(obj=gsa)
-    
+    image_file = url_for(
+        'static', filename='empfiles/' + gsa.image_file)
+    print(image_file)
     #user = Employee.query.filter_by(mobilephone.data).first()
     #print(staff_id)
     #print(gsa.firstname, gsa.lastname)
@@ -94,12 +110,17 @@ def updategsa(staff_id):
     gsapostal = gsa.postal
     gsatrainingid = gsa.trainingid
     gsatrainingpassword = gsa.trainingpassword
+    
+    #print(image_file)
+    
     phone = form.mobilephone.data
     sin = int(form.SIN.data)
     postal = form.postal.data
     trainingid = form.trainingid.data
     trainingpassword = form.trainingpassword.data
     
+    #add a pciture
+    #print(form.hrpicture.data)
     
     emp = Employee.query.filter_by(mobilephone=text(phone)).first()
     emailcheck = Employee.query.filter_by(email=form.email.data).first()
@@ -153,22 +174,41 @@ def updategsa(staff_id):
     
     
     if form.validate_on_submit():
+        
+        #if form.hrpicture.data:
+        #    print("you added a picture")
+        #if form.hrpicture.data:
+        #    picture_file = save_hrpicture(form.hrpicture.data)
+        #    gsa.image_file = picture_file
         if form.submit.data:
-            form.populate_obj(gsa)   
-            db.session.commit()
-            flash("info updated")
-        elif form.delete.data:
+            form.populate_obj(gsa) 
+            
+            if form.hrpicture.data:
+             #   print(form.hrpicture.filename)
+                picture_file = save_hrpicture(form.hrpicture.data)
+                gsa.image_file = picture_file
+            #print(form.trainingid)
+            #print(form.hrpicture.filename())
+        db.session.commit()
+        flash("info updated")
+    elif form.delete.data:
             
             Employee.query.filter_by(id=staff_id).delete()
             db.session.commit()
-    return render_template('employeeupdate.html', form=form, gsa=gsa)
+    return render_template('employeeupdate.html', image_file=image_file, form=form, gsa=gsa)
+
+
+
 
 @app.route("/hr", methods=['GET', 'POST'])
 def hr():
     
     form = EmployeeForm()    
     if form.validate_on_submit():
-        
+        if form.picture.data:
+            picture_file = save_hrpicture(form.picture.data)
+            #current_user.image_file = picture_file
+            
         emp = Employee(firstname=form.firstname.data,
                                     nickname=form.nickname.data,
                                     store=form.store.data,
@@ -186,7 +226,8 @@ def hr():
                                     lastname = form.lastname.data,
                                     postal = form.postal.data,
                                     trainingid = form.trainingid.data,
-                                    trainingpassword = form.trainingpassword.data)
+                                    trainingpassword = form.trainingpassword.data,
+                                    manager = form.manager.data)
                                     
         db.session.add(emp)
         db.session.commit()
@@ -659,11 +700,12 @@ def thirddata():
     table = Table('growthkpi', metadata,  autoload=True)
 
     s = select([table.c.Amount,
-                extract("month", table.c.Date,
-                        )])\
-        .where(and_(table.c.Store == '48314',
-                    table.c.Category == 'Total C-Store Margin ($)',
-                    table.c.Date >= "2019-01-01"))
+                table.c.Store,
+                extract("month", table.c.Date,)])\
+                .where(and_(table.c.Category == 'Total C-Store Margin ($)',
+                table.c.Date >= "2019-01-01"))
+                #.order_by(table.desc(table.c.Store))
+                #.all()
 
     rs3 = s.execute()
 
@@ -671,12 +713,16 @@ def thirddata():
     content3 = {}
     for result in rs3:
 
-       content3 = {'date': result[1], 'margin': result[0]}
+       content3 = {'date': result[2],'store': result[1], 'margin': result[0]}
        newdata3.append(content3)
        content3 = {}
-       #print(newdata3)
+       print(newdata3)
 
     return jsonify(newdata3)
+
+
+        #(table.c.Store == '48314',
+
 
 @app.route("/data")
 def seconddata():
@@ -757,7 +803,7 @@ def account():
         if form.picture.data:
             picture_file = save_picture(form.picture.data)
             current_user.image_file = picture_file
-            
+        print(form.picture.data)    
         current_user.username= form.username.data
         current_user.email= form.email.data
         db.session.commit()

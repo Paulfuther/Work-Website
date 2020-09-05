@@ -8,15 +8,18 @@
     
         {{form.hidden_tag()}}
 
+        <div  class="formtitle" >{{"First Name:"}}</div>
         <div> {{form.firstname(class = "form", placeholder="First Name")}}   
                         {% if form.firstname.errors %}
                         {% for error in form.firstname.errors %}
                         <div class = "formerror">{{ error }}</div>
                         {% endfor %}  
                         {% endif %}
-        </div>           
+        </div> 
+        <div  class="formtitle" >{{"NickName:"}}</div>          
         <div> {{form.nickname(class = "form", placeholder="Nick Name")}}                   
         </div>           
+        <div  class="formtitle" >{{"Last Name:"}}</div>
         <div> {{form.lastname(class = "form" ,placeholder="Last Name")}} 
                     {% if form.lastname.errors %}
                         {% for error in form.lastname.errors %}
@@ -24,6 +27,7 @@
                         {% endfor %}       
                     {% endif %}
         </div>           
+        <div  class="formtitle" >{{"Home Store:"}}</div>
         <div> {{form.store(class = "form", placeholder="Home Store")}} 
                     {% if form.store.errors %}
                         {% for error in form.store.errors %}
@@ -31,6 +35,7 @@
                         {% endfor %}       
                     {% endif %}
         </div>
+        <div  class="formtitle" >{{"Phone Number:"}}</div>
         <div> {{form.mobilephone(class = "form" ,placeholder="Phone Number")}} 
                     {% if form.mobilephone.errors %}
                         {% for error in form.mobilephone.errors %}
@@ -38,8 +43,11 @@
                         {% endfor %}        
                     {% endif %}
         </div>
+        <div  class="formtitle" >{{"Start Date:"}}</div>
         <div> {{form.Startdate(class = "form" ,placeholder="Start Date")}} </div>
+        <div  class="formtitle" >{{"End Date:"}}</div>
         <div> {{form.Enddate(class = "form" ,placeholder="End Date")}} </div>
+        <div  class="formtitle" >{{"Address Line 1:"}}</div>
         <div> {{form.addressone(class = "form" ,placeholder="Address Line 1")}} 
                         {% if form.addressone.errors %}   
                         {% for error in form.addressone.errors %}
@@ -47,6 +55,7 @@
                         {% endfor %}       
                     {% endif %}
         </div>           
+        <div  class="formtitle" >{{"Address Line 2:"}}</div>
         <div> {{form.addresstwo(class = "form" ,placeholder="Address Line 2")}} 
                         {% if form.addresstwo.errors %}
                         {% for error in form.addresstwo.errors %}
@@ -54,7 +63,9 @@
                         {% endfor %}       
                     {% endif %}
         </div>           
+        <div  class="formtitle" >{{"Unit/Apt:"}}</div>
         <div> {{form.apt(class = "form" ,placeholder="Unit/Apt")}} </div>
+        <div  class="formtitle" >{{"City:"}}</div>
         <div> {{form.city(class = "form" ,placeholder="City")}} 
                         {% if form.city.errors %}
                         {% for error in form.city.errors %}
@@ -62,34 +73,15 @@
                         {% endfor %}           
                     {% endif %}
         </div>           
+        <div  class="formtitle" >{{"Province:"}}</div>
         <div> {{form.province(class = "form" ,placeholder="Province")}} 
                         {% if form.province.errors %}
                         {% for error in form.province.errors %}
                         <div class = "formerror">{{ error }}</div>
                         {% endfor %}         
                     {% endif %}
-        </div>           
-        <div> {{form.country(class = "form" ,placeholder="Country")}} 
-                        {% if form.country.errors %}
-                        {% for error in form.country.errors %}
-                        <div class = "formerror">{{ error }}</div>
-                        {% endfor %}           
-                    {% endif %}
-        </div>           
-        <div> {{form.SIN(class = "form", placeholder="SIN")}} 
-                    {% if form.SIN.errors %}
-                        {% for error in form.SIN.errors %}
-                        <div class = "formerror">{{ error }}</div>
-                        {% endfor %}           
-                    {% endif %}
-        </div>
-        <div> {{form.email(class = "form", placeholder="E-Mail")}} 
-                    {% if form.email.errors %}
-                        {% for error in form.email.errors %}
-                        <div class = "formerror">{{ error }}</div>
-                        {% endfor %}            
-                    {% endif %}
-        </div>
+        </div>     
+        <div  class="formtitle" >{{"Postal Code:"}}</div>
         <div> {{form.postal(class = "form", placeholder="Postal Code")}} 
                     {% if form.postal.errors %}
                         {% for error in form.postal.errors %}
@@ -97,9 +89,40 @@
                         {% endfor %}            
                     {% endif %}
         </div>
-        <div>
+
+        <div  class="formtitle" >{{"Country:"}}</div>
+        <div> {{form.country(class = "form" ,placeholder="Country")}} 
+                        {% if form.country.errors %}
+                        {% for error in form.country.errors %}
+                        <div class = "formerror">{{ error }}</div>
+                        {% endfor %}           
+                    {% endif %}
+        </div>           
+        <div  class="formtitle" >{{"SIN:"}}</div>
+        <div> {{form.SIN(class = "form", placeholder="SIN")}} 
+                    {% if form.SIN.errors %}
+                        {% for error in form.SIN.errors %}
+                        <div class = "formerror">{{ error }}</div>
+                        {% endfor %}           
+                    {% endif %}
+        </div>
+        <div  class="formtitle" >{{"Email:"}}</div>
+        <div> {{form.email(class = "form", placeholder="E-Mail")}} 
+                    {% if form.email.errors %}
+                        {% for error in form.email.errors %}
+                        <div class = "formerror">{{ error }}</div>
+                        {% endfor %}            
+                    {% endif %}
+        </div>
         
-        {{form.trainingid(class = "form", placeholder="Training User ID")}} 
+        <div  class="formtitle" >{{"Manager:"}}</div>
+        <div> {{form.manager(class = "form", placeholder="Manager")}} </div>
+        
+
+        <div  class="formtitle" >{{"Online Training User ID:"}}</div>
+        
+        
+        <div>{{form.trainingid(class = "form", placeholder="Training User ID")}} 
                     {% if form.trainingid.errors %}
                         {% for error in form.trainingid.errors %}
                         <div class = "formerror">{{ error }}</div>
@@ -107,8 +130,9 @@
                     {% endif %}
         
         </div>
-        <div>
-        {{form.trainingpassword(class = "form", placeholder="Training Pasword")}} 
+        <div  class="formtitle" >{{"Online Training Password:"}}</div>
+        
+        <div>{{form.trainingpassword(class = "form", placeholder="Training Pasword")}} 
                     {% if form.trainingpassword.errors %}
                         {% for error in form.trainingpassword.errors %}
                         <div class = "formerror">{{ error }}</div>
@@ -117,6 +141,8 @@
         
         </div>
 
+        <div  class="formtitle" >{{"Profile Picture:"}}</div>
+        <input class="form-control-file" id="picture" name="picture" type="file">
 
             <div>
             {{form.submit(class_="hrbutton")}}
