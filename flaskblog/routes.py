@@ -70,16 +70,35 @@ def search():
 
 
 def save_hrpicture(form_hrpicture):
+    
+    thumb = 30,30
+    medium = 150,150
+    large = 250,250
+    
     random_hex = secrets.token_hex(8)
+    
     _, f_ext = os.path.splitext(form_hrpicture.filename)
-    hrpicture_fn = random_hex + f_ext
-    print(hrpicture_fn)
-    picture_path = os.path.join(
-        app.root_path, 'static/empfiles', hrpicture_fn)
-    output_size = (125, 125)
+    hrpicture_fn = random_hex + f_ext 
+    
+    
+    picture_paththumb = os.path.join(
+        app.root_path, 'static/empfiles/thumb', hrpicture_fn)
+    output_size = (150, 150)
+    
     i = Image.open(form_hrpicture)
-    i.thumbnail(output_size)
-    i.save(picture_path)
+    i.thumbnail(output_size, Image.LANCZOS)
+    i.save(picture_paththumb)
+    print (i.size)
+    
+    picture_pathmobile = os.path.join(
+        app.root_path, 'static/empfiles/mobile', hrpicture_fn)
+    output_size2 = (250, 250)
+
+    i2 = Image.open(form_hrpicture)
+    i2.thumbnail(output_size2, Image.LANCZOS)
+    
+    i2.save(picture_pathmobile)
+    
     return hrpicture_fn
 
 @app.route("/updategsa<int:staff_id>", methods=['GET', 'POST'])
@@ -97,7 +116,7 @@ def updategsa(staff_id):
     gsa = Employee.query.get(staff_id)
     form = EmployeeUpdateForm(obj=gsa)
     image_file = url_for(
-        'static', filename='empfiles/' + gsa.image_file)
+        'static', filename='empfiles/mobile/' + gsa.image_file)
     print(image_file)
     #user = Employee.query.filter_by(mobilephone.data).first()
     #print(staff_id)
@@ -205,8 +224,9 @@ def hr():
     
     form = EmployeeForm()    
     if form.validate_on_submit():
-        if form.picture.data:
-            picture_file = save_hrpicture(form.picture.data)
+        if form.hrpicture.data:
+            picture_file = save_hrpicture(form.picture.data) 
+            
             #current_user.image_file = picture_file
             
         emp = Employee(firstname=form.firstname.data,
@@ -785,15 +805,35 @@ def logout():
     return redirect(url_for('home'))
 
 def save_picture(form_picture):
+    thumb = 30, 30
+    medium = 150, 150
+    large = 250, 250
+
     random_hex = secrets.token_hex(8)
+
     _, f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
-    picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_fn)
-    output_size = (125,125)
-    i=Image.open(form_picture)
-    i.thumbnail(output_size)
-    i.save(picture_path)
+
+    picture_paththumb = os.path.join(
+        app.root_path, 'static/profile_pics/thumb', picture_fn)
+    output_size = (150, 150)
+
+    i = Image.open(form_picture)
+    i.thumbnail(output_size, Image.LANCZOS)
+    i.save(picture_paththumb)
+    print(i.size)
+
+    picture_pathmobile = os.path.join(
+        app.root_path, 'static/profile_pics/mobile', picture_fn)
+    output_size2 = (250, 250)
+
+    i2 = Image.open(form_picture)
+    i2.thumbnail(output_size2, Image.LANCZOS)
+
+    i2.save(picture_pathmobile)
+
     return picture_fn
+    
 
 @app.route("/account", methods=['GET', 'POST'])
 @login_required
@@ -812,7 +852,7 @@ def account():
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.email.data = current_user.email
-        image_file=url_for('static', filename='profile_pics/' + current_user.image_file)
+        image_file=url_for('static', filename='profile_pics/mobile/' + current_user.image_file)
     return render_template('account.html', title = 'Account',
                             image_file=image_file, form=form)
 

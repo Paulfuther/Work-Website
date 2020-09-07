@@ -4,10 +4,12 @@
 {% block content%}
 
 <div   class="form-container">
-    <form method = "POST" action  = "" class = "form-hrinfo">
+    <form method = "POST" action  = "" enctype="multipart/form-data" class = "form-hrinfo">
     
         {{form.hidden_tag()}}
-
+        <div> <img class="gsaupdateimage" src="{{ image_file }}">
+        </div>
+        <div></div>
         <div  class="formtitle" >{{"First Name:"}}</div>
         <div> {{form.firstname(class = "form", placeholder="First Name")}}   
                         {% if form.firstname.errors %}
@@ -141,8 +143,11 @@
         
         </div>
 
-        <div  class="formtitle" >{{"Profile Picture:"}}</div>
-        <input class="form-control-file" id="picture" name="picture" type="file">
+         <div  class="formtitle" >{{"Profile Picture:"}}</div>
+         <div>  {{ form.hrpicture(class = "form")}}
+        </div>
+
+        
 
             <div>
             {{form.submit(class_="hrbutton")}}

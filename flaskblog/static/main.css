@@ -253,6 +253,10 @@ ul {
   align-items: center;
 }
 
+.hrlistimage {
+  width: 50%;
+  border-radius: 50%;
+}
 
 .tablecard:nth-child(odd) {
   background: #eee;
@@ -298,6 +302,7 @@ ul {
   padding-bottom: 1px;
   padding-left: 5px;
 }
+
 /*.file-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -577,8 +582,12 @@ ul.a {
 }
 
 .gsaupdateimage {
-  width: 100px;
-  border-radius: 50%;
+  
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  border-bottom-left-radius: 50% 50%;
+  
   padding-bottom: 20px;
 }
 
@@ -703,11 +712,11 @@ a.hrbutton {
   flex: 1;
   justify-content: flex-start;
 }
-.card .blogimage {
-  width: 30px;
-  border-radius: 50% ;
-  
+
+.cardheader img {
+  border-radius:50%;
 }
+
 .media-body {
   margin-bottom: 20px;
   margin-left: 35px;
@@ -957,6 +966,9 @@ a.hrbutton {
 
   }
 
+
+/* HR List on mobile */
+
   .hrlist {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -989,8 +1001,16 @@ a.hrbutton {
 
   .tablecard {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    margin: auto;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas: 
+    'top top top'
+    'second'
+    'third'
+    'fourth'
+    'fifth'
+    'button1 button2 button3';
+
+    /*margin: auto;
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 30px;
@@ -1000,8 +1020,41 @@ a.hrbutton {
     height: 100%;
     box-shadow: 5px 5px lightgray;
     border-radius: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 5px;*/
   }
+
+  .hrlistimage {grid-area: top;}
+  .hritem1 {grid-area: second;}
+  .hritem2 {grid-area: third;}
+  .hritem3 {grid-area: fourth;}
+  .hrbutton1 {grid-area: button1;}
+  .hrbutton2 {grid-area: button2;}
+  .hrbutto3 {grid-area: button3;}
+
+
+  /*.tablecard a:nth-child(1n+3) {
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    
+
+  }*/
+
+  
+
+
+  .hrlistimage {
+    width: 60%;
+    border-radius: 50%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .hrbutton2 {
+    color: red;
+  }
+
+
+/* New Hire File */
 
   .payrollgrid {
     display: grid;
@@ -1176,6 +1229,19 @@ a.hrbutton {
     margin-right: 50px;
 
   }
+
+  .blogimage1 {
+    display:none;
+  }
+
+  .blogimage2 {
+  
+    border-radius: 50%;
+    
+  }
+
+  
+
 
 }
 

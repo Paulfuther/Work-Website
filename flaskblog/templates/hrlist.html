@@ -34,9 +34,10 @@
                 <div class = "tableheader">
 
                         <!-- <div class = "tableheader"> -->
+                        <div> Image </div>
                         <div> Store</div>
                         <div> Frist Name</div>
-                        <div> Nickname</div>
+                        <!--<div> Nickname</div>-->
                         <div> Last Name</div>
                         <div> Mobile Phone</div>
                       
@@ -46,23 +47,26 @@
                        
                         <!-- </div> -->
                 </div>
-                           
+                           <!--url_for('static', filename='profile_pics/mobile/' +-->
 
                         {% for staff in gsa %}
 
                         <div class = "tablecard">
 
-                        <div class = "hritem"> {{staff.store}}</div>   
-                        <div class = "hritem"> {{staff.firstname}}</div>
-                        <div class = "hritem"> {{staff.nickname}}</div>
-                        <div class = "hritem"> {{staff.lastname}}</div> 
-                        <div class = "hritem"> {{staff.mobilephone}}</div> 
-                     
+                        <img class="hrlistimage" src= {{url_for('static', filename='empfiles/thumb/') + staff.image_file}}>
+                       
+                        <div class = "hritem1"> {{staff.store}}</div>   
+                        <div class = "hritem2"> {{staff.firstname}}</div>
+                        <!--<div class = "hritem"> {{staff.nickname}}</div>-->
+                        <div class = "hritem3"> {{staff.lastname}}</div> 
+                        <div class = "hritem4"> {{staff.mobilephone}}</div> 
                         
+                       
                         <a class = "hrbutton2" <a href="/updategsa{{staff.id}}">Update</a>
+                        
                         <a class = "hrbutton4" <a href="/updategsa{{staff.id}}"><i class="far fa-trash-alt"></i></a>
                         <a class = "hrbutton5" <a href="/hrfile{{staff.id}}"><i class="far fa-file-alt"></i></a>
-                        </div> 
+                        </div>
 
                         {% endfor %}
 

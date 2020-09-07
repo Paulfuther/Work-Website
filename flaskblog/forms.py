@@ -96,7 +96,8 @@ class EmployeeForm(FlaskForm):
                           'Manager Name', 'Manager Name'), ( 'Terry', "Terry"),
                                         ( 'Steph','Steph'),( 'Wanda','Wanda'),( 'Sahib', 'Sahib'),
                                         ( 'Paul', 'Paul')])
-    
+    hrpicture = FileField(validators=[
+        FileAllowed(['jpg', 'png'])])
     
     def validate_mobilephone(self, mobilephone):
         user = Employee.query.filter_by(mobilephone=mobilephone.data).first()

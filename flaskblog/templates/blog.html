@@ -13,7 +13,9 @@
                         <div class="cardheader">
 
                           <ul class="media-body-topleft">
-                            <img src="{{ url_for('static', filename='profile_pics/' + post.author.image_file)}}" class="blogimage">
+                            <img srcset="{{ url_for('static', filename='profile_pics/thumb/' + post.author.image_file)}} 480w,
+                            {{ url_for('static', filename='profile_pics/mobile/' + post.author.image_file)}} 800w"
+                            sizes="(max-width: 720px) 480px,800px" >
                             
                             <li> <a class="mr-2" href="{{ url_for('user_posts', username=post.author.username) }}">{{ post.author.username }}</a></li>
                           </ul>    
