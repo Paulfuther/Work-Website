@@ -163,9 +163,6 @@ ul {
   border-bottom: solid;
   padding-bottom: 5px;
 }
-
-
-
 .hrbutton2 {
   align-items: center;
   border-radius: 20px;
@@ -231,7 +228,6 @@ ul {
   color: #ffffff;
 }
 
-
 .tablegrid > span {
   padding: 8px 8px;
   border-top: 1px solid black;
@@ -253,6 +249,10 @@ ul {
   align-items: center;
 }
 
+.hritemactive {
+  display: none;
+}
+
 .hrlistimage {
   width: 50%;
   border-radius: 50%;
@@ -261,7 +261,6 @@ ul {
 .tablecard:nth-child(odd) {
   background: #eee;
 }
-
 
 .hr-container {
   display: grid;
@@ -917,31 +916,6 @@ a.hrbutton {
 
   
 
-
-  /*.app-nav ul.app-menu {
-    display: flex;
-    grid-template-columns: 1fr 1fr;
-    position: center;
-    top: 50px;
-    width: 50%;
-    height: 50px;
-    padding: 20px;
-    
-    
-  }
-  
-
-  .app-nav ul li {
-    padding: 10px;
-    border-bottom: #ccc solid 1px;
-  }
-
-  .app-nav ul li:hover {
-    background-color: rgb(236, 234, 234);
-
-  }
-  */
-
   .card {
     width: 90%;
   }
@@ -967,7 +941,7 @@ a.hrbutton {
   }
 
 
-/* HR List on mobile */
+ /* HR List on mobile */
 
   .hrlist {
     display: grid;
@@ -978,6 +952,7 @@ a.hrbutton {
 
   .hr-container {
     display: grid;
+    width: 90%;
     grid-template-columns: repeat(1, 1fr);
     justify-items: center;
     padding-top: 30px;
@@ -987,7 +962,7 @@ a.hrbutton {
     box-shadow: 5px 5px lightgray;
     border-radius: 15px;
    
-    margin: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 15px;
   }
 
   .hr-container >div {
@@ -1001,60 +976,89 @@ a.hrbutton {
 
   .tablecard {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    width: 90%;
+    justify-items: center;
+    align-items: start;
+    grid-template-columns: repeat(3, 1fr);
     grid-template-areas: 
-    'top top top'
-    'second'
-    'third'
-    'fourth'
-    'fifth'
-    'button1 button2 button3';
+    'a b c'
+    'a e f'
+    'h g g'
+    'j k l' 
+    'm n o';
 
-    /*margin: auto;
+    
     padding-top: 5px;
     padding-bottom: 5px;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin-right: 20px;
-    margin-left: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 10px 10px 10px 15px;
     height: 100%;
     box-shadow: 5px 5px lightgray;
     border-radius: 15px;
-    margin-bottom: 5px;*/
+    font-size: 12px;
   }
-
-  .hrlistimage {grid-area: top;}
-  .hritem1 {grid-area: second;}
-  .hritem2 {grid-area: third;}
-  .hritem3 {grid-area: fourth;}
-  .hrbutton1 {grid-area: button1;}
-  .hrbutton2 {grid-area: button2;}
-  .hrbutto3 {grid-area: button3;}
-
-
-  /*.tablecard a:nth-child(1n+3) {
-    display:grid;
-    grid-template-columns: repeat(3,1fr);
-    
-
-  }*/
 
   
 
-
   .hrlistimage {
-    width: 60%;
-    border-radius: 50%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    grid-area: a;
+    align-self: start;
+    width: 70%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+  }
+  .hritem1 {
+    grid-area: c;
+    padding-top: 0px;
+    padding-right: 20px;
+    justify-self: end;
+    align-self: end;
+  }
+  .hritem2 {
+    grid-area: b;
+    font-size: 12px;
+    justify-self: start;
+    align-self: end;
+  }
+  .hritem3 {
+    grid-area: e;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+    justify-self: start;
+  }
+
+  .hritem4 {
+    grid-area: g;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 0px;
+    justify-self: start;
+  }
+
+  .hritemactive {
+    grid-area: f;
+    justify-self: end;
+    padding-right: 20px;
+    display: block;
   }
 
   .hrbutton2 {
-    color: red;
+    grid-area: j;
+  }
+  .hrbutton4 {
+    grid-area: k;
+  }
+  .hrbutton5 {
+    grid-area: l;
   }
 
 
-/* New Hire File */
+
+
+ /* New Hire File */
 
   .payrollgrid {
     display: grid;

@@ -247,7 +247,8 @@ def hr():
                                     postal = form.postal.data,
                                     trainingid = form.trainingid.data,
                                     trainingpassword = form.trainingpassword.data,
-                                    manager = form.manager.data)
+                                    manager = form.manager.data,
+                                    active = form.active.data)
                                     
         db.session.add(emp)
         db.session.commit()

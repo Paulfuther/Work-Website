@@ -133,6 +133,7 @@
         <div  class="formtitle" >{{"Online Training Password:"}}</div>
         
         <div>{{form.trainingpassword(class = "form", placeholder="Training Pasword")}} 
+                    <div></div>
                     {% if form.trainingpassword.errors %}
                         {% for error in form.trainingpassword.errors %}
                         <div class = "formerror">{{ error }}</div>
@@ -141,7 +142,13 @@
         
         </div>
 
-        
+        <div  class="formtitle" >{{"Active:"}}</div>
+        <div> {{form.active(class = "form", placeholder="Active")}} </div>
+                    {% if form.active.errors %}
+                        {% for error in form.active.errors %}
+                        <div class = "formerror">{{ error }}</div>
+                        {% endfor %}            
+                    {% endif %}
 
         <div  class="formtitle" >{{"Profile Picture:"}}</div>
          <div>  {{ form.hrpicture(class = "form")}}

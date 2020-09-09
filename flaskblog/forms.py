@@ -98,6 +98,7 @@ class EmployeeForm(FlaskForm):
                                         ( 'Paul', 'Paul')])
     hrpicture = FileField(validators=[
         FileAllowed(['jpg', 'png'])])
+    active = SelectField('Active', choices = [('Active', 'Active'), ('Y', 'Y'), ('N', 'N')])
     
     def validate_mobilephone(self, mobilephone):
         user = Employee.query.filter_by(mobilephone=mobilephone.data).first()
@@ -121,6 +122,12 @@ class EmployeeForm(FlaskForm):
     def validate_store(self, store):
         if store.data == "Home Store":
             raise ValidationError('Please Enter a Store') 
+        
+    def validate_active(self, active):
+        
+        if active.data == "Active":
+            print("homestore")
+            raise ValidationError('Must indicate active or not')
         
     #def validate_lastname(self, lastname):
      #  if len(lastname.data) <3:
@@ -172,6 +179,8 @@ class EmployeeUpdateForm(FlaskForm):
         'Training Password', validators=[DataRequired()])
     hrpicture = FileField( validators=[
                         FileAllowed(['jpg', 'png'])])
+    active = SelectField('Active', choices=[
+                         ('Active', 'Active'), ('Y', 'Y'), ('N', 'N')])
     
 
     def validate_store(self, store):
@@ -179,3 +188,9 @@ class EmployeeUpdateForm(FlaskForm):
         if store.data == "Home Store":
             print("homestore")
             raise ValidationError('Please Enter a Store')
+
+    def validate_active(self, active):
+    
+        if active.data == "Active":
+            print("homestore")
+            raise ValidationError('Must indicate active or not')

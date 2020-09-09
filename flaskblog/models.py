@@ -55,6 +55,7 @@ class Employee(db.Model):
     manager =db.Column(db.String)
     image_file = db.Column(db.String(20), nullable=False,
                            default='default.jpg')
+    active= db.Column(db.String)
        
     
     #def __repr__(self):

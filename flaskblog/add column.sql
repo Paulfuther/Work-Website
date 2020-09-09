@@ -1,3 +1,3 @@
 -- SQLite
 alter table employee
-add manager string;
+add active string;
