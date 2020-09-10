@@ -56,6 +56,7 @@ class Employee(db.Model):
     image_file = db.Column(db.String(20), nullable=False,
                            default='default.jpg')
     active= db.Column(db.String)
+    iprismcode = db.Column(db.String(9), unique=True, nullable=True)
        
     
     #def __repr__(self):

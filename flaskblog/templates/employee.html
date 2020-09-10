@@ -118,7 +118,13 @@
         </div>
         
         <div  class="formtitle" >{{"Manager:"}}</div>
-        <div> {{form.manager(class = "form", placeholder="Manager")}} </div>
+        <div> {{form.manager(class = "form", placeholder="Manager")}} 
+                    {% if form.manager.errors %}
+                        {% for error in form.manager.errors %}
+                        <div class = "formerror">{{ error }}</div>
+                        {% endfor %}            
+                    {% endif %}
+        </div>
         
 
         <div  class="formtitle" >{{"Online Training User ID:"}}</div>
@@ -143,15 +149,27 @@
         
         </div>
 
+
+        <div  class="formtitle" >{{"Iprism Code:"}}</div>
+        
+        <div>{{form.iprismcode(class = "form", placeholder="iprismcode")}} 
+                    {% if form.iprismcode.errors %}
+                        {% for error in form.iprismcode.errors %}
+                        <div class = "formerror">{{ error }}</div>
+                        {% endfor %}            
+                    {% endif %}
+        
+        </div>
+
         <div  class="formtitle" >{{"Active:"}}</div>
-        <div> {{form.active(class = "form", placeholder="Active")}} </div>
-                    <div></div>
+        <div> {{form.active(class = "form", placeholder="Active")}} 
+                    
                     {% if form.active.errors %}
                         {% for error in form.active.errors %}
                         <div class = "formerror">{{ error }}</div>
                         {% endfor %}            
                     {% endif %}
-
+        </div>
          <div  class="formtitle" >{{"Profile Picture:"}}</div>
          <div>  {{ form.hrpicture(class = "form")}}
         </div>

@@ -99,6 +99,7 @@ class EmployeeForm(FlaskForm):
     hrpicture = FileField(validators=[
         FileAllowed(['jpg', 'png'])])
     active = SelectField('Active', choices = [('Active', 'Active'), ('Y', 'Y'), ('N', 'N')])
+    iprismcode = StringField('Iprism Code', validators=[DataRequired(), Length(min=1, max=9)])
     
     def validate_mobilephone(self, mobilephone):
         user = Employee.query.filter_by(mobilephone=mobilephone.data).first()
@@ -117,6 +118,11 @@ class EmployeeForm(FlaskForm):
         user = Employee.query.filter_by(SIN=SIN.data).first()
         if user:
             raise ValidationError('That SIN is Taken')  
+        
+    def validate_iprismcode(self, iprismcode):
+        user = Employee.query.filter_by(iprismcode=iprismcode.data).first()
+        if user:
+            raise ValidationError('That code is Taken')
 
             
     def validate_store(self, store):
@@ -128,6 +134,12 @@ class EmployeeForm(FlaskForm):
         if active.data == "Active":
             print("homestore")
             raise ValidationError('Must indicate active or not')
+        
+    def validate_manager(self, active):
+            
+        if active.data == "Manager Name":
+            print("Manager Name")
+            raise ValidationError('Must Select a Manager')
         
     #def validate_lastname(self, lastname):
      #  if len(lastname.data) <3:
@@ -181,6 +193,8 @@ class EmployeeUpdateForm(FlaskForm):
                         FileAllowed(['jpg', 'png'])])
     active = SelectField('Active', choices=[
                          ('Active', 'Active'), ('Y', 'Y'), ('N', 'N')])
+    iprismcode = StringField('Iprism Code', validators=[
+                             DataRequired(), Length(min=1, max=9)])
     
 
     def validate_store(self, store):
@@ -194,3 +208,9 @@ class EmployeeUpdateForm(FlaskForm):
         if active.data == "Active":
             print("homestore")
             raise ValidationError('Must indicate active or not')
+        
+    def validate_manager(self, active):
+
+        if active.data == "Manager Name":
+            print("Manager Name")
+            raise ValidationError('Must Select a Manager')

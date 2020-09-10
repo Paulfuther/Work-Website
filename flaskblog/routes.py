@@ -118,6 +118,7 @@ def updategsa(staff_id):
     image_file = url_for(
         'static', filename='empfiles/mobile/' + gsa.image_file)
     print(image_file)
+    
     #user = Employee.query.filter_by(mobilephone.data).first()
     #print(staff_id)
     #print(gsa.firstname, gsa.lastname)
@@ -129,6 +130,7 @@ def updategsa(staff_id):
     gsapostal = gsa.postal
     gsatrainingid = gsa.trainingid
     gsatrainingpassword = gsa.trainingpassword
+    gsaiprism = gsa.iprismcode
     
     #print(image_file)
     
@@ -137,6 +139,7 @@ def updategsa(staff_id):
     postal = form.postal.data
     trainingid = form.trainingid.data
     trainingpassword = form.trainingpassword.data
+    iprismcodecheck = int(form.iprismcode.data)
     
     #add a pciture
     #print(form.hrpicture.data)
@@ -147,6 +150,7 @@ def updategsa(staff_id):
     postalcheck = Employee.query.filter_by(postal=postal).first()
     trainingidcheck = Employee.query.filter_by(trainingid=trainingid).first()
     trainingpasswordcheck = Employee.query.filter_by(trainingpassword=trainingpassword).first()
+    iprismcheck = Employee.query.filter_by(iprismcode=iprismcodecheck).first()
     
     if gsaphone == phone:
         print("same mobile")
@@ -154,6 +158,14 @@ def updategsa(staff_id):
         if emp:
             flash("mobile already used")
             return render_template('employeeupdate.html', form=form, gsa=gsa)
+        
+    if gsaiprism == iprismcodecheck:
+            print("same iprism")
+    else:
+        if iprismcheck:
+            flash("iprism code already used")
+            return render_template('employeeupdate.html', form=form, gsa=gsa)   
+    
 
     if gsasin == sin:
        print("same sin")
@@ -216,9 +228,6 @@ def updategsa(staff_id):
             db.session.commit()
     return render_template('employeeupdate.html', image_file=image_file, form=form, gsa=gsa)
 
-
-
-
 @app.route("/hr", methods=['GET', 'POST'])
 def hr():
     
@@ -248,7 +257,8 @@ def hr():
                                     trainingid = form.trainingid.data,
                                     trainingpassword = form.trainingpassword.data,
                                     manager = form.manager.data,
-                                    active = form.active.data)
+                                    active = form.active.data,
+                                    iprismcode = form.iprismcode.data)
                                     
         db.session.add(emp)
         db.session.commit()
