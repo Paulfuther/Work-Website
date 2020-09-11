@@ -61,3 +61,135 @@ class Employee(db.Model):
     
     #def __repr__(self):
      #   return f"Employee('{self.firstname}', '{self.SIN}')"
+
+class whmis(db.Model):
+    id=db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('Employee.id'), nullable=False)
+    
+    
+class ppe(db.Model):
+    id=db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+    
+      
+class fireextinguishers(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class emergencyresponseprocedures(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class firstaid(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class foodhandling(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class propane(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class healthandsafety(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class fuelpumpshutoff(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class workingalone(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class workplaceviolence(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class jointhealthandsafety(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
