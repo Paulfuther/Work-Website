@@ -231,3 +231,172 @@ width: 40%;
                                     {% endif %}
         
         </div>
+
+
+
+
+
+
+
+class ppe(db.Model):
+    id=db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+   
+      
+class fireextinguishers(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class emergencyresponseprocedures(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class firstaid(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class foodhandling(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class propane(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class healthandsafety(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class fuelpumpshutoff(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class workingalone(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class workplaceviolence(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+
+
+class jointhealthandsafety(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(
+        db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    startdate = db.Column(db.DateTime(), nullable=True)
+    completed = db.Column(db.String)
+    datequalified = db.Column(db.DateTime(), nullable=True)
+    expireydate = db.Column(db.DateTime(), nullable=True)
+  <!---->
+
+         <div  class="formtitle" >{{"Fire Extinguisher Start Date:"}}</div>
+        <div> {{form4.startdate(class = "form" ,placeholder="Start Date")}} 
+        </div>
+
+         <div  class="formtitle" >{{"Emergency Procedures Start Date:"}}</div>
+        <div> {{form5.startdate(class = "form" ,placeholder="Start Date")}} 
+        </div>
+
+         <div  class="formtitle" >{{"First Aid Start Date:"}}</div>
+        <div> {{form6.startdate(class = "form" ,placeholder="Start Date")}} 
+        </div>
+
+         <div  class="formtitle" >{{"Food Handling Start Date:"}}</div>
+        <div> {{form7.startdate(class = "form" ,placeholder="Start Date")}} 
+        </div>
+
+         <div  class="formtitle" >{{"Propane Start Date:"}}</div>
+        <div> {{form8.startdate(class = "form" ,placeholder="Start Date")}} 
+        </div>
+
+         <div  class="formtitle" >{{"Health and Safety Start Date:"}}</div>
+        <div> {{form9.startdate(class = "form" ,placeholder="Start Date")}} 
+        </div>
+
+         <div  class="formtitle" >{{"Fuel Pump Shutoff Start Date:"}}</div>
+        <div> {{form10.startdate(class = "form" ,placeholder="Start Date")}} 
+        </div>
+
+         <div  class="formtitle" >{{"Working Alone Start Date:"}}</div>
+        <div> {{form11.startdate(class = "form" ,placeholder="Start Date")}} 
+        </div>
+
+         <div  class="formtitle" >{{"Workplace Violence Start Date:"}}</div>
+        <div> {{form12.startdate(class = "form" ,placeholder="Start Date")}} 
+        </div>
+
+         <div  class="formtitle" >{{"Joint Health and Safety Start Date:"}}</div>
+        <div> {{form13.startdate(class = "form" ,placeholder="Start Date")}}
+         </div>
+   
+        

@@ -1,3 +1,3 @@
 -- SQLite
 alter table employee
-add iprismcode string;
+add whmis_id string;

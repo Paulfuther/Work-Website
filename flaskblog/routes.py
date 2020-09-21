@@ -1,7 +1,8 @@
 from flask import Flask, render_template, jsonify, request, send_file, url_for, redirect, flash, abort
 from flaskblog import app, db, Bcrypt
-from flaskblog.forms import EmployeeForm, LoginForm, PostForm, RegistrationForm, UpdateAccountForm, EmployeeUpdateForm
-from flaskblog.models import User, Post, Employee
+from flaskblog.forms import EmployeeForm, LoginForm, PostForm, RegistrationForm, UpdateAccountForm, EmployeeUpdateForm, whmisForm, ppeForm, fireextinguishersForm, emergencyproceduresForm, firstaidForm, foodhandlingForm, propaneForm, healthandsafetyForm, fuelpumpshutoffForm, workingaloneForm, workplaceviolenceForm, jointhealthandsafetyForm
+
+from flaskblog.models import User, Post, Employee, whmis, ppe, fireextinguishers, emergencyresponseprocedures,firstaid, foodhandling,propane,healthandsafety,fuelpumpshutoff,workingalone,workplaceviolence,jointhealthandsafety
 from io import BytesIO
 import os
 from werkzeug.utils import secure_filename
@@ -114,7 +115,21 @@ def updategsa(staff_id):
     
     
     gsa = Employee.query.get(staff_id)
+    
     form = EmployeeUpdateForm(obj=gsa)
+    form2 = whmisForm(obj=gsa)
+    form3 = ppeForm(obj=gsa)
+    #form4 = fireextinguishersForm(obj=gsa)
+    #form5 = emergencyproceduresForm(obj=gsa)
+    #form6 = firstaidForm(obj=gsa)
+    #form7 = foodhandlingForm(obj=gsa)
+    #form8 = propaneForm(obj=gsa)
+    #form9 = healthandsafetyForm(obj=gsa)
+    #form10 = fuelpumpshutoffForm(obj=gsa)
+    #form11 = workingaloneForm(obj=gsa)
+    #form12 = workplaceviolenceForm(obj=gsa)
+    #form13 = jointhealthandsafetyForm(obj=gsa)
+    
     image_file = url_for(
         'static', filename='empfiles/mobile/' + gsa.image_file)
     print(image_file)
@@ -205,12 +220,6 @@ def updategsa(staff_id):
     
     
     if form.validate_on_submit():
-        
-        #if form.hrpicture.data:
-        #    print("you added a picture")
-        #if form.hrpicture.data:
-        #    picture_file = save_hrpicture(form.hrpicture.data)
-        #    gsa.image_file = picture_file
         if form.submit.data:
             form.populate_obj(gsa) 
             
@@ -220,47 +229,150 @@ def updategsa(staff_id):
                 gsa.image_file = picture_file
             #print(form.trainingid)
             #print(form.hrpicture.filename())
+            
+        whmisdata = whmis(startdate=form2.startdate.data,
+                                employee_id=gsa.id) 
+        print(form2.startdate.data)
+        
+        ppedata = ppe(startdate2=form3.startdate2.data,
+                                          employee_id=gsa.id)
+        print(form3.startdat2e.data)
+
+        db.session.add(ppedata)
+            
+        db.session.add(whmisdata)   
+            
+            
+            
         db.session.commit()
+        
+        #cursor.close()
+        
+        #if form2.startdate.data:
+            
+         #   db.session.commit()
+                
+          #  
+        #db.session.commit()
+        #firedata = fireextinguishers(startdate=form4.startdate.data,
+          #                employee_id=gsa.id)
+        #emergdata = emergencyresponseprocedures(startdate=form5.startdate.data,
+         #                 employee_id=gsa.id)
+        #firstaiddata = firstaid(startdate=form6.startdate.data,
+         #                 employee_id=gsa.id)
+        #fooddata = foodhandling(startdate=form7.startdate.data,
+         #                 employee_id=gsa.id)
+        #propanedata = propane(startdate=form8.startdate.data,
+         #                 employee_id=gsa.id)
+        #healthdata = healthandsafety(startdate=form9.startdate.data,
+         #                 employee_id=gsa.id)
+        #fuelpumpdata = fuelpumpshutoff(startdate=form10.startdate.data,
+         #                 employee_id=gsa.id)
+        #workingalonedata = workingalone(startdate=form11.startdate.data,
+         #                 employee_id=gsa.id)
+        #workplaceviolencedata = workplaceviolence(startdate=form12.startdate.data,
+                         # employee_id=gsa.id)
+        #jointhealthdata = jointhealthandsafety(startdate=form13.startdate.data,
+                          #employee_id=gsa.id)
+                          
+        #print(form2.startdate.data)
+        
+        
+        
+        #db.session.add(firedata)
+        #db.session.add(emergdata)
+        #db.session.add(firstaiddata)
+        #db.session.add(fooddata)
+        #db.session.add(propanedata)
+        #db.session.add(healthdata)
+        #db.session.add(fuelpumpdata)
+        #db.session.add(workingalonedata)
+        #db.session.add(workplaceviolencedata)
+        #db.session.add(jointhealthdata)
+        
+        #db.session.commit()
+        
+        
         flash("info updated")
     elif form.delete.data:
             
             Employee.query.filter_by(id=staff_id).delete()
             db.session.commit()
-    return render_template('employeeupdate.html', image_file=image_file, form=form, gsa=gsa)
+    return render_template('employeeupdate.html', image_file=image_file, form=form,form2=form2, form3=form3, gsa=gsa)
+    
 
 @app.route("/hr", methods=['GET', 'POST'])
 def hr():
     
     form = EmployeeForm()    
+    form2 = whmisForm()
+    form3 = ppeForm()
+    form4 = fireextinguishersForm()
+    form5 = emergencyproceduresForm()
+    form6 = firstaidForm()
+    form7 = foodhandlingForm()
+    form8 = propaneForm()
+    form9 = healthandsafetyForm()
+    form10 = fuelpumpshutoffForm()
+    form11 = workingaloneForm()
+    form12 = workplaceviolenceForm()
+    form13 = jointhealthandsafetyForm()
+    
+    
+    
+    
     if form.validate_on_submit():
         if form.hrpicture.data:
             picture_file = save_hrpicture(form.picture.data) 
             
             #current_user.image_file = picture_file
-            
+        
+        
+                
+                
+                
         emp = Employee(firstname=form.firstname.data,
-                                    nickname=form.nickname.data,
-                                    store=form.store.data,
-                                    addressone=form.addressone.data,
-                                    addresstwo=form.addresstwo.data,
-                                    apt=form.apt.data,
-                                    city=form.city.data,
-                                    province=form.province.data,
-                                    country=form.country.data,
-                                    email=form.email.data,
-                                    mobilephone=form.mobilephone.data,
-                                    SIN=form.SIN.data,
-                                    Startdate=form.Startdate.data,
-                                    Enddate=form.Enddate.data,
-                                    lastname = form.lastname.data,
-                                    postal = form.postal.data,
-                                    trainingid = form.trainingid.data,
-                                    trainingpassword = form.trainingpassword.data,
-                                    manager = form.manager.data,
-                                    active = form.active.data,
-                                    iprismcode = form.iprismcode.data)
-                                    
+                                        nickname=form.nickname.data,
+                                        store=form.store.data,
+                                        addressone=form.addressone.data,
+                                        addresstwo=form.addresstwo.data,
+                                        apt=form.apt.data,
+                                        city=form.city.data,
+                                        province=form.province.data,
+                                        country=form.country.data,
+                                        email=form.email.data,
+                                        mobilephone=form.mobilephone.data,
+                                        SIN=form.SIN.data,
+                                        Startdate=form.Startdate.data,
+                                        Enddate=form.Enddate.data,
+                                        lastname = form.lastname.data,
+                                        postal = form.postal.data,
+                                        trainingid = form.trainingid.data,
+                                        trainingpassword = form.trainingpassword.data,
+                                        manager = form.manager.data,
+                                        active = form.active.data,
+                                        iprismcode = form.iprismcode.data)
+                                        
         db.session.add(emp)
+        db.session.commit()
+        
+        
+        print(emp.id)
+        
+        #need index to map to the whmis data
+        
+        #whmisdata = whmis(startdate=form2.startdate.data,
+         #                 employee_id=emp.id)
+        
+        ppedata = ppe(startdate=form3.startdate.data,
+                          employee_id=emp.id)
+        print(ppedata)
+        #print(whmisdata)
+        db.session.add(ppedata)
+        #print(form2.startdate.data)
+        #db.session.add(whmisdata)
+        #db.session.commit()
+        #db.session.add(ppedata)
         db.session.commit()
             
         flash('Employee has been added to the database', 'success')
@@ -269,7 +381,9 @@ def hr():
     
     print(form.errors.items())
     #print("did not work")
-    return render_template('employee.html', title='Employee Information', form=form)
+    return render_template('employee.html', title='Employee Information', form=form, form2=form2, form3=form3,
+                           form4=form4, form5=form5, form6=form6, form7=form7, form8=form8,
+                           form9=form9, form10=form10, form11=form11, form12=form12, form13=form13)
 
 @app.route("/blog")
 def blog():

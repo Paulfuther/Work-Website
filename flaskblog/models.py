@@ -57,7 +57,33 @@ class Employee(db.Model):
                            default='default.jpg')
     active= db.Column(db.String)
     iprismcode = db.Column(db.String(9), unique=True, nullable=True)
-       
+    
+    #traiing#
+    
+    whmis = db.relationship(
+        'whmis', backref='employee', uselist=False)  
+    ppe = db.relationship(
+        'ppe', backref='employee', uselist=False)
+    fireextinguishers = db.relationship(
+        'fireextinguishers', backref='employee', uselist=False)
+    emergencyresponseprocedures = db.relationship(
+        'emergencyresponseprocedures', backref='employee', uselist=False)
+    firstaid = db.relationship(
+        'firstaid', backref='employee', uselist=False)
+    foodhandling = db.relationship(
+        'foodhandling', backref='employee', uselist=False)
+    propane = db.relationship(
+        'propane', backref='employee', uselist=False)
+    healthandsafety = db.relationship(
+        'healthandsafety', backref='employee', uselist=False)
+    fuelpumpshutoff = db.relationship(
+        'fuelpumpshutoff', backref='employee', uselist=False)
+    workingalone = db.relationship(
+        'workingalone', backref='employee', uselist=False)
+    workplaceviolence = db.relationship(
+        'workplaceviolence', backref='employee', uselist=False)
+    jointhealthandsafety = db.relationship(
+        'jointhealthandsafety', backref='employee', uselist=False)
     
     #def __repr__(self):
      #   return f"Employee('{self.firstname}', '{self.SIN}')"
@@ -71,11 +97,10 @@ class whmis(db.Model):
     completed = db.Column(db.String)
     datequalified = db.Column(db.DateTime(), nullable=True)
     expireydate = db.Column(db.DateTime(), nullable=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('Employee.id'), nullable=False)
-    
+    employee_id = db.Column(db.Integer, db.ForeignKey('employee.id'))
     
 class ppe(db.Model):
-    id=db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     created_on = db.Column(db.DateTime(), default=datetime.utcnow)
     updated_on = db.Column(
         db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
@@ -83,8 +108,8 @@ class ppe(db.Model):
     completed = db.Column(db.String)
     datequalified = db.Column(db.DateTime(), nullable=True)
     expireydate = db.Column(db.DateTime(), nullable=True)
-    
-      
+    employee_id = db.Column(db.Integer, db.ForeignKey('employee.id'))
+
 class fireextinguishers(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created_on = db.Column(db.DateTime(), default=datetime.utcnow)
@@ -94,7 +119,7 @@ class fireextinguishers(db.Model):
     completed = db.Column(db.String)
     datequalified = db.Column(db.DateTime(), nullable=True)
     expireydate = db.Column(db.DateTime(), nullable=True)
-
+    employee_id = db.Column(db.Integer, db.ForeignKey('employee.id'))
 
 class emergencyresponseprocedures(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -105,7 +130,7 @@ class emergencyresponseprocedures(db.Model):
     completed = db.Column(db.String)
     datequalified = db.Column(db.DateTime(), nullable=True)
     expireydate = db.Column(db.DateTime(), nullable=True)
-
+    employee_id = db.Column(db.Integer, db.ForeignKey('employee.id'))
 
 class firstaid(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -116,7 +141,7 @@ class firstaid(db.Model):
     completed = db.Column(db.String)
     datequalified = db.Column(db.DateTime(), nullable=True)
     expireydate = db.Column(db.DateTime(), nullable=True)
-
+    employee_id = db.Column(db.Integer, db.ForeignKey('employee.id'))
 
 class foodhandling(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -127,7 +152,7 @@ class foodhandling(db.Model):
     completed = db.Column(db.String)
     datequalified = db.Column(db.DateTime(), nullable=True)
     expireydate = db.Column(db.DateTime(), nullable=True)
-
+    employee_id = db.Column(db.Integer, db.ForeignKey('employee.id'))
 
 class propane(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -138,7 +163,7 @@ class propane(db.Model):
     completed = db.Column(db.String)
     datequalified = db.Column(db.DateTime(), nullable=True)
     expireydate = db.Column(db.DateTime(), nullable=True)
-
+    employee_id = db.Column(db.Integer, db.ForeignKey('employee.id'))
 
 class healthandsafety(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -149,7 +174,7 @@ class healthandsafety(db.Model):
     completed = db.Column(db.String)
     datequalified = db.Column(db.DateTime(), nullable=True)
     expireydate = db.Column(db.DateTime(), nullable=True)
-
+    employee_id = db.Column(db.Integer, db.ForeignKey('employee.id'))
 
 class fuelpumpshutoff(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -160,7 +185,7 @@ class fuelpumpshutoff(db.Model):
     completed = db.Column(db.String)
     datequalified = db.Column(db.DateTime(), nullable=True)
     expireydate = db.Column(db.DateTime(), nullable=True)
-
+    employee_id = db.Column(db.Integer, db.ForeignKey('employee.id'))
 
 class workingalone(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -171,7 +196,7 @@ class workingalone(db.Model):
     completed = db.Column(db.String)
     datequalified = db.Column(db.DateTime(), nullable=True)
     expireydate = db.Column(db.DateTime(), nullable=True)
-
+    employee_id = db.Column(db.Integer, db.ForeignKey('employee.id'))
 
 class workplaceviolence(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -182,7 +207,7 @@ class workplaceviolence(db.Model):
     completed = db.Column(db.String)
     datequalified = db.Column(db.DateTime(), nullable=True)
     expireydate = db.Column(db.DateTime(), nullable=True)
-
+    employee_id = db.Column(db.Integer, db.ForeignKey('employee.id'))
 
 class jointhealthandsafety(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -193,3 +218,6 @@ class jointhealthandsafety(db.Model):
     completed = db.Column(db.String)
     datequalified = db.Column(db.DateTime(), nullable=True)
     expireydate = db.Column(db.DateTime(), nullable=True)
+    employee_id = db.Column(db.Integer, db.ForeignKey('employee.id'))
+    
+   

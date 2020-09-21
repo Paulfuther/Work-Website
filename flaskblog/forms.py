@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField, FormField, DateField, SelectField, IntegerField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField, FormField, DateField, SelectField, IntegerField, DecimalField
 from wtforms.fields.html5 import DateField, TelField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, Optional, InputRequired
 from flaskblog.models import User, Employee
@@ -141,6 +141,10 @@ class EmployeeForm(FlaskForm):
             print("Manager Name")
             raise ValidationError('Must Select a Manager')
         
+    def validate_SIN(self, SIN):
+        if not SIN.data:
+            raise ValidationError('Sin must be numbers')
+        
     #def validate_lastname(self, lastname):
      #  if len(lastname.data) <3:
       #      raise ValidationError('Must be 2 to 20 characters') 
@@ -214,3 +218,116 @@ class EmployeeUpdateForm(FlaskForm):
         if active.data == "Manager Name":
             print("Manager Name")
             raise ValidationError('Must Select a Manager')
+
+    def validate_SIN(self, SIN):
+        if not SIN.data:
+            raise ValidationError('Sin must be numbers')
+
+class whmisForm(FlaskForm):
+    startdate = DateField('Start Date', format='%Y-%m-%d', 
+                          validators=[Optional()])
+    Completeddate = DateField('Completed Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+    DateQualified = DateField('Date Qualified', format='%Y-%m-%d',
+                          validators=[Optional()])
+    ExpirationDate = DateField('Expiration Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+
+    
+class ppeForm(FlaskForm):
+    startdate2 = DateField('Start Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+    Completeddate = DateField('Completed Date', format='%Y-%m-%d',
+                              validators=[Optional()])
+    DateQualified = DateField('Date Qualified', format='%Y-%m-%d',
+                              validators=[Optional()])
+    ExpirationDate = DateField('Expiration Date', format='%Y-%m-%d',
+                               validators=[Optional()])
+
+
+class fireextinguishersForm(FlaskForm):
+    startdate = DateField('Start Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+    Completeddate = DateField('Completed Date', format='%Y-%m-%d',
+                              validators=[Optional()])
+    DateQualified = DateField('Date Qualified', format='%Y-%m-%d',
+                              validators=[Optional()])
+    ExpirationDate = DateField('Expiration Date', format='%Y-%m-%d',
+                               validators=[Optional()])
+
+class emergencyproceduresForm(FlaskForm):
+    startdate = DateField('Start Date', format='%Y-%m-%d', validators=[Optional()])
+    Completeddate = DateField('Completed Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+    DateQualified = DateField('Date Qualified', format='%Y-%m-%d',
+                          validators=[Optional()])
+    ExpirationDate = DateField('Expiration Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+
+
+class firstaidForm(FlaskForm):
+    startdate = DateField('Start Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+    Completeddate = DateField('Completed Date', format='%Y-%m-%d',
+                              validators=[Optional()])
+    DateQualified = DateField('Date Qualified', format='%Y-%m-%d',
+                              validators=[Optional()])
+    ExpirationDate = DateField('Expiration Date', format='%Y-%m-%d',
+                               validators=[Optional()])
+    
+class foodhandlingForm(FlaskForm):
+    startdate = DateField('Start Date', format='%Y-%m-%d', validators=[Optional()])
+    Completeddate = DateField('Completed Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+    DateQualified = DateField('Date Qualified', format='%Y-%m-%d',
+                          validators=[Optional()])
+    ExpirationDate = DateField('Expiration Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+class propaneForm(FlaskForm):
+    startdate = DateField('Start Date', format='%Y-%m-%d', validators=[Optional()])
+    Completeddate = DateField('Completed Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+    DateQualified = DateField('Date Qualified', format='%Y-%m-%d',
+                          validators=[Optional()])
+    ExpirationDate = DateField('Expiration Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+class healthandsafetyForm(FlaskForm):
+    startdate = DateField('Start Date', format='%Y-%m-%d', validators=[Optional()])
+    Completeddate = DateField('Completed Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+    DateQualified = DateField('Date Qualified', format='%Y-%m-%d',
+                          validators=[Optional()])
+    ExpirationDate = DateField('Expiration Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+class fuelpumpshutoffForm(FlaskForm):
+    startdate = DateField('Start Date', format='%Y-%m-%d', validators=[Optional()])
+    Completeddate = DateField('Completed Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+    DateQualified = DateField('Date Qualified', format='%Y-%m-%d',
+                          validators=[Optional()])
+    ExpirationDate = DateField('Expiration Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+class workingaloneForm(FlaskForm):
+    startdate = DateField('Start Date', format='%Y-%m-%d', validators=[Optional()])
+    Completeddate = DateField('Completed Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+    DateQualified = DateField('Date Qualified', format='%Y-%m-%d',
+                          validators=[Optional()])
+    ExpirationDate = DateField('Expiration Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+class workplaceviolenceForm(FlaskForm):
+    startdate = DateField('Start Date', format='%Y-%m-%d', validators=[Optional()])
+    Completeddate = DateField('Completed Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+    DateQualified = DateField('Date Qualified', format='%Y-%m-%d',
+                          validators=[Optional()])
+    ExpirationDate = DateField('Expiration Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+class jointhealthandsafetyForm(FlaskForm):
+    startdate = DateField('Start Date', format='%Y-%m-%d', validators=[Optional()])
+    Completeddate = DateField('Completed Date', format='%Y-%m-%d',
+                          validators=[Optional()])
+    DateQualified = DateField('Date Qualified', format='%Y-%m-%d',
+                          validators=[Optional()])
+    ExpirationDate = DateField('Expiration Date', format='%Y-%m-%d',
+                          validators=[Optional()])
