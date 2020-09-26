@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, request, send_file, url_for, redirect, flash, abort
 from flaskblog import app, db, Bcrypt
-from flaskblog.forms import EmployeeForm, LoginForm, PostForm, RegistrationForm, UpdateAccountForm, EmployeeUpdateForm, whmisForm, ppeForm, fireextinguishersForm, emergencyproceduresForm, firstaidForm, foodhandlingForm, propaneForm, healthandsafetyForm, fuelpumpshutoffForm, workingaloneForm, workplaceviolenceForm, jointhealthandsafetyForm
+from flaskblog.forms import EmployeeForm, LoginForm, PostForm, RegistrationForm, UpdateAccountForm, EmployeeUpdateForm, whmisForm, ppeForm, fireextinguishersForm, emergencyproceduresForm, firstaidForm, foodhandlingForm, propaneForm, healthandsafetyForm, fuelpumpshutoffForm, workingaloneForm, workplaceviolenceForm, jointhealthandsafetyForm, giantform
 
 from flaskblog.models import User, Post, Employee, whmis, ppe, fireextinguishers, emergencyresponseprocedures,firstaid, foodhandling,propane,healthandsafety,fuelpumpshutoff,workingalone,workplaceviolence,jointhealthandsafety
 from io import BytesIO
@@ -304,86 +304,144 @@ def updategsa(staff_id):
 @app.route("/hr", methods=['GET', 'POST'])
 def hr():
     
-    form = EmployeeForm()    
-    form2 = whmisForm()
-    form3 = ppeForm()
-    form4 = fireextinguishersForm()
-    form5 = emergencyproceduresForm()
-    form6 = firstaidForm()
-    form7 = foodhandlingForm()
-    form8 = propaneForm()
-    form9 = healthandsafetyForm()
-    form10 = fuelpumpshutoffForm()
-    form11 = workingaloneForm()
-    form12 = workplaceviolenceForm()
-    form13 = jointhealthandsafetyForm()
-    
-    
+    form = giantform()    
     
     
     if form.validate_on_submit():
-        if form.hrpicture.data:
-            picture_file = save_hrpicture(form.picture.data) 
+        #if form.hrpicture.data:
+         #   picture_file = save_hrpicture(form.picture.data) 
             
             #current_user.image_file = picture_file
         
         
+        print(form.about_you.firstname.data)       
                 
                 
-                
-        emp = Employee(firstname=form.firstname.data,
-                                        nickname=form.nickname.data,
-                                        store=form.store.data,
-                                        addressone=form.addressone.data,
-                                        addresstwo=form.addresstwo.data,
-                                        apt=form.apt.data,
-                                        city=form.city.data,
-                                        province=form.province.data,
-                                        country=form.country.data,
-                                        email=form.email.data,
-                                        mobilephone=form.mobilephone.data,
-                                        SIN=form.SIN.data,
-                                        Startdate=form.Startdate.data,
-                                        Enddate=form.Enddate.data,
-                                        lastname = form.lastname.data,
-                                        postal = form.postal.data,
-                                        trainingid = form.trainingid.data,
-                                        trainingpassword = form.trainingpassword.data,
-                                        manager = form.manager.data,
-                                        active = form.active.data,
-                                        iprismcode = form.iprismcode.data)
+        emp = Employee(firstname=form.about_you.firstname.data)
+                                        
                                         
         db.session.add(emp)
         db.session.commit()
         
         
-        print(emp.id)
-        
-        #need index to map to the whmis data
-        
-        #whmisdata = whmis(startdate=form2.startdate.data,
-         #                 employee_id=emp.id)
-        
-        ppedata = ppe(startdate=form3.startdate.data,
-                          employee_id=emp.id)
-        print(ppedata)
-        #print(whmisdata)
-        db.session.add(ppedata)
-        #print(form2.startdate.data)
-        #db.session.add(whmisdata)
-        #db.session.commit()
-        #db.session.add(ppedata)
+        trainingwhmis = whmis(startdate=form.training.startdate.data,
+                              completed=form.training.completeddate.data,
+                              datequalified=form.training.datequalified.data,
+                              expireydate=form.training.expirationdate.data,
+                              compliant=form.training.compliant.data,
+                              employee_id=emp.id)
+        db.session.add(trainingwhmis)
         db.session.commit()
+        
+        
+        
+        trainingppe = ppe(startdate=form.training2.startdate.data,
+                              completed=form.training2.completeddate.data,
+                              datequalified=form.training2.datequalified.data,
+                              expireydate=form.training2.expirationdate.data,
+                              compliant=form.training2.compliant.data,
+                              employee_id=emp.id)
+        db.session.add(trainingppe)
+        db.session.commit()
+        
+        trainingfireextinguishers = fireextinguishers(startdate=form.training3.startdate.data,
+                              completed=form.training3.completeddate.data,
+                              datequalified=form.training3.datequalified.data,
+                              expireydate=form.training3.expirationdate.data,
+                              compliant=form.training3.compliant.data,
+                              employee_id=emp.id)
+        db.session.add(trainingfireextinguishers)
+        db.session.commit()
+        
+        trainingemergencyresponseprocedures = emergencyresponseprocedures(startdate=form.training4.startdate.data,
+                              completed=form.training4.completeddate.data,
+                              datequalified=form.training4.datequalified.data,
+                              expireydate=form.training4.expirationdate.data,
+                              compliant=form.training4.compliant.data,
+                              employee_id=emp.id)
+        db.session.add(trainingemergencyresponseprocedures)
+        db.session.commit()
+        
+        trainingfirstaid = firstaid(startdate=form.training5.startdate.data,
+                              completed=form.training5.completeddate.data,
+                              datequalified=form.training5.datequalified.data,
+                              expireydate=form.training5.expirationdate.data,
+                              compliant=form.training5.compliant.data,
+                              employee_id=emp.id)
+        db.session.add(trainingfirstaid)
+        db.session.commit()
+        
+        trainingfoodhandling = foodhandling(startdate=form.training6.startdate.data,
+                              completed=form.training6.completeddate.data,
+                              datequalified=form.training6.datequalified.data,
+                              expireydate=form.training6.expirationdate.data,
+                              compliant=form.training6.compliant.data,
+                              employee_id=emp.id)
+        db.session.add(trainingfoodhandling)
+        db.session.commit()
+        
+        trainingpropane = propane(startdate=form.training7.startdate.data,
+                              completed=form.training7.completeddate.data,
+                              datequalified=form.training7.datequalified.data,
+                              expireydate=form.training7.expirationdate.data,
+                              compliant=form.training7.compliant.data,
+                              employee_id=emp.id)
+        db.session.add(trainingpropane)
+        db.session.commit()
+        
+        traininghealthandsafety = healthandsafety(startdate=form.training8.startdate.data,
+                              completed=form.training8.completeddate.data,
+                              datequalified=form.training8.datequalified.data,
+                              expireydate=form.training8.expirationdate.data,
+                              compliant=form.training8.compliant.data,
+                              employee_id=emp.id)
+        db.session.add(traininghealthandsafety)
+        db.session.commit()
+         
+        trainingfuelpumpshutoff = fuelpumpshutoff(startdate=form.training12.startdate.data,
+                              completed=form.training12.completeddate.data,
+                              datequalified=form.training12.datequalified.data,
+                              expireydate=form.training12.expirationdate.data,
+                              compliant=form.training12.compliant.data,
+                              employee_id=emp.id)
+        db.session.add(trainingfuelpumpshutoff)
+        db.session.commit()
+            
+        trainingworkingalone = workingalone(startdate=form.training9.startdate.data,
+                              completed=form.training9.completeddate.data,
+                              datequalified=form.training9.datequalified.data,
+                              expireydate=form.training9.expirationdate.data,
+                              compliant=form.training9.compliant.data,
+                              employee_id=emp.id)
+        db.session.add(trainingworkingalone)
+        db.session.commit()
+            
+        trainingworkplaceviolence = workplaceviolence(startdate=form.training10.startdate.data,
+                              completed=form.training10.completeddate.data,
+                              datequalified=form.training10.datequalified.data,
+                              expireydate=form.training10.expirationdate.data,
+                              compliant=form.training10.compliant.data,
+                              employee_id=emp.id)
+        db.session.add(trainingworkplaceviolence)
+        db.session.commit()
+        
+        trainingjointhealthandsafety = jointhealthandsafety(startdate=form.training11.startdate.data,
+                              completed=form.training11.completeddate.data,
+                              datequalified=form.training11.datequalified.data,
+                              expireydate=form.training11.expirationdate.data,
+                              compliant=form.training11.compliant.data,
+                              employee_id=emp.id)
+        db.session.add(trainingjointhealthandsafety)
+        db.session.commit()
+            
             
         flash('Employee has been added to the database', 'success')
                 
-        return redirect(url_for('hr'))
+        return redirect(url_for('hrhome'))
     
     print(form.errors.items())
     #print("did not work")
-    return render_template('employee.html', title='Employee Information', form=form, form2=form2, form3=form3,
-                           form4=form4, form5=form5, form6=form6, form7=form7, form8=form8,
-                           form9=form9, form10=form10, form11=form11, form12=form12, form13=form13)
+    return render_template('employee.html', title='Employee Information', form=form)
 
 @app.route("/blog")
 def blog():
