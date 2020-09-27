@@ -33,7 +33,30 @@ class Post(db.Model):
 class Employee(db.Model):
     id=db.Column(db.Integer, primary_key=True)
     firstname = db.Column(db.String(20), nullable=False)
-    
+    nickname = db.Column(db.String(20), nullable=True)
+    lastname = db.Column(db.String(20), nullable=False)
+    store = db.Column(db.Integer)
+    addressone = db.Column(db.String(20), nullable=False)
+    addresstwo = db.Column(db.String(20), nullable=True)
+    apt = db.Column(db.String(20), nullable=True)
+    city = db.Column(db.String(20), nullable=False)
+    province = db.Column(db.String(20), nullable=False)
+    country = db.Column(db.String(20), nullable=False)
+    mobilephone = db.Column(db.String(10), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    SIN = db.Column(db.Integer, unique=True, nullable=False)
+    created_on = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_on = db.Column(db.DateTime(), default=datetime.utcnow, onupdate=datetime.utcnow)
+    Startdate = db.Column(db.DateTime(), nullable=True)
+    Enddate = db.Column(db.DateTime(), nullable=True)
+    postal = db.Column(db.String(6), nullable=False)
+    trainingid = db.Column(db.String(), nullable=False)
+    trainingpassword = db.Column(db.String(), nullable=False)
+    manager = db.Column(db.String)
+    image_file = db.Column(db.String(20), nullable=False,default='default.jpg')
+    active = db.Column(db.String)
+    iprismcode = db.Column(db.String(9), nullable=False)
+
     
     #traiing#
     

@@ -5,10 +5,11 @@
     <form method = "POST" action  = "" enctype="multipart/form-data" class = "form-hrinfo">
     
         {{form.hidden_tag()}}
+      
+
         <div> <img class="gsaupdateimage" src="{{ image_file }}">
         </div>
         <div></div>
-        
         <div  class="formtitle" >{{"First Name:"}}</div>
         <div> {{form.firstname(class = "form", placeholder="First Name")}}   
                         {% if form.firstname.errors %}
@@ -123,8 +124,8 @@
                         <div class = "formerror">{{ error }}</div>
                         {% endfor %}            
                     {% endif %}
-        
         </div>
+        
 
         <div  class="formtitle" >{{"Online Training User ID:"}}</div>
         
@@ -140,7 +141,6 @@
         <div  class="formtitle" >{{"Online Training Password:"}}</div>
         
         <div>{{form.trainingpassword(class = "form", placeholder="Training Pasword")}} 
-                    
                     {% if form.trainingpassword.errors %}
                         {% for error in form.trainingpassword.errors %}
                         <div class = "formerror">{{ error }}</div>
@@ -162,32 +162,30 @@
         </div>
 
         <div  class="formtitle" >{{"Active:"}}</div>
-        <div> {{form.active(class = "form", placeholder="Active")}} </div>
+        <div> {{form.active(class = "form", placeholder="Active")}} 
+                    
                     {% if form.active.errors %}
                         {% for error in form.active.errors %}
                         <div class = "formerror">{{ error }}</div>
                         {% endfor %}            
                     {% endif %}
-
-        <div  class="formtitle" >{{"Profile Picture:"}}</div>
+        </div>
+         <div  class="formtitle" >{{"Profile Picture:"}}</div>
          <div>  {{ form.hrpicture(class = "form")}}
         </div>
+
+
+
         
+            <div>
+            {{form.submit(class_="hrbutton")}}
+            </div>
+            <div>
+            <!-- <a class = "hrbutton" <a href="{{ url_for('home')}}">Edit an Employee</a> -->
+            </div>
 
-        <div  class="formtitle" >{{"WHMIS Start Date:"}}</div>
-        <div> {{form2.startdate(class = "form" ,placeholder="Start Date")}} 
-        </div>  
-
-        <div  class="formtitle" >{{"PPE Start Date:"}}</div>
-        <div> {{form3.startdate2(class = "form" ,placeholder="Start Date")}} 
-        </div>
-
-                <div>
-                {{form.submit(class_="hrbutton")}}
-                </div>
-                <div>
-                {{form.delete(class_="hrbutton")}}
-                </div>
+               
+               
     </form>
 </div>
 
