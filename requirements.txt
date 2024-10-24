@@ -36,7 +36,7 @@ lazy-object-proxy==1.4.3
 MarkupSafe==1.1.1
 mccabe==0.6.1
 mysql==0.0.2
-mysql-connector-python==8.0.17
+mysql-connector-python==9.1.0
 mysqlclient==1.4.4
 numpy==1.22.0
 openpyxl==2.6.2
